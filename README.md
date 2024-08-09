@@ -1,4 +1,4 @@
-## Ya-Whitekali aka. Dawju9
+## Ya-Whitekali 
 Aya welcome in repository about ya Whitekali
 https://dawju9.github.io/Ya-Whitekali/
 ```markdown
