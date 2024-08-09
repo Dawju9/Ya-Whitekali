@@ -21,8 +21,9 @@ Soon:
 - ReactQ ReactJS
 ```
 
-Info about me
-``` Whitekali zaangażowany w dostarczanie innowacyjnych rozwiązań technologicznych, które spełniają potrzeby użytkowników i przewyższają ich oczekiwania. White jest zawsze gotowa na nowe wyzwania, co czyni go cenionym partnerem w każdej współpracy.
+## Info about me
+```markdawn
+ Whitekali zaangażowany w dostarczanie innowacyjnych rozwiązań technologicznych, które spełniają potrzeby użytkowników i przewyższają ich oczekiwania. White jest zawsze gotowa na nowe wyzwania, co czyni go cenionym partnerem w każdej współpracy.
 
 
 ## Documentation
@@ -49,9 +50,7 @@ Aya – Twoja droga do sukcesu online! 🚀Aya – Twój Partner w Innowacyjnych
 
 
 ### Projekty aktualne
-- [Citix](https://github citix.pl)
-
-```
+- [Citix](https://github citix.pl)```
 
 
 
