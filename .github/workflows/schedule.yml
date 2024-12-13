@@ -1,0 +1,23 @@
+name: Update PageSpeed Reports
+
+on:
+  schedule:
+    - cron: '40 10 * * *' # Codziennie o 2:00
+  workflow_dispatch:
+
+jobs:
+  update-reports:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Fetch PageSpeed Reports
+        run: node scripts/fetch_reports.js
+      - name: Clean Old Reports
+        run: node scripts/clean_old_reports.js
