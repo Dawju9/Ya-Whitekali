@@ -3,7 +3,41 @@ Aya welcome in repository about ya Whitekali
 https://dawju9.github.io/Ya-Whitekali/
 
 
+O Ya Whitekali
+Whitekali specjalizuje się w dostarczaniu innowacyjnych rozwiązań technologicznych, które spełniają potrzeby użytkowników i przekraczają oczekiwania. Dzięki pasji do podejmowania nowych wyzwań Whitekali stał się zaufanym partnerem w każdej współpracy.
 
+Ekspertyza
+Tworzenie stron internetowych: Projektowanie i wdrażanie nowoczesnych, estetycznych i funkcjonalnych stron internetowych.
+Tworzenie aplikacji internetowych: Tworzenie zaawansowanych aplikacji internetowych, które osiągają określone cele.
+Optymalizacja: zapewnienie, że strony internetowe są szybkie, responsywne i przyjazne dla użytkownika, co przekłada się na lepsze doświadczenia użytkowników i wyższe rankingi w wyszukiwarkach.
+Podstawowe umiejętności i technologie
+Rozwój strony internetowej:
+Znajomość WordPress, PHP i tworzenia zaawansowanych aplikacji internetowych z React, TypeScript, HTML, CSS i JavaScript.
+Programowanie i frameworki:
+Znajomość Pythona, PHP, JavaScript i odpowiednich frameworków.
+Sztuczna inteligencja i uczenie maszynowe:
+Wdrażanie technologii AI, takich jak TensorFlow, PyTorch, OpenCV i YOLO do rozpoznawania obrazów i nie tylko.
+Chmura i DevOps:
+Biegła znajomość AWS, Azure, Google Cloud, Firebase, Docker i Kubernetes.
+Tworzenie gier mobilnych:
+Tworzenie gier mobilnych przy użyciu Unity, Unreal Engine, React Native i Flutter.
+Bezpieczeństwo i interfejsy API:
+Doświadczenie w tworzeniu bezpiecznych aplikacji z wykorzystaniem OAuth, RESTful API i GraphQL.
+Godne uwagi projekty
+Rozwój strony internetowej:
+
+Whitekali
+Goldenstudio.pl (2020)
+Pomorskiewyprawy4x4.pl
+Aktualne projekty:
+
+[Citix](https://github citix.pl)
+Misja
+Dzięki specjalistycznemu projektowaniu i rozwojowi Whitekali gwarantuje, że każdy projekt online zakończy się sukcesem. Niezależnie od tego, czy jest to elegancka strona internetowa, zaawansowana aplikacja czy innowacyjne rozwiązanie AI, Whitekali jest Twoim zaufanym partnerem w osiągnięciu spektakularnego sukcesu w Internecie.
+
+Odkryj więcej ekscytujących projektów. Wyruszmy razem w podróż do sukcesu w Internecie!
+
+Aya – Twoja droga do sukcesu w Internecie!
 
 
 ## 🏗️ **Tour list**
