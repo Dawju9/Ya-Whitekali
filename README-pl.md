@@ -3,7 +3,7 @@ Witamy w oficjalnym repozytorium Ya Whitekali!
 🔗 **[Przeglądaj projekt tutaj](https://dawju9.github.io/Ya-Whitekali/)**
 # Multilanguage README Pattern
 [![en](https://img.shields.io/badge/lang-en-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.md)
-[![pl](https://img.shields.io/badge/lang-pl-green.svg)]([https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.pl.md])
+[![pl](https://img.shields.io/badge/lang-pl-green.svg)]([https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README-pl.md)
 
 <!-----
 
