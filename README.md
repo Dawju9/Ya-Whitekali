@@ -85,7 +85,7 @@ Discover more exciting [projects](https://dawju9.github.io/Ya-Whitekali/). Let�
 
 
 
-
+<!-----
 ## Ya-Whitekali 
 Aya welcome in repository about ya Whitekali
 https://dawju9.github.io/Ya-Whitekali/
@@ -132,8 +132,9 @@ Aya – Twoja droga do sukcesu w Internecie!
 # :D let's list tour to 2025! 
 
 Soon: 
-------------------
-```
+------------------)
+
+``
 - `` 
 - `Python` – Obsługa krytycznych operacji serwerowych, oraz skrypty ułatwiające prace codienną. Opracowywanie bibliotek opencv,autopygui,pillow,TenserFlow i parę innych związanych z analityką lub matematyką.
 - `PHP` - Tworzenie skryptów dla potrzeb własnych, w ułatwieniu rejstracji użytkowników oraz monitorowania lub edycji, administracji przestrzenią lub danymi serwer'ów (Dashbaord,CMS'y.)
@@ -159,7 +160,9 @@ Soon:
 - `/cityx-server`: **Roblox Lua** – Logika serwera, synchronizacja.
 - `/cityx-renderer`: **Rust** – Wydajne renderowanie graficzne.
 - `/game`: Zasoby gry, skrypty oraz dane konfiguracyjne.
-```
+``
+--->
+
 
 
 
@@ -184,10 +187,9 @@ Soon:
 - C++ (low level)
 - Hack (not compiled one prog. yet, just play with it)
 - ReactQ ReactJS
-```
-
+``
 ## Info about me
-```markdawn
+``markdawn
  Whitekali zaangażowany w dostarczanie innowacyjnych rozwiązań technologicznych, które spełniają potrzeby użytkowników i przewyższają ich oczekiwania. White jest zawsze gotowa na nowe wyzwania, co czyni go cenionym partnerem w każdej współpracy.
 
 
@@ -226,7 +228,6 @@ Aya – Twoja droga do sukcesu online! 🚀Aya – Twój Partner w Innowacyjnych
 **Bold** and _Italic_ and `Code` text
 [Gitown](https://guides.github.com/features/mastering-markdown/).
 [Link](url) and ![Image](src)}
-```
 
 
 
@@ -235,7 +236,7 @@ Aya – Twoja droga do sukcesu online! 🚀Aya – Twój Partner w Innowacyjnych
 
 
 
-```
+
 repozytorium/
 ├── scripts/
 │   ├── fetch_reports.js    # Skrypt wykonujący zapytania do API
@@ -247,8 +248,7 @@ repozytorium/
 ├── .github/
 │   ├── workflows/
 │       ├── schedule.yml    # Konfiguracja GitHub Actions
-```
-
+`
 
 
 
@@ -307,7 +307,7 @@ repozytorium/
 
 **Features**
 ------------------
-```
+``
 
 > **Mroczny świat cybernetycznych wyzwań — modularyzacja na wyższym poziomie.** 
 >>## 📜 **Opis Projektu**
@@ -318,7 +318,7 @@ repozytorium/
 >>## 💡 **Wpływ na Informatyzację**
 >>## 📝 **Uwagi**
 >  **shipwrecks loot crates, helicrashes, shield crates**
-```
+``
 **Credits**
 ------------------
 I just created a mission file with on internet avalible scripts. I do not own nothing here. So if some owner want's something to be removed, Contact me.
