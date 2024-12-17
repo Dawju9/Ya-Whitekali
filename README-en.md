@@ -1,6 +1,6 @@
 #  🛠️ Ya-Whitekali  # Multilanguage README Pattern  Welcome to the official repository of Ya Whitekali! 
-[![en](https://img.shields.io/badge/lang-en-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.md)
-[![pl](https://img.shields.io/badge/lang-pl-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README-pl.md)
+[![pl](https://img.shields.io/badge/lang-pl-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.md)
+[![en](https://img.shields.io/badge/lang-en-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README-en.md)
 
 <!-----
 [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/jonatasemidio/multilanguage-readme-pattern/blob/master/README.pt-br.md)
