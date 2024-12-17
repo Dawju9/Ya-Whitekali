@@ -1,12 +1,13 @@
 # 🛠️ Ya Whitekali
+- Wielojezyczność
+[![pl](https://img.shields.io/badge/lang-pl-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.md)
+[![en](https://img.shields.io/badge/lang-en-green.svg)]([https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README-en.md)
+
 Witamy w oficjalnym repozytorium Ya Whitekali!
 
 ## 🌟 **O Whitekali**
 Whitekali specjalizuje się w dostarczaniu innowacyjnych rozwiązań technologicznych, które spełniają potrzeby użytkowników i przekraczają ich oczekiwania. Dzięki pasji do podejmowania nowych wyzwań Whitekali stał się zaufanym partnerem w każdej współpracy.
 
-# Wielojezyczność
-[![pl](https://img.shields.io/badge/lang-pl-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.md)
-[![en](https://img.shields.io/badge/lang-en-green.svg)]([https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README-en.md)
 
 ---
 ### Aktualne projekty
