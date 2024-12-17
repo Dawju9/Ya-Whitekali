@@ -1,93 +1,107 @@
 layout: page
 title: "Index"
 permalink: .
+
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="{{ '/assets/css/default.css' | relative_url }}">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.2">
-    <title>Ninja Survival: Dimensions of the Infinite</title>
-    <style>
-        body {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #e74c3c;
-            color: #ff4500;
-        }
-        .button {
-            background-color: #3498db;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        .button:hover {
-            background-color: #2980b9;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiastoX - Projekt i Mechaniki</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="navbar.js"></script>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="{{ '/assets/css/default.css' | relative_url }}">
 </head>
 <body>
-    <h1>Witaj w Ninja Survival: Dimensions of the Infinite!</h1>
-    <p>Dołącz do niesamowitej przygody, w której musisz przetrwać w nieznanym świecie pełnym niebezpieczeństw i tajemnic.</p>
-    <button class="button">Zagraj teraz!</button>
-   <div class="site">
-  <div class="sector">
-    <section class="readme-section">
-      <code>
-**Zjazd po gierze**
-```hack
---**Poziomy**
-> **Mroczny świat cybernetycznych wyzwań — modularyzacja na wyższym poziomie.** 
->>## 📜 **Opis Projektu**
->>## 🔍 **Kluczowe Postacie** 
->>## 🖥️ **Główne Mechaniki9**
->>## 🏗️ **Struktura Lokacji**
->>## 🌐 **Potencjalne Usprawnienia**
->>## 💡 **Wpływ na Głowę**
->>## 📝 **Uwagi**
->  **Rozklejone buty, pomidor, tak**
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <a href="#" class="brand">MiastoX</a>
+            <ul class="nav-links">
+                <li><a href="#about">O Projekcie</a></li>
+                <li><a href="#mechanics">Mechaniki</a></li>
+                <li><a href="#tips">Wskazówki</a></li>
+                <li><a href="#resources">Schematy i Wzorce</a></li>
+            </ul>
+        </div>
+    </nav>
 
---**Credits**
->>## 🖥️ - **GitHub**: [Whitekali](https://github.com/Dawju9)
->>## 🏗️ **Struktura Projektu**
->>## 🌐 - **E-mail**: whitekali@example.com
->>## 💡 - **Autor**: Whitekali
->>## 📝 **Uwagi**
-> **Tylko gwiazdy znają nasze sekrety, żaden ziemski sąd nie jest wystarczający..** 
-```</code>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>Witamy w MiastoX</h1>
+            <p>Odkryj projekt, mechaniki oraz wskazówki dotyczące tworzenia i zarządzania miastami.</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>O Projekcie</h2>
+            <p>MiastoX to nowoczesny projekt stworzony w oparciu o framework Cityx, który umożliwia dynamiczne budowanie i zarządzanie wirtualnymi miastami. Projekt skupia się na proceduralnej generacji treści, modularności i elastyczności dla twórców.</p>
+            <p>Poniżej znajduje się README z repozytorium projektu:</p>
+            <pre id="readme-content">Ładowanie...</pre>
+        </div>
     </section>
-  </div>
-</div>  
-    <h1>Witaj w mojej grze Roblox!</h1>
-    <p>To jest strona repozytorium mojej gry. Możesz znaleźć więcej informacji na temat projektu poniżej:</p>
-    <ul>
-        <li><a href="https://github.com/twoje-repozytorium" target="_blank">Repozytorium GitHub</a></li>
-        <li><a href="https://www.roblox.com/games/twoj-game-id" target="_blank">Zagraj w grę!</a></li>
-    </ul>
-    <footer>
-        <p>&copy; 2023 Moja Gra Roblox. Wszelkie prawa zastrzeżone.</p>
+
+    <!-- Mechanics Section -->
+    <section id="mechanics" class="section">
+        <div class="container">
+            <h2>Mechaniki</h2>
+            <p>W MiastoX możesz korzystać z:</p>
+            <ul>
+                <li>Proceduralnego tworzenia układów miasta.</li>
+                <li>Zarządzania zasobami i populacją.</li>
+                <li>Adaptacyjnego systemu oświetlenia i pogody.</li>
+                <li>Wielopoziomowych interakcji z użytkownikiem.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" class="section">
+        <div class="container">
+            <h2>Wskazówki</h2>
+            <p>Jak osiągnąć sukces w zarządzaniu miastem?</p>
+            <ul>
+                <li>Planuj rozwój miasta z uwzględnieniem przyszłych potrzeb.</li>
+                <li>Efektywnie zarządzaj budżetem i zasobami.</li>
+                <li>Eksperymentuj z różnymi strategiami, by zwiększyć zadowolenie mieszkańców.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section">
+        <div class="container">
+            <h2>Schematy i Wzorce</h2>
+            <p>Przykłady projektów i schematów:</p>
+            <div class="gallery">
+                <img src="schemat1.png" alt="Schemat miasta">
+                <img src="schemat2.png" alt="Układ zasobów">
+                <img src="schemat3.png" alt="Plan oświetlenia">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MiastoX | Stworzone przez Whitekali</p>
+        </div>
     </footer>
+
+    <script>
+        // Dynamic loading of README
+        fetch('https://raw.githubusercontent.com/Dawju9/MiastoX/main/README.md')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('readme-content').textContent = data;
+            })
+            .catch(error => {
+                document.getElementById('readme-content').textContent = "Nie udało się załadować README.";
+            });
+    </script>
 </body>
 </html>
