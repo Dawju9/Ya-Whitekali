@@ -1,23 +1,42 @@
 name: Update PageSpeed Reports
 
+name: Scheduled Build
+
 on:
   schedule:
-    - cron: '40 10 * * *' # Codziennie o 2:00
-  workflow_dispatch:
+    # Uruchamia o godzinie 2:00 UTC codziennie
+    - cron: "55 11 * * *"
 
 jobs:
-  update-reports:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
         with:
-          node-version: '16'
-      - name: Install dependencies
-        run: npm install
-      - name: Fetch PageSpeed Reports
-        run: node scripts/fetch_reports.js
-      - name: Clean Old Reports
-        run: node scripts/clean_old_reports.js
+          toolchain: stable
+
+      - name: Install Lua
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lua5.4 luarocks
+
+      - name: Run tests
+        run: |
+          cargo test --verbose
+          lua Tests/GameplayTests.lua
+
+      - name: Lint YAML
+        uses: ibiqlik/action-yamllint@v2.0.1
+        with:
+          config_file: .yamllint.yml
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/test-results/
