@@ -1,199 +1,257 @@
-<!---
-layout: page
-title: "Index"
-permalink: index.html
---->
 <!DOCTYPE html>
-<html lang="en"><script src="https://static.isstracker.pl/js/leaflet/esri/3.0.10/esri-leaflet.js" crossorigin=""></script><script src="https://static.isstracker.pl/js/leaflet/1.9.4/leaflet.js?v=1" crossorigin=""></script><link rel="stylesheet" href="https://static.isstracker.pl/js/leaflet/1.9.4/leaflet.min.css?v=1" crossorigin=""><style>
-    .tracker-app-main-loader {text-align:center;width:100%;}.tracker-app-loader-center {display:inline-block;justify-content:center;}.tracker-app-loader-sat-orbit-container {padding-top:25%;}.tracker-app-loader-sat {height:100px;width:100px;border-radius:50%;position:relative;display:block;border-color:rgb(167, 183, 254);border-style:solid;border-width:1px;animation:tracker-app-loader-sat-move cubic-bezier(1,1,1,1) 4s infinite;}.tracker-app-loader-sat > .tracker-app-loader-sat-cir{background-color:#000;border-radius:50%;position:absolute;border-color:rgb(167, 183, 254);border-style:solid;border-width:1px;padding:4px;content:'';left:70px;}.tracker-app-loader-earth {width:100px;float:left;}*,*:before,*:after {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}@keyframes tracker-app-loader-sat-move {from{ transform:rotate(360deg); } to { transform:rotate(0deg); }}.spanner{position:absolute;top: 50%;left: 0;background: #2a2a2a55;width: 100%;display:block;text-align:center;height: 100%;color: #FFF;transform: translateY(-50%);z-index: 10000;visibility: hidden;}.overlay{width: 100%;height: 100%;background: rgba(0,0,0,0.5);visibility: hidden;z-index: 10000;}.show{visibility: visible;}.spanner, .overlay{opacity: 0;-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;}.spanner.show, .overlay.show {opacity: 1}
-</style><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFGJPBG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<html data-bs-theme="light" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whitekali</title>
-    <link rel="stylesheet" href="asset/css/styles.css">
-    <script defer src="navbar.js"></script>
-    <script defer src="main.js"></script>
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Whitekali</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 </head>
-<body>
-    <!-- Navbar -->
-    <nav id="navbar" class="navbar">
-        <div class="container">
-            <a href="#" class="brand">MiastoX</a>
-            <ul class="nav-links">
-                <li><a href="#about">O Projekcie</a></li>
-                <li><a href="#mechanics">Mechaniki</a></li>
-                <li><a href="#tips">Wskazówki</a></li>
-                <li><a href="#resources">Schematy i Wzorce</a></li>
-            </ul>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
+    <nav class="navbar navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="#page-top">Whitekali</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler text-white bg-primary text-uppercase rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <div class="notifications js-coffee-button" style=""><div class="panel"><a href=" https://buycoffee.to/wh1t3k4li" target="_blank" class="js-coffee-button-href" rel="noopener noreferrer" title="Kup nam kawę"><p class="dismiss"><i class="fas fa-coffee text-warning"></i> <span class="text-white"><u>Postaw nam kawę</u>!</span></p></a><button class="coffee-button close js-coffee-button-close" aria-label="Zamknij"><span></span></button></div></div>
-    
-  
-  
-  <!-- Header Section -->
-    <header class="header">
-        
-        <div class="container">
-            <h1>Whitekali's Dev Card</h1>
-            <a href="https://app.daily.dev/whitekali"><img src="https://api.daily.dev/devcards/v2/udqkbyu4mSaw64Bo0aZkR.png?type=default&r=huk" width="356" alt="Whitekali's Dev Card"/></a>
-           
-          </div>
-    </header> 
-  
-  
-  
-  <!---
-  
-  <h1>Witamy w MiastoX</h1>
-   <p>Odkryj projekt, mechaniki oraz wskazówki dotyczące tworzenia i zarządzania miastami.Cześć! 👋
-
-Jestem doświadczonym programistą specjalizującym się w tworzeniu skalowalnych, niezawodnych i bezpiecznych aplikacji. Moje umiejętności obejmują zarówno backend, jak i frontend, co pozwala mi realizować kompleksowe projekty od podstaw. Mam doświadczenie w Node.js, Pythonie, PHP, a także w technologiach frontendowych, takich jak React, HTML i CSS.
-
-Aktualnie rozwijam kilka zaawansowanych projektów, w tym aplikacje mobilne i serwisy e-commerce, gdzie odpowiadam za architekturę, optymalizację oraz wdrożenia. Priorytetem w mojej pracy jest wydajność, bezpieczeństwo i wysoka jakość kodu.
-
-Co mogę zaoferować:
-
-Tworzenie niezawodnego backendu (Node.js, Python, PHP).
-Rozwój nowoczesnego frontend (React, Vue.js).
-Optymalizację aplikacji pod kątem wydajności i skalowalności.
-Implementację rozwiązań zwiększających bezpieczeństwo.
-Doradztwo w zakresie architektury systemów.
-Jeśli szukasz kogoś, kto zaopiekuje się Twoim projektem lub wesprze Twój zespół, zapraszam do kontaktu. Wspólnie stworzymy coś wyjątkowego! 🚀</p>
-       
-Dla strony WhiteKali, powinieneś opisać następujące kluczowe elementy:
-
-### 1. O Projekcie
-- Cel i misja WhiteKali
-- Główne założenia projektu
-- Dlaczego powstał projekt
-- Co wyróżnia WhiteKali na tle innych rozwiązań
-
-### 2. Funkcjonalności
-- Lista głównych narzędzi
-- Możliwości systemu
-- Unikalne cechy
-- Zastosowania w praktyce
-
-### 3. Specyfikacja Techniczna
-```markdown
-- System bazowy
-- Wymagania sprzętowe
-- Zależności systemowe
-- Wspierane platformy
-```
-
-### 4. Dokumentacja
-- Instrukcje instalacji
-- Poradniki użytkowania
-- Przykłady zastosowań
-- FAQ (często zadawane pytania)
-
-### 5. Bezpieczeństwo
-- Polityka bezpieczeństwa
-- Zalecane praktyki
-- Ostrzeżenia i uwagi
-- Odpowiedzialne użytkowanie
-
-### 6. Społeczność
-- Jak dołączyć
-- Kanały komunikacji
-- Zasady współpracy
-- Wkład społeczności
-
-### 7. Rozwój Projektu
-- Plan rozwoju
-- Roadmapa
-- Jak można się zaangażować
-- Aktualne cele
-
-### 8. Kontakt i Wsparcie
-- Kanały pomocy
-- Zgłaszanie błędów
-- Propozycje ulepszeń
-- Dane kontaktowe
-
-Chcesz, żebym rozwinął któryś z tych punktów bardziej szczegółowo?
-
---->
-
-
-
-    
-    <!-- About Section 
-  
-   <pre id="readme-content">Ładowanie...</pre>
-  
-  -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2>O Projekcie</h2>
-            <p></p>
-            <p>Poniżej znajduje się README z repozytorium projektu:</p>
-            <pre id="text">Ładowanie...</pre>
+    <header class="text-center text-white bg-primary masthead">
+        <div class="container"><img class="img-fluid d-block mx-auto mb-5" src="assets/img/profile.png">
+            <h1>John Doe</h1>
+            <hr class="star-light">
+            <h2 class="fw-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
         </div>
-    </section>
-
-    <!-- Mechanics Section -->
-    <section id="mechanics" class="section">
+    </header>
+    <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2>Mi</h2>
-            <p> z:</p>
-            <ul>
-                <li>Pr.</li>
-                <li>Zą.</li>
-                <li>Adady.</li>
-                <li>Wiem.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Tips Section -->
-    <section id="tips" class="section">
-        <div class="container">
-            <h2></h2>
-            <p>J?</p>
-            <ul>
-                <li>P=</li>
-                <li>Efemi.</li>
-                <li>Ekw.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section id="resources" class="section">
-        <div class="container">
-            <h2>Schematy i Wzorce</h2>
-            <p>Przykłady projektów i schematów:</p>
-            <div class="gallery">
-                <img src="schemat1.png" alt="Schemat miasta">
-                <img src="schemat2.png" alt="Układ zasobów">
-                <img src="schemat3.png" alt="Plan oświetlenia">
+            <h2 class="text-uppercase text-center text-secondary">Portfolio</h2>
+            <hr class="star-dark mb-5">
+            <div class="row">
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-1" data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
+                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="assets/img/portfolio/cabin.png">
+                    </a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2" data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
+                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="assets/img/portfolio/cake.png">
+                    </a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-3" data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
+                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="assets/img/portfolio/circus.png">
+                    </a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-4" data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
+                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="assets/img/portfolio/game.png">
+                    </a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-5" data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
+                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="assets/img/portfolio/safe.png">
+                    </a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" href="#portfolio-modal-6" data-bs-toggle="modal">
+                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
+                            <div class="text-center text-white my-auto portfolio-item-caption-content w-100"><i class="fa fa-search-plus fa-3x"></i></div>
+                        </div><img class="img-fluid" src="assets/img/portfolio/submarine.png">
+                    </a></div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
+    <section class="text-white bg-primary mb-0" id="about">
         <div class="container">
-            <p>&copy; 2024 MiastoX | Stworzone przez Whitekali</p>
+            <h2 class="text-uppercase text-center text-white">About</h2>
+            <hr class="star-light mb-5">
+            <div class="row">
+                <div class="col-lg-4 ms-auto">
+                    <p class="lead">Freelancer is a free bootstrap theme. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                </div>
+                <div class="col-lg-4 me-auto">
+                    <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                </div>
+            </div>
+            <div class="text-center mt-4"><a class="btn btn-outline-light btn-xl" role="button" href="#"><i class="fa fa-download me-2"></i><span>Download Now!</span></a></div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <h2 class="text-uppercase text-center text-secondary mb-0">Contact Me</h2>
+            <hr class="star-dark mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form id="contactForm" name="sentMessage">
+                        <div>
+                            <div class="mb-0 form-floating pb-2"><input class="form-control" type="text" id="name" required="" placeholder="Name"><label class="form-label">Name</label><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div>
+                            <div class="mb-0 form-floating pb-2"><input class="form-control" type="email" id="email" required="" placeholder="Email Address"><label class="form-label">Email Address</label><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div>
+                            <div class="mb-0 form-floating pb-2"><input class="form-control" type="tel" id="phone" required="" placeholder="Phone Number"><label class="form-label">Phone Number</label><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div>
+                            <div class="mb-5 form-floating pb-2"><textarea class="form-control" id="message" required="" placeholder="Message" style="height: 150px;"></textarea><label class="form-label">Message</label><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div id="success"></div>
+                        <div><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-center footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p>2215 John Daniel Drive<br>Clark, MO 65243</p>
+                </div>
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase">Around the Web</h4>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-facebook fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-google-plus fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-dribbble fa-fw"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                    <p class="lead mb-0"><span>Freelance is a free to use, open source Bootstrap theme.&nbsp;</span></p>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <script>
-        // Dynamic loading of README https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.md
-        fetch('https://raw.githubusercontent.com/Dawju9/Ya-Whitekali/refs/heads/kalies/README.md')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('readme-content').textContent = data;
-            })
-            .catch(error => {
-                document.getElementById('readme-content').textContent = "Nie udało się załadować README.";
-            });
-    </script>
+    <div class="text-center text-white copyright py-4">
+        <div class="container"><small>Copyright ©&nbsp;Whitekali 2025</small></div>
+    </div>
+    <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="text-center d-block rounded text-white" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/cabin.png">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-2">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/cake.png">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-3">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/circus.png">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-4">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/game.png">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-5">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/safe.png">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-6">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/submarine.png">
+                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill" role="button" data-bs-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/freelancer.js"></script>
 </body>
+
 </html>
