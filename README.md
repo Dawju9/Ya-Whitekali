@@ -5,76 +5,127 @@
 
 Witamy w oficjalnym repozytorium Ya Whitekali!
 
-## 🌟 **O Whitekali**
-Whitekali specjalizuje się w dostarczaniu innowacyjnych rozwiązań technologicznych, które spełniają potrzeby użytkowników i przekraczają ich oczekiwania. Dzięki pasji do podejmowania nowych wyzwań Whitekali stał się zaufanym partnerem w każdej współpracy.
-
-
----
-### Aktualne projekty
-- **[Citix](https://github.com/citix)**
-- **[Miastox](https://github.com/miastox)**
-
-## 🚀 **Godne uwagi projekty**
-### Tworzenie stron internetowych
-- **Whitekali**
-- **Goldenstudio.pl (2020)**
-- **Pomorskiewyprawy4x4.pl**
-
 ---
 
-## 🎯 **Misja**
-Dzięki projektowaniu i rozwojowi White zapewnia sukces każdego swojego projektu. Niezależnie od tego, czy jest to elegancka strona internetowa, zaawansowana aplikacja czy innowacyjne rozwiązanie AI, White jest zaufanym partnerem w osiągnięciu sukcesu twojego oprogramowania.
+# **🌐 Strona Główna Whitekali**
 
-Odkryj więcej ekscytujących [projektów](https://dawju9.github.io/Ya-Whitekali/projekty).
-Wyruszmy razem w podróż do internetowej doskonałości!
-
-> **Aya – Twoja droga do sukcesu online! 🚀**
+### 1. **Nagłówek (Header)**  
+- Logo Whitekali po lewej stronie.  
+- Pasek nawigacyjny z odnośnikami:
+  - O nas
+  - Projekty
+  - Technologie
+  - Dokumentacja
+  - Społeczność
+  - Kontakt  
+- Przycisk przełączania języka (PL/EN) – **flag icons** dla lepszej wizualizacji.  
 
 ---
 
-## 🏗️ **Technologie i narzędzia (wizja 2025)**
-
-### Programowanie i skryptowanie
-- Python – automatyzacja, AI i krytyczne operacje po stronie serwera.
-- PHP – tworzenie skryptów do rejestracji użytkowników, monitorowania i administrowania serwerem (CMS, pulpity nawigacyjne).
-- HTML – minimalistyczne indeksy do wyświetlania złożonych skryptów.
-- CSS (Bootstrap/Studio) – przeprojektowywanie i optymalizacja istniejących projektów.
-- Dart, Bash, BrainF**k, SQL, Lua, PowerShell.
-- C/C++ – zadania programowania niskiego poziomu.
-- Rust – usługi zaplecza i renderowanie gier.
-- React/React Native – nowoczesny interfejs użytkownika i rozwój po stronie klienta.
+### 2. **Sekcja Hero (Główna)**  
+- Duży, chwytliwy nagłówek:  
+  **„Innowacyjne rozwiązania technologiczne przekraczające oczekiwania!”**  
+- Krótkie podsumowanie misji:  
+  *„Dostarczamy nowoczesne strony, aplikacje i rozwiązania AI, które redefiniują standardy.”*  
+- CTA (Call To Action):  
+  - **„Poznaj nasze projekty”** (link do sekcji Projekty)  
+  - **„Skontaktuj się z nami”** (link do sekcji Kontakt)  
 
 ---
 
-## 🔍 **Ekspertyza**
-### Tworzenie stron internetowych
-- Projektowanie i wdrażanie nowoczesnych, estetycznych i funkcjonalnych stron internetowych.
-
-### Tworzenie aplikacji internetowych
-- Tworzenie zaawansowanych aplikacji internetowych dostosowanych do osiągania określonych celów.
-
-### Optymalizacja
-- Zapewnianie, że strony internetowe są szybkie, responsywne i przyjazne dla użytkownika w celu poprawy wrażeń użytkownika i wyższych pozycji w wynikach wyszukiwania.
+### 3. **O Whitekali (Sekcja z Misją i Wizją)**  
+- **Misja:** *„Whitekali to partner w każdej technologicznej podróży – od stron internetowych po AI.”*  
+- **Wizja 2025:**  
+  Krótki opis przyszłościowych celów i rozwoju technologicznego.  
+- **Dlaczego My?**  
+  Wyróżniki na tle konkurencji – innowacyjność, wieloplatformowość, wsparcie.
 
 ---
 
-## 💻 **Podstawowe umiejętności i technologie**
-1. **Rozwój stron internetowych**
-- Znajomość WordPress, PHP, React, TypeScript, HTML, CSS i, Dart.
-
-2. **Programowanie i frameworki**
-- Znajomość Pythona, PHP, C/C++, JavaScript i oprtych na nim frameworków.
-
-3. **Sztuczna inteligencja i uczenie maszynowe**
-- Wdrażanie technologii AI, takich jak TensorFlow, PyTorch, OpenCV i YOLO, do aplikacji takich jak rozpoznawanie obrazu.
-
-4. **Chmura i DevOps**
-- Znajomość Firebase.
-
-5. **Rozwój aplikacji mobilnych**
-- Doświadczenie z Unity, React Native i Flutter.
-
-6. **Bezpieczeństwo i API**
-- Zzakresu bezpiecznego tworzenia aplikacji przy użyciu OAuth, RESTful API i GraphQL.
+### 4. **Nasze Projekty**  
+- **Aktualne Projekty:**
+  - **[Citix](https://github.com/citix)** – opis w 1-2 zdaniach.
+  - **[Miastox](https://github.com/miastox)** – krótki opis funkcji i zastosowania.
+  
+- **Godne Uwagi:**
+  - **Whitekali** – autorskie projekty webowe.
+  - **Goldenstudio.pl (2020)** – projektowanie i optymalizacja stron.
+  - **Pomorskiewyprawy4x4.pl** – zastosowanie w branży turystycznej.
 
 ---
+
+### 5. **Technologie i Narzędzia (Interaktywny Grid)**  
+- **Programowanie i skryptowanie:**  
+  - Python, PHP, HTML, CSS, Dart, Bash, SQL, Lua, PowerShell.  
+  - **C/C++** (programowanie niskopoziomowe), **Rust** (backend, gry).  
+  - **React/React Native** – nowoczesne UI/UX.  
+- **AI i DevOps:**  
+  - TensorFlow, PyTorch, OpenCV, YOLO.  
+  - Firebase, OAuth, RESTful API, GraphQL.  
+
+Każda technologia w formie **kafelków** z krótkim opisem.
+
+---
+
+### 6. **Specyfikacja Techniczna**  
+- **System bazowy:** opis środowiska i frameworków.
+- **Wymagania sprzętowe i zależności:** minimalne wymagania dla projektów.
+- **Wspierane platformy:** Windows, Linux, Android, iOS, Web.
+
+---
+
+### 7. **Dokumentacja i Poradniki**  
+- **Instrukcje instalacji:** przewodnik krok po kroku.  
+- **Poradniki użytkowania:** integracja API, konfiguracja systemu.  
+- **Przykłady zastosowań:** realne wdrożenia projektów.  
+- **FAQ:** odpowiedzi na najczęstsze pytania.
+
+---
+
+### 8. **Bezpieczeństwo**  
+- **Polityka bezpieczeństwa:** jak dbamy o bezpieczeństwo danych i kodu.  
+- **Zalecane praktyki:** wskazówki dotyczące bezpiecznego programowania.  
+- **Odpowiedzialne użytkowanie:** licencje i odpowiedzialność.
+
+---
+
+### 9. **Społeczność**  
+- **Jak dołączyć?** przewodnik dla nowych współpracowników.  
+- **Kanały komunikacji:** GitHub, Discord, Slack.  
+- **Zasady współpracy:** reguły dla kontrybutorów.  
+- **Wkład społeczności:** lista aktywnych współpracowników i ich wkład.
+
+---
+
+### 10. **Rozwój Projektu i Roadmapa**  
+- **Plan rozwoju:** nad czym pracujemy i co planujemy.  
+- **Jak się zaangażować?** jak możesz pomóc.  
+- **Aktualne cele:** lista bieżących zadań i funkcji.
+
+---
+
+### 11. **Kontakt i Wsparcie**  
+- **Kanały pomocy:** e-mail, GitHub Issues.  
+- **Zgłaszanie błędów:** przewodnik dla testerów i użytkowników.  
+- **Propozycje ulepszeń:** formularz kontaktowy.  
+- **Dane kontaktowe:** e-mail, media społecznościowe.
+
+---
+
+### 12. **Stopka (Footer)**  
+- Linki do GitHub, LinkedIn, osobistej strony (Ya-Whitekali).  
+- Licencje i prawa autorskie.  
+- Szybki dostęp do polityki prywatności i regulaminu.
+
+---
+
+## **Dodatkowe funkcje interaktywne:**
+1. **Tryb ciemny/jasny** – przełącznik w nagłówku.
+2. **Dynamiczne filtry** – możliwość filtrowania projektów według technologii.
+3. **Przewijane sekcje** – płynne przewijanie do poszczególnych sekcji.
+4. **Responsywny design** – dostosowanie strony do urządzeń mobilnych.
+! 🚀
+
+
+
+`Dla strony Whitekali zastosowano nowoczesny, przejrzysty układ inspirowany wzorcami projektowymi stron portfolio i trendów technicznych. Oto propozycja mojej strony!`
