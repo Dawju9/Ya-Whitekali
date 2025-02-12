@@ -25,6 +25,7 @@ header {
   padding: 20px;
   text-align: center;
   font-size: 2em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Stylizacja nawigacji */
@@ -32,12 +33,14 @@ nav {
   background-color: #2ecc71; /* Zielony */
   padding: 10px 0;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
   color: #ffffff;
   margin: 0 15px;
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 nav a:hover {
@@ -58,6 +61,30 @@ section {
   max-width: 800px;
 }
 
+section h2 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+section p, section ul {
+  line-height: 1.6;
+}
+
+/* Stylizacja galerii */
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Stylizacja stopki */
 footer {
   background-color: #333333; /* Ciemnoszary */
@@ -67,6 +94,11 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
 }
 
 /* Stylizacja dla responsywności */
@@ -82,5 +114,10 @@ footer {
 
   section {
     padding: 15px;
+  }
+
+  .gallery {
+    flex-direction: column;
+    align-items: center;
   }
 }
