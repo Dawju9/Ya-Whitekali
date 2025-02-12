@@ -46,7 +46,7 @@ Witamy w oficjalnym repozytorium Ya Whitekali!
 - **Aktualne Projekty:**
   - **[Citix](https://github.com/citix)** – opis w 1-2 zdaniach.
   - **[Miastox](https://github.com/miastox)** – krótki opis funkcji i zastosowania.
-  
+  **[Whitekali]](https://www.facebook.com/share/1DdeuW8R3q/)**
 - **Godne Uwagi:**
   - **Whitekali** – autorskie projekty webowe.
   - **Goldenstudio.pl (2020)** – projektowanie i optymalizacja stron.
