@@ -1,4 +1,4 @@
-# 🛠️ Ya Whitekali
+# 🛠️ "WXL — Whitekali Creations"
 - Wielojezyczność
 [![pl](https://img.shields.io/badge/lang-pl-green.svg)](https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README.md)
 [![en](https://img.shields.io/badge/lang-en-green.svg)]([https://github.com/Dawju9/Ya-Whitekali/blob/kalies/README-en.md)
@@ -7,10 +7,10 @@ Witamy w oficjalnym repozytorium Ya Whitekali!
 
 ---
 
-# **🌐 Strona Główna Whitekali**
+# **🌐 Strona Główna**
 
 ### 1. **Nagłówek (Header)**  
-- Logo Whitekali po lewej stronie.  
+- Logo po lewej stronie.  
 - Pasek nawigacyjny z odnośnikami:
   - O nas
   - Projekty
@@ -21,6 +21,145 @@ Witamy w oficjalnym repozytorium Ya Whitekali!
 - Przycisk przełączania języka (PL/EN) – **flag icons** dla lepszej wizualizacji.  
 
 ---
+
+Struktura portfolio
+
+/index.html
+|-- /css/
+|   └── style.css
+|-- /js/
+|   └── script.js
+|-- /projects/
+|   ├── websites.html
+|   ├── apps.html
+|   ├── games.html
+|   ├── calculators.html
+|   ├── api.html
+|   └── iot.html
+|-- /assets/
+|   ├── images/
+|   └── icons/
+└── README.md
+
+
+---
+
+Główna strona (index.html)
+
+Nagłówek:
+
+Logo: "WXL — Whitekali Creations"
+
+Menu: Strony | Aplikacje | Gry | Kalkulatory | API | IoT | Kontakt
+
+
+Sekcja Hero:
+
+Nagłówek: "Tworzę cyfrowe światy — od stron www po inteligentne urządzenia"
+
+Podtytuł: "Pełen stack projektów od koncepcji po wdrożenie, z pasją do technologii"
+
+Przycisk: „Zobacz moje projekty”
+
+
+
+---
+
+Podstrony
+
+1. Strony internetowe (websites.html)
+
+Projektowanie responsywnych stron (HTML, CSS, React, Next.js)
+
+Projekty: Ya-Whitekali, portfolio Whitekali, strony z integracją API
+
+
+2. Aplikacje webowe i mobilne (apps.html)
+
+Stack: Flutter, Dart, Python (FastAPI), JS (React)
+
+Przykłady: Semantic Scholar Viewer, overlay UI na telefony, narzędzia do analizy danych
+
+
+3. Gry (games.html)
+
+Silnik: Cityx (autorski framework) + Lua
+
+Przykłady: MiastoX, proceduralne światy .rbxl, systemy eventów z LightingManager
+
+
+4. Kalkulatory (calculators.html)
+
+Stack: JavaScript, Python, Lua
+
+Przykłady: Kalkulatory promienia okręgów, obliczenia fizyczne, skrypty automatyzujące
+
+
+5. API i backend (api.html)
+
+Stack: Python (FastAPI, Flask), Node.js
+
+Projekty: Semantic Scholar API Explorer, zarządzanie światłami w grach, automatyzacja CI/CD
+
+
+6. IoT i smart devices (iot.html)
+
+Stack: Raspberry Pi, Arduino, Lua, MQTT
+
+Projekty: Inteligentne oświetlenie, sterowanie urządzeniami przez aplikację mobilną
+
+
+
+---
+
+Stopka (Footer)
+
+Sociale: GitHub, LinkedIn, X (Twitter)
+
+Email: kontakt@whitekali.dev
+
+Copyright: © 2025 Whitekali / WXL
+
+
+
+---
+
+Dodatki
+
+Blog: Artykuły o procesie tworzenia gier, optymalizacji zapytań API
+
+Tryb ciemny/jasny: dla lepszego UX
+
+Analityka: Śledzenie odwiedzin przez Google Analytics / Matomo
+
+
+
+---
+
+Jak Ci się podoba taki układ? Chcesz coś dodać albo zmienić? Daj znać!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------
 
 ### 2. **Sekcja Hero (Główna)**  
 - Duży, chwytliwy nagłówek:  
