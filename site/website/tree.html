@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive File Tree - YaWhitekali</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #008ed6;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .tree-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tree-header {
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tree-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+
+        .tree-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .tree-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tree-controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-tree {
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .btn-tree:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-expand-all {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .btn-collapse-all {
+            background: linear-gradient(45deg, #dc3545, #fd7e14);
+            color: white;
+        }
+
+        .btn-search {
+            background: linear-gradient(45deg, #6f42c1, #e83e8c);
+            color: white;
+        }
+
+        .btn-refresh {
+            background: linear-gradient(45deg, #fd7e14, #ffc107);
+            color: white;
+        }
+
+        .search-box {
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            width: 250px;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transform: scale(1.05);
+        }
+
+        .tree-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 120px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tree-view {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .tree-node {
+            padding: 12px 20px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tree-node:hover {
+            background-color: #f8f9fa;
+            border-left-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .tree-node.active {
+            background-color: #e3f2fd;
+            border-left-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 142, 214, 0.2);
+        }
+
+        .tree-node.file {
+            background-color: #f8f9fa;
+        }
+
+        .tree-node.file:hover {
+            background-color: #e9ecef;
+        }
+
+        .tree-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tree-icon i {
+            font-size: 1.1rem;
+        }
+
+        .tree-name {
+            flex-grow: 1;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .tree-size {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .tree-modified {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            min-width: 140px;
+            text-align: right;
+        }
+
+        .tree-path {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+            display: block;
+        }
+
+        .tree-children {
+            margin-left: 20px;
+            border-left: 2px dashed #eee;
+            padding-left: 15px;
+            margin-top: 10px;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tree-node.collapsed .tree-children {
+            display: none;
+        }
+
+        .tree-node.expanded .tree-children {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        .breadcrumb {
+            background: var(--light-color);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: var(--secondary-color);
+            margin: 0 8px;
+        }
+
+        .file-type-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 8px;
+        }
+
+        .file-type-badge.html { background: #e3f2fd; color: #0d47a1; }
+        .file-type-badge.css { background: #fff3e0; color: #bf360c; }
+        .file-type-badge.js { background: #e8f5e8; color: #1b5e20; }
+        .file-type-badge.json { background: #f3e5f5; color: #6a1b9a; }
+        .file-type-badge.md { background: #fce4ec; color: #880e4f; }
+        .file-type-badge.png { background: #ffebee; color: #c62828; }
+        .file-type-badge.jpg { background: #fff3e0; color: #bf360c; }
+        .file-type-badge.svg { background: #e8f5e8; color: #2e7d32; }
+        .file-type-badge.default { background: #f5f5f5; color: #616161; }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-left-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--secondary-color);
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .tree-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .tree-controls .btn-tree {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .tree-stats {
+                justify-content: center;
+            }
+            
+            .tree-view {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;">
+        <div class="container"><img width="57" height="55" style="border-style: inset;border-radius: 30px;" src="assets/img/whitekali.jpeg"><a class="navbar-brand d-flex align-items-center" href="/"><span style="font-size: 32px;margin-left: 10px;">YaWhitekali</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="background: #008ed6;"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" style="background-image: none;"><strong class="d-sm-flex justify-content-sm-center align-items-sm-center" style="font-size: 16px;text-align: center;">More</strong></span></button>
+            <div class="collapse navbar-collapse text-center d-md-flex" id="navcol-1" style="font-size: 14px;">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/stack.html">Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sales.html">Sales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacts.html">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tree.html">File Tree</a></li>
+                    <li class="nav-item"><a class="nav-link text-nowrap" href="/login.html">Log in</a></li>
+                </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="discord.gg/5tHYDSzatm" style="padding-right: 15px;padding-left: 15px;">Sign in</a>
+            </div>
+    </nav>
+
+    <div class="tree-container">
+        <div class="tree-header">
+            <h1 class="tree-title"><i class="fas fa-sitemap me-3"></i>YaWhitekali File Explorer</h1>
+            <p class="tree-subtitle">Interactive and animated file system visualization</p>
+            <div class="tree-controls">
+                <button class="btn-tree btn-expand-all" id="expandAllBtn"><i class="fas fa-expand-arrows-alt me-2"></i>Expand All</button>
+                <button class="btn-tree btn-collapse-all" id="collapseAllBtn"><i class="fas fa-compress-arrows-alt me-2"></i>Collapse All</button>
+                <button class="btn-tree btn-search" id="searchBtn"><i class="fas fa-search me-2"></i>Search Files</button>
+                <button class="btn-tree btn-refresh" id="refreshBtn"><i class="fas fa-sync-alt me-2"></i>Refresh</button>
+                <div class="search-box" id="searchBox" style="display: none;">
+                    <input type="text" id="searchInput" placeholder="Search files and directories...">
+                </div>
+            </div>
+            <div class="tree-stats" id="treeStats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalFiles">0</span>
+                    <span class="stat-label">Files</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalDirs">0</span>
+                    <span class="stat-label">Directories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalSize">0 MB</span>
+                    <span class="stat-label">Size</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumb" id="breadcrumb">
+            <span class="breadcrumb-item"><i class="fas fa-home me-2"></i>YaWhitekali</span>
+            <span class="breadcrumb-item active" id="currentPath">/site/website</span>
+        </div>
+
+        <div class="tree-view">
+            <div id="treeLoader" style="text-align: center; padding: 40px; color: var(--secondary-color);">
+                <div class="loading-spinner"></div>
+                <span>Loading file structure...</span>
+            </div>
+            <div id="treeContainer"></div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-search me-3"></i>No results found for your search
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> YaWhitekali. All rights reserved.</p>
+            <p>Interactive file tree built with vanilla JavaScript</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Tree data structure (simulating the YaWhitekali website structure)
+            const treeData = {
+                name: "YaWhitekali",
+                type: "directory",
+                path: "/",
+                children: [
+                    {
+                        name: "site",
+                        type: "directory",
+                        path: "/site",
+                        children: [
+                            {
+                                name: "website",
+                                type: "directory",
+                                path: "/site/website",
+                                children: [
+                                    {
+                                        name: "index.html",
+                                        type: "file",
+                                        path: "/site/website/index.html",
+                                        size: "33 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "about.html",
+                                        type: "file",
+                                        path: "/site/website/about.html",
+                                        size: "12 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "services.html",
+                                        type: "file",
+                                        path: "/site/website/services.html",
+                                        size: "11 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "products.html",
+                                        type: "file",
+                                        path: "/site/website/products.html",
+                                        size: "10 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "product.html",
+                                        type: "file",
+                                        path: "/site/website/product.html",
+                                        size: "9 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "pricing.html",
+                                        type: "file",
+                                        path: "/site/website/pricing.html",
+                                        size: "16 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "portfolio.html",
+                                        type: "file",
+                                        path: "/site/website/portfolio.html",
+                                        size: "12 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "projects.html",
+                                        type: "file",
+                                        path: "/site/website/projects.html",
+                                        size: "11 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "team.html",
+                                        type: "file",
+                                        path: "/site/website/team.html",
+                                        size: "11 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "testimonials.html",
+                                        type: "file",
+                                        path: "/site/website/testimonials.html",
+                                        size: "12 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "contacts.html",
+                                        type: "file",
+                                        path: "/site/website/contacts.html",
+                                        size: "15 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "login.html",
+                                        type: "file",
+                                        path: "/site/website/login.html",
+                                        size: "11 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "signup.html",
+                                        type: "file",
+                                        path: "/site/website/signup.html",
+                                        size: "11 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "shopping-cart.html",
+                                        type: "file",
+                                        path: "/site/website/shopping-cart.html",
+                                        size: "9 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "sales.html",
+                                        type: "file",
+                                        path: "/site/website/sales.html",
+                                        size: "17 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "stack.html",
+                                        type: "file",
+                                        path: "/site/website/stack.html",
+                                        size: "13 KB",
+                                        modified: "May 15, 2026"
+                                    },
+                                    {
+                                        name: "assets",
+                                        type: "directory",
+                                        path: "/site/website/assets",
+                                        children: [
+                                            {
+                                                name: "css",
+                                                type: "directory",
+                                                path: "/site/website/assets/css",
+                                                children: [
+                                                    {
+                                                        name: "styles.css",
+                                                        type: "file",
+                                                        path: "/site/website/assets/css/styles.css",
+                                                        size: "8 KB",
+                                                        modified: "May 15, 2026"
+                                                    },
+                                                    {
+                                                        name: "responsive.css",
+                                                        type: "file",
+                                                        path: "/site/website/assets/css/responsive.css",
+                                                        size: "5 KB",
+                                                        modified: "May 15, 2026"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                name: "js",
+                                                type: "directory",
+                                                path: "/site/website/assets/js",
+                                                children: [
+                                                    {
+                                                        name: "main.js",
+                                                        type: "file",
+                                                        path: "/site/website/assets/js/main.js",
+                                                        size: "15 KB",
+                                                        modified: "May 15, 2026"
+                                                    },
+                                                    {
+                                                        name: "utils.js",
+                                                        type: "file",
+                                                        path: "/site/website/assets/js/utils.js",
+                                                        size: "7 KB",
+                                                        modified: "May 15, 2026"
+                                                    },
+                                                    {
+                                                        name: "animation.js",
+                                                        type: "file",
+                                                        path: "/site/website/assets/js/animation.js",
+                                                        size: "12 KB",
+                                                        modified: "May 15, 2026"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                name: "img",
+                                                type: "directory",
+                                                path: "/site/website/assets/img",
+                                                children: [
+                                                    {
+                                                        name: "whitekali.jpeg",
+                                                        type: "file",
+                                                        path: "/site/website/assets/img/whitekali.jpeg",
+                                                        size: "240 KB",
+                                                        modified: "May 15, 2026"
+                                                    },
+                                                    {
+                                                        name: "logo.png",
+                                                        type: "file",
+                                                        path: "/site/website/assets/img/logo.png",
+                                                        size: "45 KB",
+                                                        modified: "May 15, 2026"
+                                                    },
+                                                    {
+                                                        name: "banner.jpg",
+                                                        type: "file",
+                                                        path: "/site/website/assets/img/banner.jpg",
+                                                        size: "180 KB",
+                                                        modified: "May 15, 2026"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "oldsite",
+                                        type: "directory",
+                                        path: "/site/website/oldsite",
+                                        children: [
+                                            {
+                                                name: "index.html",
+                                                type: "file",
+                                                path: "/site/website/oldsite/index.html",
+                                                size: "28 KB",
+                                                modified: "May 10, 2026"
+                                            },
+                                            {
+                                                name: "style.css",
+                                                type: "file",
+                                                path: "/site/website/oldsite/style.css",
+                                                size: "18 KB",
+                                                modified: "May 10, 2026"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: "about",
+                        type: "directory",
+                        path: "/about",
+                        children: [
+                            {
+                                name: "team.md",
+                                type: "file",
+                                path: "/about/team.md",
+                                size: "5 KB",
+                                modified: "May 16, 2026"
+                            },
+                            {
+                                name: "vision.md",
+                                type: "file",
+                                path: "/about/vision.md",
+                                size: "4 KB",
+                                modified: "May 16, 2026"
+                            }
+                        ]
+                    },
+                    {
+                        name: ".git",
+                        type: "directory",
+                        path: "/.git",
+                        children: [
+                            {
+                                name: "config",
+                                type: "file",
+                                path: "/.git/config",
+                                size: "2 KB",
+                                modified: "May 19, 2026"
+                            },
+                            {
+                                name: "HEAD",
+                                type: "file",
+                                path: "/.git/HEAD",
+                                size: "1 KB",
+                                modified: "May 19, 2026"
+                            }
+                        ]
+                    },
+                    {
+                        name: ".welcome.conf",
+                        type: "file",
+                        path: "/.welcome.conf",
+                        size: "5 KB",
+                        modified: "May 16, 2026"
+                    },
+                    {
+                        name: "index-app.html",
+                        type: "file",
+                        path: "/index-app.html",
+                        size: "33 KB",
+                        modified: "May 15, 2026"
+                    }
+                ]
+            };
+
+            // DOM Elements
+            const treeContainer = document.getElementById('treeContainer');
+            const treeLoader = document.getElementById('treeLoader');
+            const noResults = document.getElementById('noResults');
+            const expandAllBtn = document.getElementById('expandAllBtn');
+            const collapseAllBtn = document.getElementById('collapseAllBtn');
+            const searchBtn = document.getElementById('searchBtn');
+            const refreshBtn = document.getElementById('refreshBtn');
+            const searchBox = document.getElementById('searchBox');
+            const searchInput = document.getElementById('searchInput');
+            const treeStats = {
+                totalFiles: document.getElementById('totalFiles'),
+                totalDirs: document.getElementById('totalDirs'),
+                totalSize: document.getElementById('totalSize')
+            };
+            const breadcrumb = document.getElementById('breadcrumb');
+            const currentPath = document.getElementById('currentPath');
+
+            // State
+            let filteredData = null;
+            let isSearching = false;
+
+            // Initialize
+            function init() {
+                renderTree(treeData);
+                updateStats(treeData);
+                updateBreadcrumb('/site/website');
+            }
+
+            // Render tree recursively
+            function renderTree(node, depth = 0) {
+                if (!node) return '';
+
+                const isFile = node.type === 'file';
+                const hasChildren = node.children && node.children.length > 0;
+                
+                let html = `
+                    <div class="tree-node ${isFile ? 'file' : ''}" data-path="${node.path}" data-type="${node.type}">
+                        <div style="display: flex; align-items: center;">
+                            ${hasChildren ? `
+                                <div class="tree-icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            ` : `
+                                <div class="tree-icon">
+                                    <i class="fas ${getFileIcon(node.name)}"></i>
+                                </div>
+                            `}
+                            <div class="tree-name">
+                                ${node.name}
+                                ${!isFile && hasChildren ? `
+                                    <span class="file-type-badge default">${node.children.length}</span>
+                                ` : ''}
+                                ${!isFile && !hasChildren ? `
+                                    <span class="file-type-badge default">empty</span>
+                                ` : ''}
+                                ${isFile ? getFileTypeBadge(node.name) : ''}
+                            </div>
+                            ${!isFile ? '' : `
+                                <div class="tree-size">${node.size}</div>
+                                <div class="tree-modified">${node.modified}</div>
+                            `}
+                        </div>
+                        ${node.path && !isFile ? `
+                            <div class="tree-path">${node.path}</div>
+                        ` : ''}
+                `;
+
+                if (hasChildren && (!isSearching || shouldShowInSearch(node))) {
+                    html += `<div class="tree-children ${node.expanded ? '' : 'collapsed'}">`;
+                    node.children.forEach(child => {
+                        html += renderTree(child, depth + 1);
+                    });
+                    html += `</div>`;
+                }
+
+                html += `</div>`;
+                return html;
+            }
+
+            // Get appropriate file icon
+            function getFileIcon(filename) {
+                const ext = filename.split('.').pop().toLowerCase();
+                switch (ext) {
+                    case 'html': return 'fa-file-code';
+                    case 'css': return 'fa-file-code';
+                    case 'js': return 'fa-file-code';
+                    case 'json': return 'fa-file-code';
+                    case 'md': return 'fa-file-alt';
+                    case 'jpg':
+                    case 'jpeg':
+                    case 'png':
+                    case 'gif':
+                    case 'svg': return 'fa-file-image';
+                    case 'pdf': return 'fa-file-pdf';
+                    case 'zip':
+                    case 'rar':
+                    case '7z': return 'fa-file-archive';
+                    default: return 'fa-file';
+                }
+            }
+
+            // Get file type badge
+            function getFileTypeBadge(filename) {
+                const ext = filename.split('.').pop().toLowerCase();
+                switch (ext) {
+                    case 'html': return '<span class="file-type-badge html">HTML</span>';
+                    case 'css': return '<span class="file-type-badge css">CSS</span>';
+                    case 'js': return '<span class="file-type-badge js">JS</span>';
+                    case 'json': return '<span class="file-type-badge json">JSON</span>';
+                    case 'md': return '<span class="file-type-badge md">MD</span>';
+                    case 'jpg':
+                    case 'jpeg':
+                    case 'png':
+                    case 'gif':
+                    case 'svg': return '<span class="file-type-badge png">IMG</span>';
+                    default: return '<span class="file-type-badge default">FILE</span>';
+                }
+            }
+
+            // Update statistics
+            function updateStats(node) {
+                let files = 0;
+                let dirs = 0;
+                let size = 0;
+
+                function countNodes(n) {
+                    if (n.type === 'file') {
+                        files++;
+                        // Extract size from string like "33 KB"
+                        const sizeMatch = n.size.match(/(\d+(?:\.\d+)?)\s*(KB|MB)/);
+                        if (sizeMatch) {
+                            const num = parseFloat(sizeMatch[1]);
+                            const unit = sizeMatch[2];
+                            size += unit === 'MB' ? num * 1024 : num;
+                        }
+                    } else if (n.type === 'directory') {
+                        dirs++;
+                        if (n.children) {
+                            n.children.forEach(countNodes);
+                        }
+                    }
+                }
+
+                countNodes(node);
+
+                treeStats.totalFiles.textContent = files;
+                treeStats.totalDirs.textContent = dirs;
+                treeStats.totalSize.textContent = `${(size / 1024).toFixed(1)} MB`;
+            }
+
+            // Update breadcrumb
+            function updateBreadcrumb(path) {
+                currentPath.textContent = path;
+                
+                // Create breadcrumb items
+                const parts = path.split('/').filter(part => part !== '');
+                let breadcrumbHTML = `<span class="breadcrumb-item"><i class="fas fa-home me-2"></i>YaWhitekali</span>`;
+                
+                let current = '';
+                parts.forEach((part, index) => {
+                    current += `/${part}`;
+                    if (index === parts.length - 1) {
+                        breadcrumbHTML += `<span class="breadcrumb-item active">${part}</span>`;
+                    } else {
+                        breadcrumbHTML += `<span class="breadcrumb-item">${part}</span>`;
+                    }
+                });
+                
+                breadcrumb.innerHTML = breadcrumbHTML;
+            }
+
+            // Check if node should be shown in search results
+            function shouldShowInSearch(node) {
+                if (!isSearching || !searchInput.value.trim()) return true;
+                
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                return node.name.toLowerCase().includes(searchTerm) || 
+                       (node.path && node.path.toLowerCase().includes(searchTerm));
+            }
+
+            // Filter tree based on search
+            function filterTree(searchTerm) {
+                if (!searchTerm.trim()) {
+                    isSearching = false;
+                    renderFullTree();
+                    return;
+                }
+
+                isSearching = true;
+                const filtered = {
+                    name: "YaWhitekali",
+                    type: "directory",
+                    path: "/",
+                    children: []
+                };
+
+                function filterNode(node, parentPath = '') {
+                    const fullPath = parentPath ? `${parentPath}/${node.name}` : `/${node.name}`;
+                    const matches = node.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                  (node.path && node.path.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                                  fullPath.toLowerCase().includes(searchTerm.toLowerCase());
+
+                    if (matches) {
+                        const newNode = { ...node, path: fullPath };
+                        if (node.children && node.children.length > 0) {
+                            newNode.children = [];
+                            node.children.forEach(child => {
+                                const filteredChild = filterNode(child, fullPath);
+                                if (filteredChild) {
+                                    newNode.children.push(filteredChild);
+                                }
+                            });
+                        }
+                        return newNode;
+                    } else if (node.children && node.children.length > 0) {
+                        const newNode = { ...node, path: fullPath, children: [] };
+                        let hasMatchingChildren = false;
+                        node.children.forEach(child => {
+                            const filteredChild = filterNode(child, fullPath);
+                            if (filteredChild) {
+                                newNode.children.push(filteredChild);
+                                hasMatchingChildren = true;
+                            }
+                        });
+                        return hasMatchingChildren ? newNode : null;
+                    }
+                    return null;
+                }
+
+                const result = filterNode(treeData);
+                if (result && result.children && result.children.length > 0) {
+                    filtered.children = result.children;
+                    renderTree(filtered);
+                    updateStats(filtered);
+                } else {
+                    treeContainer.innerHTML = '';
+                    noResults.style.display = 'block';
+                }
+            }
+
+            // Render full tree (reset search)
+            function renderFullTree() {
+                isSearching = false;
+                searchInput.value = '';
+                searchBox.style.display = 'none';
+                renderTree(treeData);
+                updateStats(treeData);
+                updateBreadcrumb('/site/website');
+                noResults.style.display = 'none';
+            }
+
+            // Event Listeners
+            expandAllBtn.addEventListener('click', () => {
+                expandAllNodes(treeData);
+                renderTree(treeData);
+                updateStats(treeData);
+            });
+
+            collapseAllBtn.addEventListener('click', () => {
+                collapseAllNodes(treeData);
+                renderTree(treeData);
+                updateStats(treeData);
+            });
+
+            searchBtn.addEventListener('click', () => {
+                const isVisible = searchBox.style.display === 'block';
+                searchBox.style.display = isVisible ? 'none' : 'block';
+                if (!isVisible) {
+                    searchInput.focus();
+                }
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                filterTree(e.target.value);
+            });
+
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    filterTree(e.target.value);
+                }
+            });
+
+            refreshBtn.addEventListener('click', () => {
+                renderFullTree();
+            });
+
+            // Expand all nodes
+            function expandAllNodes(node) {
+                if (node.type === 'directory' && node.children) {
+                    node.expanded = true;
+                    node.children.forEach(expandAllNodes);
+                }
+            }
+
+            // Collapse all nodes
+            function collapseAllNodes(node) {
+                if (node.type === 'directory' && node.children) {
+                    node.expanded = false;
+                    node.children.forEach(collapseAllNodes);
+                }
+            }
+
+            // Add click event to tree nodes for expand/collapse
+            document.addEventListener('click', (e) => {
+                const treeNode = e.target.closest('.tree-node');
+                if (!treeNode) return;
+
+                const icon = treeNode.querySelector('.tree-icon i');
+                if (!icon) return;
+
+                // Check if it's a directory (has children container)
+                const childrenContainer = treeNode.nextElementSibling;
+                if (childrenContainer && childrenContainer.classList.contains('tree-children')) {
+                    const isExpanded = !childrenContainer.classList.contains('collapsed');
+                    
+                    if (isExpanded) {
+                        childrenContainer.classList.add('collapsed');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-right');
+                    } else {
+                        childrenContainer.classList.remove('collapsed');
+                        icon.classList.remove('fa-chevron-right');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+
+            // Initialize the tree
+            function showLoader() {
+                treeLoader.style.display = 'block';
+                treeContainer.innerHTML = '';
+                noResults.style.display = 'none';
+            }
+
+            function hideLoader() {
+                treeLoader.style.display = 'none';
+            }
+
+            // Start loading animation
+            showLoader();
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                hideLoader();
+                init();
+            }, 800);
+        });
+    </script>
+</body>
+</html>
