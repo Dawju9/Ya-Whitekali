@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>My Setup - YaWhitekali</title>
+    <meta name="description" content="Szczegółowa konfiguracja mojego systemu Linux, terminala Zsh oraz narzędzi developerskich">
+    <meta property="og:image" content="assets/img/whitekali.jpeg">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;">
+        <div class="container"><img width="57" height="55" style="border-style: inset;border-radius: 30px;" src="assets/img/whitekali.jpeg"><a class="navbar-brand d-flex align-items-center" href="/"><span style="font-size: 32px;margin-left: 10px;">YaWhitekali</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="background: #008ed6;"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" style="background-image: none;"><strong class="d-sm-flex justify-content-sm-center align-items-sm-center" style="font-size: 16px;text-align: center;">More</strong></span></button>
+            <div class="collapse navbar-collapse text-center d-md-flex" id="navcol-1" style="font-size: 14px;">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/stack.html">Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sales.html">Sales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacts.html">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/my-setup.html">My Setup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tree.html">File Tree</a></li>
+                    <li class="nav-item"><a class="nav-link text-nowrap" href="/login.html">Log in</a></li>
+                </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="discord.gg/5tHYDSzatm" style="padding-right: 15px;padding-left: 15px;">Sign in</a>
+            </div>
+    </nav>
+
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Moja konfiguracja systemu</h2>
+                <p class="text-muted">Szczegółowy opis mojego środowiska Linux, terminala Zsh oraz narzędzi developerskich których używam na co dzień</p>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">System operacyjny</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-linux me-2 text-primary"></i><strong>Distro:</strong> Ubuntu-based (customized)</li>
+                                <li><i class="fas fa-terminal me-2 text-primary"></i><strong>Shell:</strong> Zsh z Oh My Zsh</li>
+                                <li><i class="fas fa-code me-2 text-primary"></i><strong>Edytor:</strong> VS Code + Vim/Neovim</li>
+                                <li><i class="fas fa-meh me-2 text-primary"></i><strong>Motyw:</strong> Dracula Pro (VS Code), Dracula (terminal)</li>
+                                <li><i class="fas fa-memory me-2 text-primary"></i><strong>RAM:</strong> 32GB DDR4</li>
+                                <li><i class="fas fa-hdd me-2 text-primary"></i><strong>Storage:</strong> 1TB NVMe SSD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="card-title mb-0">Terminal & Shell</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-terminal me-2 text-success"></i><strong>Terminal:</strong> Alacritty</li>
+                                <li><i class="fas fa-shell-alt me-2 text-success"></i><strong>Shell:</strong> Zsh (zcustom config)</li>
+                                <li><i class="fas fa-keyboard me-2 text-success"></i><strong>Klawiatura:</strong> Mechanical (Cherry MX Brown)</li>
+                                <li><i class="fas fa-monitor me-2 text-success"></i><strong>Monitor:</strong> Dual 27" 1440p IPS</li>
+                                <li><i class="fas fa-rocket me-2 text-success"></i><strong>Uruchamianie:</strong> Systemd z optymalizacjami</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="card-title mb-0">Zsh Configuration</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><i class="fas fa-cog me-2 text-info"></i><strong>Plugin menedżer:</strong> Antibody (lekki i szybki)</p>
+                            <p><i class="fas fa-bolt me-2 text-info"></i><strong>Prompt:</strong> Powerlevel10k (p10k) z custom segmentami</p>
+                            <p><i class="fas fa-history me-2 text-info"></i><strong>Historia:</strong> 50k w pamięci, 100k na dysku z deduplikacją</p>
+                            <p><i class="fas fa-search me-2 text-info"></i><strong>Wyszukiwanie:</strong> Fzf z integracją historii i plików</p>
+                            <p><i class="fas fa-sync-alt me-2 text-info"></i><strong>Autouzupełnianie:</strong> Zsh-autosuggestions + Zsh-completions</p>
+                            <p><i class="fas fa-shield-alt me-2 text-info"></i><strong>Bezpieczeństwo:</strong> NO_NOMATCH, GLOB_DOTS, hist ignore all dups</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-warning text-white">
+                            <h5 class="card-title mb-0">Keybindings & Aliases</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><i class="fas fa-key me-2 text-warning"></i><strong>Navigation:</strong> vim-like bindings (^P, ^N dla historii)</p>
+                            <p><i class="fas fa-sync me-2 text-warning"></i><strong>Git:</strong> Pełny alias set (g, gs, gd, gl, gp etc.)</p>
+                            <p><i class="fas fa-code-branch me-2 text-warning"></i><strong>Branch:</strong> Automatyczny vcs_info w promptzie</p>
+                            <p><i class="fas fa-copy me-2 text-warning"></i><strong>Clipboard:</strong> xclip/xsel integracja</p>
+                            <p><i class="fas fa-sun me-2 text-warning"></i><strong>Theme:</strong> Dynamiczne przełączanie light/dark</p>
+                            <p><i class="fas fa-robot me-2 text-warning"></i><strong>AI:</strong> Integracja z Ollama (qwen2.5-coder)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="card-title mb-0">Developer Tools</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-code me-2 text-danger"></i><strong>Edytory:</strong> VS Code (primary), NeoVim (terminal)</li>
+                                <li><i class="fas fa-terminal me-2 text-danger"></i><strong>Terminal:</strong> Alacritty + tmux</li>
+                                <li><i class="fas fa-laptop-code me-2 text-danger"></i><strong>Languages:</strong> JS/TS, Python, Rust, Go, Bash</li>
+                                <li><i class="fas fa-database me-2 text-danger"></i><strong>DB:</strong> PostgreSQL, MongoDB, Redis, SQLite</li>
+                                <li><i class="fas fa-server me-2 text-danger"></i><strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions</li>
+                                <li><i class="fas fa-rocket me-2 text-danger"></i><strong>Build:</strong> npm, yarn, pip, cargo, make</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-secondary text-white">
+                            <h5 class="card-title mb-0">Custom Scripts & Tools</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="accordion" id="customToolsAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            <i class="fas fa-robot me-2"></i>AI Assistant
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#customToolsAccordion">
+                                        <div class="accordion-body">
+                                            <code>ai</code> - bezpośrednie zapytania do Ollama<br>
+                                            <code>aimsg</code> - tryb konwersacyjny z historią<br>
+                                            <code>ai-models</code> - lista dostępnych modeli<br>
+                                            <code>ai-bench</code> - benchmark wydajności modeli
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <i class="fas fa-history me-2"></i>Historia i pomoc
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#customToolsAccordion">
+                                        <div class="accordion-body">
+                                            <code>h</code> - zaawansowana historia z wyszukiwaniem<br>
+                                            <code>help</code> - wyświetla wszystkie dostępne aliasy<br>
+                                            <code>who</code>, <code>w</code> - rozszerzone informacje o użytkownikach<br>
+                                            <code>command_not_found_handler</code> - inteligentne sugestie
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <i class="fas fa-wrench me-2"></i>System & Utilities
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#customToolsAccordion">
+                                        <div class="accordion-body">
+                                            <code>mkcd</code> - tworzy katalog i wchodzi do niego<br>
+                                            <code>backup</code> - tworzy kopię zapasową z timestampem<br>
+                                            <code>weather</code> - pogoda dla lokalizacji<br>
+                                            <code>server</code> - wyświetla statystyki systemu<br>
+                                            <code>extract</code> - uniwersalna ekstrakcja archiwów
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="card-title mb-0">Przykładowa konfiguracja (.zshrc fragment)</h5>
+                </div>
+                <div class="card-body">
+                    <pre class="bg-light p-4 rounded"><code># ==============================
+# KXL SYSTEM - ZSH CORE CONFIG
+# ==============================
+
+[ -z "$ZSH_VERSION" ] && return
+
+# ==============================
+# SAFETY
+# ==============================
+setopt NO_NOMATCH
+setopt GLOB_DOTS
+
+# ==============================
+# HISTORY
+# ==============================
+HISTSIZE=50000
+SAVEHIST=100000
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+
+# ==============================
+# COLORS
+# ==============================
+autoload -Uz colors
+colors
+setopt PROMPT_SUBST
+
+# ==============================
+# PROMPT
+# ==============================
+PROMPT='%F{cyan} %n%f %F{blue} %m%f %F{yellow} %~%f ${vcs_info_msg_0_} %F{green}❯%f '
+
+# ==============================
+# PLUGINS
+# ==============================
+[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ==============================
+# ENVIRONMENT
+# ==============================
+export OLLAMA_HOST="http://localhost:11434"
+export OLLAMA_MODEL="qwen2.5-coder:1.5b"
+export EDITOR=nano
+
+# Custom aliases and functions are loaded from ~/.zsh/commands.sh
+source ~/.zsh/commands.sh
+</code></pre>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <h5 class="alert-heading">💡 Wskazówki dotyczące konfiguracji</h5>
+                <p class="mb-0">
+                    Pełna konfiguracja mojego środowiska jest dostępna w gałęzi <code>config</span> tego repozytorium. 
+                    Zawiera ona szczegółowe pliki konfiguracyjne dla Zsh, Bash oraz niestandardowe skrypty które 
+                    znacznie usprawniają pracę w terminalu. Wszystkie dane wrażliwe (takie jak tokeny API) zostały 
+                    usunięte lub zamienione na placeholders dla bezpieczeństwa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; YaWhitekali 2026 • Zsh • Linux • Open Source</small>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</body>
+</html>
