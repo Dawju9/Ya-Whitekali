@@ -1,0 +1,18 @@
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    volumes:
+      - ./ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - n8n_default
+      - n8n-stack
+
+    networks:
+      n8n-stack:
+        external: true
+
+#      - n8n.srv1270647.hstgr.cloud  #your_network_name # Upewnij się, że to ta sama sieć co n8n
+
