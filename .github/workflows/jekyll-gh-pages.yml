@@ -21,7 +21,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
 jobs:
   # Build job
   build:
@@ -35,7 +34,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -r *.html assets/ oldsite/ linux-config/ about/ _site/ 2>/dev/null || true
-          cp -r *.css *.js *.yml *.json *.md *.bsdesign docker-compose.yml _site/ 2>/dev/null || true
+          cp -r *.css *.js *.yml *.json *.xml *.md *.bsdesign docker-compose.yml robots.txt _site/ 2>/dev/null || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
 

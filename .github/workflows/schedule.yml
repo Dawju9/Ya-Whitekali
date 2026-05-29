@@ -16,7 +16,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -r *.html assets/ oldsite/ linux-config/ about/ _site/ 2>/dev/null || true
-          cp -r *.css *.js *.yml *.json *.md *.bsdesign docker-compose.yml _site/ 2>/dev/null || true
+          cp -r *.css *.js *.yml *.json *.xml *.md *.bsdesign docker-compose.yml robots.txt _site/ 2>/dev/null || true
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
