@@ -1,270 +1,179 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>My Setup - YaWhitekali</title>
-    <meta name="description" content="Detailed Linux Setup, Zsh terminal configuration, and development tools by YaWhitekali">
+    <title>About Me - YaWhitekali</title>
+    <meta name="description" content="About YaWhitekali - developer, Linux enthusiast, AI agent creator, and game developer. Full tech stack, projects, and methodology.">
     <meta property="og:image" content="assets/img/whitekali.jpeg">
     <link rel="canonical" href="https://dawju9.github.io/Ya-Whitekali/my-setup.html">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/motion.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <style>
+        .about-hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 60vh; display: flex; align-items: center; }
+        .exp-bar { height: 8px; border-radius: 4px; background: rgba(0,0,0,0.05); overflow: hidden; }
+        .exp-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #008ed6, #00d4ff); transition: width 1.5s; }
+        .skill-tag { display: inline-block; padding: 6px 14px; margin: 3px; border-radius: 20px; font-size: 13px; font-weight: 500; background: rgba(0,142,214,0.08); border: 1px solid rgba(0,142,214,0.12); transition: all 0.2s; }
+        .skill-tag:hover { background: rgba(0,142,214,0.15); transform: translateY(-1px); }
+        .method-step { text-align: center; padding: 1.5rem; border-radius: 16px; background: rgba(0,142,214,0.02); border: 1px solid rgba(0,142,214,0.06); transition: all 0.3s; height: 100%; }
+        .method-step:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,142,214,0.1); }
+        .project-mini { padding: 1rem; border-radius: 12px; background: rgba(0,142,214,0.02); border: 1px solid rgba(0,142,214,0.06); transition: all 0.2s; }
+        .project-mini:hover { background: rgba(0,142,214,0.06); }
+    </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;">
+    <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;background: #0f3460;">
         <div class="container"><img width="57" height="55" style="border-style: inset;border-radius: 30px;" src="assets/img/whitekali.jpeg"><a class="navbar-brand d-flex align-items-center" href="/"><span style="font-size: 32px;margin-left: 10px;">YaWhitekali</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="background: #008ed6;"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" style="background-image: none;"><strong class="d-sm-flex justify-content-sm-center align-items-sm-center" style="font-size: 16px;text-align: center;">More</strong></span></button>
             <div class="collapse navbar-collapse text-center d-md-flex" id="navcol-1" style="font-size: 14px;">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/repositories.html">Repositories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/miastox.html">MiastoX</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/games.html">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="/stack.html">Stack</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/sales.html">Sales</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/my-setup.html">About Me</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contacts.html">Contacts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/my-setup.html">My Setup</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/tree.html">File Tree</a></li>
-                    <li class="nav-item"><a class="nav-link text-nowrap" href="/login.html">Log in</a></li>
-                </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="https://discord.gg/5tHYDSzatm" style="padding-right: 15px;padding-left: 15px;">Sign in</a>
+                </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="https://github.com/Dawju9" target="_blank" style="padding-right: 15px;padding-left: 15px;">GitHub</a>
             </div>
     </nav>
 
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Moja konfiguracja systemu</h2>
-                <p class="text-muted">Szczegółowy opis mojego środowiska Linux, terminala Zsh oraz narzędzi developerskich których używam na co dzień</p>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="card-title mb-0">System operacyjny</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-linux me-2 text-primary"></i><strong>Distro:</strong> Ubuntu-based (customized)</li>
-                                <li><i class="fas fa-terminal me-2 text-primary"></i><strong>Shell:</strong> Zsh z Oh My Zsh</li>
-                                <li><i class="fas fa-code me-2 text-primary"></i><strong>Edytor:</strong> VS Code + Vim/Neovim</li>
-                                <li><i class="fas fa-meh me-2 text-primary"></i><strong>Motyw:</strong> Dracula Pro (VS Code), Dracula (terminal)</li>
-                                <li><i class="fas fa-memory me-2 text-primary"></i><strong>RAM:</strong> 32GB DDR4</li>
-                                <li><i class="fas fa-hdd me-2 text-primary"></i><strong>Storage:</strong> 1TB NVMe SSD</li>
-                            </ul>
+    <!-- HERO -->
+    <section class="about-hero motion-fade-in">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="assets/img/whitekali.jpeg" style="width:80px;height:80px;border-radius:50%;border:3px solid #008ed6;object-fit:cover;" class="motion-float">
+                        <div>
+                            <h1 class="display-5 fw-bold text-white mb-1">Whitekali</h1>
+                            <p class="lead text-white-50 mb-0">Developer &bull; Linux Enthusiast &bull; AI Creator &bull; Game Dev</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-success text-white">
-                            <h5 class="card-title mb-0">Terminal & Shell</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-terminal me-2 text-success"></i><strong>Terminal:</strong> Alacritty</li>
-                                <li><i class="fas fa-shell-alt me-2 text-success"></i><strong>Shell:</strong> Zsh (zcustom config)</li>
-                                <li><i class="fas fa-keyboard me-2 text-success"></i><strong>Klawiatura:</strong> Mechanical (Cherry MX Brown)</li>
-                                <li><i class="fas fa-monitor me-2 text-success"></i><strong>Monitor:</strong> Dual 27" 1440p IPS</li>
-                                <li><i class="fas fa-rocket me-2 text-success"></i><strong>Uruchamianie:</strong> Systemd z optymalizacjami</li>
-                            </ul>
-                        </div>
+                    <p class="text-white-50" style="max-width:600px;">I build autonomous AI agents that run 24/7, create procedural games on Roblox with Luau, and craft immersive web experiences. Every project starts on Linux, powered by open source.</p>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="skill-tag">🐧 Linux</span>
+                        <span class="skill-tag">🤖 AI Agents</span>
+                        <span class="skill-tag">🎮 Game Dev</span>
+                        <span class="skill-tag">🌐 Web</span>
+                        <span class="skill-tag">🐍 Python</span>
+                        <span class="skill-tag">⚡ Luau</span>
+                        <span class="skill-tag">🦀 Rust</span>
+                        <span class="skill-tag">🐳 Docker</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-info text-white">
-                            <h5 class="card-title mb-0">Zsh Configuration</h5>
-                        </div>
-                        <div class="card-body">
-                            <p><i class="fas fa-cog me-2 text-info"></i><strong>Plugin menedżer:</strong> Antibody (lekki i szybki)</p>
-                            <p><i class="fas fa-bolt me-2 text-info"></i><strong>Prompt:</strong> Powerlevel10k (p10k) z custom segmentami</p>
-                            <p><i class="fas fa-history me-2 text-info"></i><strong>Historia:</strong> 50k w pamięci, 100k na dysku z deduplikacją</p>
-                            <p><i class="fas fa-search me-2 text-info"></i><strong>Wyszukiwanie:</strong> Fzf z integracją historii i plików</p>
-                            <p><i class="fas fa-sync-alt me-2 text-info"></i><strong>Autouzupełnianie:</strong> Zsh-autosuggestions + Zsh-completions</p>
-                            <p><i class="fas fa-shield-alt me-2 text-info"></i><strong>Bezpieczeństwo:</strong> NO_NOMATCH, GLOB_DOTS, hist ignore all dups</p>
-                        </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="bg-dark p-4 rounded-4 border border-secondary" style="background:#1e1e1e;">
+                        <div class="small text-success mb-2">$ whoami</div>
+                        <div class="text-white mb-3">YaWhitekali — Developer & Linux Enthusiast</div>
+                        <div class="small text-success mb-2">$ echo $SKILLS</div>
+                        <div class="text-info mb-3">AI, Games, Web, Linux, Open Source</div>
+                        <div class="small text-success mb-2">$ uptime --philosophy</div>
+                        <div class="text-white">24/7 building, always learning, forever curious</div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-warning text-white">
-                            <h5 class="card-title mb-0">Keybindings & Aliases</h5>
-                        </div>
-                        <div class="card-body">
-                            <p><i class="fas fa-key me-2 text-warning"></i><strong>Navigation:</strong> vim-like bindings (^P, ^N dla historii)</p>
-                            <p><i class="fas fa-sync me-2 text-warning"></i><strong>Git:</strong> Pełny alias set (g, gs, gd, gl, gp etc.)</p>
-                            <p><i class="fas fa-code-branch me-2 text-warning"></i><strong>Branch:</strong> Automatyczny vcs_info w promptzie</p>
-                            <p><i class="fas fa-copy me-2 text-warning"></i><strong>Clipboard:</strong> xclip/xsel integracja</p>
-                            <p><i class="fas fa-sun me-2 text-warning"></i><strong>Theme:</strong> Dynamiczne przełączanie light/dark</p>
-                            <p><i class="fas fa-robot me-2 text-warning"></i><strong>AI:</strong> Integracja z Ollama (qwen2.5-coder)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-danger text-white">
-                            <h5 class="card-title mb-0">Developer Tools</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-code me-2 text-danger"></i><strong>Edytory:</strong> VS Code (primary), NeoVim (terminal)</li>
-                                <li><i class="fas fa-terminal me-2 text-danger"></i><strong>Terminal:</strong> Alacritty + tmux</li>
-                                <li><i class="fas fa-laptop-code me-2 text-danger"></i><strong>Languages:</strong> JS/TS, Python, Rust, Go, Bash</li>
-                                <li><i class="fas fa-database me-2 text-danger"></i><strong>DB:</strong> PostgreSQL, MongoDB, Redis, SQLite</li>
-                                <li><i class="fas fa-server me-2 text-danger"></i><strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions</li>
-                                <li><i class="fas fa-rocket me-2 text-danger"></i><strong>Build:</strong> npm, yarn, pip, cargo, make</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-secondary text-white">
-                            <h5 class="card-title mb-0">Custom Scripts & Tools</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="accordion" id="customToolsAccordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                            <i class="fas fa-robot me-2"></i>AI Assistant
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#customToolsAccordion">
-                                        <div class="accordion-body">
-                                            <code>ai</code> - bezpośrednie zapytania do Ollama<br>
-                                            <code>aimsg</code> - tryb konwersacyjny z historią<br>
-                                            <code>ai-models</code> - lista dostępnych modeli<br>
-                                            <code>ai-bench</code> - benchmark wydajności modeli
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <i class="fas fa-history me-2"></i>Historia i pomoc
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#customToolsAccordion">
-                                        <div class="accordion-body">
-                                            <code>h</code> - zaawansowana historia z wyszukiwaniem<br>
-                                            <code>help</code> - wyświetla wszystkie dostępne aliasy<br>
-                                            <code>who</code>, <code>w</code> - rozszerzone informacje o użytkownikach<br>
-                                            <code>command_not_found_handler</code> - inteligentne sugestie
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <i class="fas fa-wrench me-2"></i>System & Utilities
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#customToolsAccordion">
-                                        <div class="accordion-body">
-                                            <code>mkcd</code> - tworzy katalog i wchodzi do niego<br>
-                                            <code>backup</code> - tworzy kopię zapasową z timestampem<br>
-                                            <code>weather</code> - pogoda dla lokalizacji<br>
-                                            <code>server</code> - wyświetla statystyki systemu<br>
-                                            <code>extract</code> - uniwersalna ekstrakcja archiwów
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-header bg-dark text-white">
-                    <h5 class="card-title mb-0">Przykładowa konfiguracja (.zshrc fragment)</h5>
-                </div>
-                <div class="card-body">
-                    <pre class="bg-light p-4 rounded"><code># ==============================
-# KXL SYSTEM - ZSH CORE CONFIG
-# ==============================
-
-[ -z "$ZSH_VERSION" ] && return
-
-# ==============================
-# SAFETY
-# ==============================
-setopt NO_NOMATCH
-setopt GLOB_DOTS
-
-# ==============================
-# HISTORY
-# ==============================
-HISTSIZE=50000
-SAVEHIST=100000
-
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_REDUCE_BLANKS
-
-# ==============================
-# COLORS
-# ==============================
-autoload -Uz colors
-colors
-setopt PROMPT_SUBST
-
-# ==============================
-# PROMPT
-# ==============================
-PROMPT='%F{cyan} %n%f %F{blue} %m%f %F{yellow} %~%f ${vcs_info_msg_0_} %F{green}❯%f '
-
-# ==============================
-# PLUGINS
-# ==============================
-[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# ==============================
-# ENVIRONMENT
-# ==============================
-export OLLAMA_HOST="http://localhost:11434"
-export OLLAMA_MODEL="qwen2.5-coder:1.5b"
-export EDITOR=nano
-
-# Custom aliases and functions are loaded from ~/.zsh/commands.sh
-source ~/.zsh/commands.sh
-</code></pre>
-                </div>
-            </div>
-
-            <div class="alert alert-info">
-                <h5 class="alert-heading">💡 Wskazówki dotyczące konfiguracji</h5>
-                <p class="mb-0">
-                    Pełna konfiguracja mojego środowiska jest dostępna w gałęzi <code>config</span> tego repozytorium. 
-                    Zawiera ona szczegółowe pliki konfiguracyjne dla Zsh, Bash oraz niestandardowe skrypty które 
-                    znacznie usprawniają pracę w terminalu. Wszystkie dane wrażliwe (takie jak tokeny API) zostały 
-                    usunięte lub zamienione na placeholders dla bezpieczeństwa.
-                </p>
             </div>
         </div>
     </section>
 
-    <footer class="py-4 bg-dark text-white-50">
-        <div class="container text-center">
-            <small>Copyright &copy; YaWhitekali 2026 • Zsh • Linux • Open Source</small>
+    <!-- PROJECTS OVERVIEW -->
+    <section class="py-5 motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-2">🚀 My Projects</h2>
+            <p class="text-muted mb-4">A snapshot of what I'm building and maintaining</p>
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">🤖 AetherAgent</h6><span class="badge bg-success" style="font-size:10px;">Active</span></div><p class="small text-muted mb-0">Autonomous 24/7 AI worker. Uses Ollama LLMs locally on Linux to execute tasks, remember context, and act as a persistent digital employee.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">🏙️ MiastoX</h6><span class="badge bg-success" style="font-size:10px;">Active</span></div><p class="small text-muted mb-0">Procedural climbing game on Roblox. 30+ floors, dynamic weather, PvP combat, 7-rank system. Built with Luau + CityX framework.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">🏗️ CityX Framework</h6><span class="badge bg-success" style="font-size:10px;">Active</span></div><p class="small text-muted mb-0">Modular server framework for Roblox. Powers MiastoX with procedural generation, weather, and game state management.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">🎨 SchematicsAgent</h6><span class="badge bg-warning text-dark" style="font-size:10px;">In Dev</span></div><p class="small text-muted mb-0">City schematic visualization. Parses XML schematics and renders grid-based city layouts for urban planning.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">💳 greendragon-site</h6><span class="badge bg-success" style="font-size:10px;">Active</span></div><p class="small text-muted mb-0">Scratch card web app with React + Vite. Manages scratch card generation, masking, and result processing.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">🃏 Pokbler</h6><span class="badge bg-warning text-dark" style="font-size:10px;">In Dev</span></div><p class="small text-muted mb-0">Poker hand analysis library in Python. Evaluates hands, calculates odds, and provides statistical insights.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">🧩 GamesProjekty</h6><span class="badge bg-warning text-dark" style="font-size:10px;">In Dev</span></div><p class="small text-muted mb-0">Collection of game prototypes: Termin8or, minesweeper, snake. Experimental playground for game mechanics.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">📊 dev_pydantic</h6><span class="badge bg-secondary" style="font-size:10px;">Early</span></div><p class="small text-muted mb-0">Pydantic-based data validation utilities for Python. Focus on type-safe configuration and data modeling.</p></div></div>
+                <div class="col-md-6 col-lg-4"><div class="project-mini h-100"><div class="d-flex justify-content-between"><h6 class="fw-bold mb-1">📈 Trading Bot</h6><span class="badge bg-warning text-dark" style="font-size:10px;">In Dev</span></div><p class="small text-muted mb-0">MetaTrader 5 live trading automation. Algorithmic trading with custom strategies and risk management.</p></div></div>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    <!-- HOW I BUILD -->
+    <section class="py-5 bg-light motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-2">🔨 How I Build Projects</h2>
+            <p class="text-muted mb-4">My methodology — from idea to deployment</p>
+            <div class="row g-3">
+                <div class="col-md-3"><div class="method-step"><div class="display-5 mb-2">💡</div><h6 class="fw-bold">1. Ideation</h6><p class="small text-muted mb-0">Define the core problem, sketch architecture, choose tech stack. I use markdown planning docs and todo.plan files.</p></div></div>
+                <div class="col-md-3"><div class="method-step"><div class="display-5 mb-2">⚙️</div><h6 class="fw-bold">2. Prototype</h6><p class="small text-muted mb-0">Build minimal viable version first. Test core mechanics early. Iterate fast with feedback loops. Git from day one.</p></div></div>
+                <div class="col-md-3"><div class="method-step"><div class="display-5 mb-2">🧪</div><h6 class="fw-bold">3. Refine</h6><p class="small text-muted mb-0">Polish mechanics, add edge cases, write tests. Optimize performance. Profile and benchmark critical paths.</p></div></div>
+                <div class="col-md-3"><div class="method-step"><div class="display-5 mb-2">🚀</div><h6 class="fw-bold">4. Deploy</h6><p class="small text-muted mb-0">CI/CD via GitHub Actions. Static sites to Pages, games to Roblox, agents run on Linux server 24/7.</p></div></div>
+            </div>
+            <div class="row g-3 mt-3">
+                <div class="col-md-4"><div class="method-step"><div class="fs-1 mb-2">📐</div><h6 class="fw-bold">Design Approach</h6><p class="small text-muted mb-0">Clean architecture first. I favor modularity, separation of concerns, and minimal dependencies. Every component should be testable in isolation.</p></div></div>
+                <div class="col-md-4"><div class="method-step"><div class="fs-1 mb-2">🧮</div><h6 class="fw-bold">Algorithms & Logic</h6><p class="small text-muted mb-0">Procedural generation (Perlin noise, L-systems), pathfinding (A*), state machines, ECS architecture, event-driven systems, and data-oriented design.</p></div></div>
+                <div class="col-md-4"><div class="method-step"><div class="fs-1 mb-2">🔧</div><h6 class="fw-bold">Tooling & Workflow</h6><p class="small text-muted mb-0">Linux + Zsh + tmux + NeoVim/VS Code. Git for VCS, GitHub Actions for CI/CD. Ollama for local AI assistance. Rojo + Wally for Roblox.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK & EXPERIENCE -->
+    <section class="py-5 motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-2">📊 Technical Experience</h2>
+            <p class="text-muted mb-4">Depth and breadth across my tech stack</p>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3">Languages</h5>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Python</span><span class="small text-muted">4+ years — Advanced</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:85%"></div></div><div class="small text-muted mt-1">AI agents, data processing, automation, trading bots</div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Luau (Roblox)</span><span class="small text-muted">3+ years — Advanced</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:80%"></div></div><div class="small text-muted mt-1">Game development, CityX framework, procedural generation</div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>JavaScript / TypeScript</span><span class="small text-muted">4+ years — Advanced</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:78%"></div></div><div class="small text-muted mt-1">Web apps, React, Vite, Node.js, Three.js, automation</div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Rust</span><span class="small text-muted">1+ year — Intermediate</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:40%"></div></div><div class="small text-muted mt-1">Systems programming, CLI tools, performance-critical code</div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Lua (FiveM)</span><span class="small text-muted">2+ years — Intermediate</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:55%"></div></div><div class="small text-muted mt-1">FiveM server scripts, gang wars, custom game modes</div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Bash / Zsh</span><span class="small text-muted">5+ years — Expert</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:90%"></div></div><div class="small text-muted mt-1">System automation, custom scripts, CI/CD pipelines</div></div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3">Frameworks & Tools</h5>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Linux / DevOps</span><span class="small text-muted">Docker, GitHub Actions, Systemd</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:88%"></div></div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>AI / LLMs</span><span class="small text-muted">Ollama, LangChain, Vector DBs</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:75%"></div></div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Databases</span><span class="small text-muted">PostgreSQL, MongoDB, Redis, SQLite</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:70%"></div></div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Web (Frontend)</span><span class="small text-muted">React, Three.js, Bootstrap, Vite</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:80%"></div></div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Roblox Ecosystem</span><span class="small text-muted">Rojo, Wally, Selene, CityX</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:85%"></div></div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Web (Backend)</span><span class="small text-muted">Node.js, Express, Python FastAPI</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:65%"></div></div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Version Control</span><span class="small text-muted">Git, GitHub Advanced</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:90%"></div></div></div>
+                    <div class="mb-3"><div class="d-flex justify-content-between mb-1"><span>Design Patterns</span><span class="small text-muted">ECS, MVC, Event-driven, Observer</span></div><div class="exp-bar"><div class="exp-bar-fill" style="width:75%"></div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN & ALGORITHMS -->
+    <section class="py-5 bg-light motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-4">🧠 Design & Algorithm Skills</h2>
+            <div class="row g-3">
+                <div class="col-md-4"><div class="p-3 border rounded-3 h-100"><h6 class="fw-bold">🏗️ Architecture</h6><p class="small text-muted mb-0">Microservices, ECS (Entity-Component-System), MVC, Event-Driven Architecture, Modular Monoliths. I design for scalability and testability from day one.</p></div></div>
+                <div class="col-md-4"><div class="p-3 border rounded-3 h-100"><h6 class="fw-bold">🧩 Algorithms</h6><p class="small text-muted mb-0">Procedural generation (Perlin noise, cellular automata, L-systems), pathfinding (A*, Dijkstra), graph algorithms, sorting/searching, dynamic programming, state machines.</p></div></div>
+                <div class="col-md-4"><div class="p-3 border rounded-3 h-100"><h6 class="fw-bold">🎨 UI/UX Design</h6><p class="small text-muted mb-0">Bootstrap, responsive design, CSS animations, Three.js 3D interfaces, interactive data visualization, terminal-inspired UIs. Dark theme first.</p></div></div>
+                <div class="col-md-4"><div class="p-3 border rounded-3 h-100"><h6 class="fw-bold">📊 Data Structures</h6><p class="small text-muted mb-0">Trees, graphs, hash maps, spatial indexing (grids, quadtrees), event queues, ring buffers, pooled objects. Chosen for performance characteristics.</p></div></div>
+                <div class="col-md-4"><div class="p-3 border rounded-3 h-100"><h6 class="fw-bold">🔄 Optimization</h6><p class="small text-muted mb-0">Profiling, caching strategies, lazy evaluation, memoization, object pooling, batch processing, async/parallel execution, memory-efficient patterns.</p></div></div>
+                <div class="col-md-4"><div class="p-3 border rounded-3 h-100"><h6 class="fw-bold">🧪 Testing & Quality</h6><p class="small text-muted mb-0">Unit testing, integration testing, TDD where appropriate, linting (Selene, Ruff), type checking, CI gates. I believe in automated quality enforcement.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM SETUP SHORT -->
+    <section class="py-5 motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-4">💻 My Linux Setup</h2>
+            <div class="row g-3">
+                <div class="col-md-6"><div class="card border-0 shadow-sm h-100"><div class="card-body"><h5 class="fw-bold">System</h5><ul class="list-unstyled small"><li>🐧 Ubuntu-based (customized) Linux</li><li>⚡ Zsh + Oh My Zsh + Powerlevel10k</li><li>🖥️ Alacritty terminal + tmux</li><li>📝 VS Code (primary) + NeoVim (quick edits)</li><li>💾 32GB DDR4 + 1TB NVMe SSD</li></ul></div></div></div>
+                <div class="col-md-6"><div class="card border-0 shadow-sm h-100"><div class="card-body"><h5 class="fw-bold">AI Integration</h5><ul class="list-unstyled small"><li>🤖 Ollama with qwen2.5-coder, phi4-mini, llama3.2</li><li>🔧 Custom AI aliases: ai, aimsg, ai-models, ai-bench</li><li>📜 50k history in memory, 100k on disk</li><li>🎯 Fzf integration for everything search</li><li>🔄 Full Git alias set + vcs_info in prompt</li></ul></div></div></div>
+            </div>
+            <div class="mt-3 text-center"><a href="/stack.html" class="btn btn-outline-primary">Full Tech Stack →</a></div>
+        </div>
+    </section>
+
+    <footer class="py-4 bg-dark text-white-50"><div class="container text-center"><small>Copyright &copy; YaWhitekali 2026 • Built on Linux • Powered by Open Source</small></div></footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/motion.js"></script>
 </body>
 </html>

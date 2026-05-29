@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MiastoX - Project Details</title>
+    <meta name="description" content="MiastoX - Procedural climbing game on Roblox. 30 floors, dynamic weather, PvP & rank system. Built with Luau and CityX framework.">
+    <meta property="og:image" content="assets/img/whitekali.jpeg">
+    <link rel="canonical" href="https://dawju9.github.io/Ya-Whitekali/miastox.html">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/motion.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <style>
+        .mx-hero { background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0f3460 100%); min-height: 60vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .mx-hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(0,142,214,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(100,0,214,0.1) 0%, transparent 50%); }
+        .mx-stat { text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        .mx-stat-number { font-size: 2rem; font-weight: bold; background: linear-gradient(90deg, #008ed6, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .mx-stat-label { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+        .mx-feature { padding: 1.5rem; background: rgba(0,142,214,0.03); border: 1px solid rgba(0,142,214,0.08); border-radius: 12px; transition: all 0.3s; }
+        .mx-feature:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,142,214,0.1); border-color: rgba(0,142,214,0.2); }
+        .mx-progress { height: 10px; border-radius: 5px; background: rgba(255,255,255,0.05); overflow: hidden; }
+        .mx-progress-bar { height: 100%; border-radius: 5px; background: linear-gradient(90deg, #008ed6, #00d4ff); transition: width 1.5s ease; }
+        .mx-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        #cityCanvas { width: 100%; height: 400px; border-radius: 16px; background: #0a0a1a; }
+        .mx-roblox-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #008ed6, #00d4ff); color: white; padding: 14px 32px; border-radius: 50px; font-weight: bold; font-size: 18px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,142,214,0.3); }
+        .mx-roblox-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 30px rgba(0,142,214,0.4); color: white; }
+        .mx-timeline-step { position: relative; padding-left: 30px; padding-bottom: 24px; border-left: 2px solid rgba(0,142,214,0.2); }
+        .mx-timeline-step::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #008ed6; }
+        .mx-timeline-step:last-child { border-left-color: transparent; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;background: #0f3460;">
+        <div class="container"><img width="57" height="55" style="border-style: inset;border-radius: 30px;" src="assets/img/whitekali.jpeg"><a class="navbar-brand d-flex align-items-center" href="/"><span style="font-size: 32px;margin-left: 10px;">YaWhitekali</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="background: #008ed6;"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" style="background-image: none;"><strong class="d-sm-flex justify-content-sm-center align-items-sm-center" style="font-size: 16px;text-align: center;">More</strong></span></button>
+            <div class="collapse navbar-collapse text-center d-md-flex" id="navcol-1" style="font-size: 14px;">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/repositories.html">Repositories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/miastox.html">MiastoX</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/games.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/stack.html">Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/my-setup.html">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacts.html">Contacts</a></li>
+                </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="https://github.com/Dawju9" target="_blank" style="padding-right: 15px;padding-left: 15px;">GitHub</a>
+            </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="mx-hero motion-fade-in">
+        <div class="container text-center position-relative">
+            <div class="mb-4 motion-float"><span style="font-size: 4rem;">🏙️</span></div>
+            <h1 class="display-3 fw-bold text-white mb-3">MiastoX</h1>
+            <p class="lead text-white-50 mb-4" style="max-width: 600px; margin: 0 auto;">Procedural climbing game on Roblox — 30 floors, dynamic weather, PvP combat & rank system. Built with Luau and CityX framework.</p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+                <a href="https://www.roblox.com/pl/games/11633610328/MiastoX-Updated-24th" target="_blank" class="mx-roblox-btn motion-hover-glow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M6.5 2.5L2.5 6.5L6.5 10.5L10.5 6.5L6.5 2.5Z"/><path d="M13.5 2.5L17.5 6.5L13.5 10.5L9.5 6.5L13.5 2.5Z"/><path d="M6.5 9.5L10.5 13.5L6.5 17.5L2.5 13.5L6.5 9.5Z"/><path d="M13.5 9.5L17.5 13.5L13.5 17.5L9.5 13.5L13.5 9.5Z"/><path d="M17.5 2.5L21.5 6.5L17.5 10.5L13.5 6.5L17.5 2.5Z"/><path d="M17.5 9.5L21.5 13.5L17.5 17.5L13.5 13.5L17.5 9.5Z"/></svg>
+                    ▶ Play on Roblox
+                </a>
+                <a href="https://github.com/Dawju9/MiastoX" target="_blank" class="btn btn-lg btn-outline-light motion-hover-glow">View Source</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-5 bg-dark motion-hidden">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-3 col-6"><div class="mx-stat"><div class="mx-stat-number" id="statFloors">30+</div><div class="mx-stat-label">Floors</div></div></div>
+                <div class="col-md-3 col-6"><div class="mx-stat"><div class="mx-stat-number">4</div><div class="mx-stat-label">Weather Types</div></div></div>
+                <div class="col-md-3 col-6"><div class="mx-stat"><div class="mx-stat-number">5</div><div class="mx-stat-label">Power-ups</div></div></div>
+                <div class="col-md-3 col-6"><div class="mx-stat"><div class="mx-stat-number">7</div><div class="mx-stat-label">Rank Tiers</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CITY MAP VISUALIZATION -->
+    <section class="py-5 motion-hidden">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">🗺️ Procedural City Map</h2>
+                <button class="btn btn-sm btn-outline-primary" onclick="regenerateCity()">🔄 Generate New</button>
+            </div>
+            <p class="text-muted mb-3">Each playthrough generates a unique city block layout. Below is a real-time procedural visualization of the city generation algorithm.</p>
+            <canvas id="cityCanvas"></canvas>
+            <div class="row g-2 mt-3 text-center small text-muted">
+                <div class="col-auto"><span style="display:inline-block;width:12px;height:12px;background:#4ecdc4;border-radius:2px;margin-right:4px;"></span> Buildings</div>
+                <div class="col-auto"><span style="display:inline-block;width:12px;height:12px;background:#45b7d1;border-radius:2px;margin-right:4px;"></span> Towers</div>
+                <div class="col-auto"><span style="display:inline-block;width:12px;height:12px;background:#96ceb4;border-radius:2px;margin-right:4px;"></span> Parks</div>
+                <div class="col-auto"><span style="display:inline-block;width:12px;height:12px;background:#ffeaa7;border-radius:2px;margin-right:4px;"></span> Roads</div>
+                <div class="col-auto"><span style="display:inline-block;width:12px;height:12px;background:#ff6b6b;border-radius:2px;margin-right:4px;"></span> PvP Zones</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-5 bg-light motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-4 text-center">🎮 Game Features</h2>
+            <div class="row g-3">
+                <div class="col-md-4"><div class="mx-feature"><div class="fs-2 mb-2">🏢</div><h5 class="fw-bold">30+ Floors</h5><p class="text-muted small mb-0">Progressive difficulty from tutorial floors to chaotic endgame. Each floor introduces new mechanics.</p></div></div>
+                <div class="col-md-4"><div class="mx-feature"><div class="fs-2 mb-2">🌦️</div><h5 class="fw-bold">Dynamic Weather</h5><p class="text-muted small mb-0">Sunny, rain, storm, snow, fog — conditions change mid-game and affect gameplay mechanics.</p></div></div>
+                <div class="col-md-4"><div class="mx-feature"><div class="fs-2 mb-2">⚡</div><h5 class="fw-bold">Power-ups</h5><p class="text-muted small mb-0">Speed, Jump, Shield, Invincibility, Double Coins & XP — pickups that change your strategy.</p></div></div>
+                <div class="col-md-4"><div class="mx-feature"><div class="fs-2 mb-2">⚔️</div><h5 class="fw-bold">PvP System</h5><p class="text-muted small mb-0">Arena combat with kill tracking, rankings, and rewards. Fight other players to climb the leaderboard.</p></div></div>
+                <div class="col-md-4"><div class="mx-feature"><div class="fs-2 mb-2">👑</div><h5 class="fw-bold">Rank System</h5><p class="text-muted small mb-0">From Civilian to Owner — 7 ranks. Earn prestige through gameplay and climb the hierarchy.</p></div></div>
+                <div class="col-md-4"><div class="mx-feature"><div class="fs-2 mb-2">🔄</div><h5 class="fw-bold">Prestige</h5><p class="text-muted small mb-0">Complete the game, earn a prestige point, restart with bigger rewards and harder challenges.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT STATUS -->
+    <section class="py-5 motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-4">📊 Project Status & Readiness</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100 p-4">
+                        <h5 class="fw-bold">Overall Completion</h5>
+                        <div class="mx-progress mt-3 mb-2"><div class="mx-progress-bar" style="width:90%"></div></div>
+                        <div class="d-flex justify-content-between"><span class="small text-muted">Core gameplay</span><span class="small fw-bold" style="color:#008ed6;">90%</span></div>
+                        <div class="mx-progress mt-2 mb-2" style="height:6px;"><div class="mx-progress-bar" style="width:75%"></div></div>
+                        <div class="d-flex justify-content-between"><span class="small text-muted">Polish & balance</span><span class="small fw-bold" style="color:#00d4ff;">75%</span></div>
+                        <div class="mx-progress mt-2 mb-2" style="height:6px;"><div class="mx-progress-bar" style="width:95%"></div></div>
+                        <div class="d-flex justify-content-between"><span class="small text-muted">Deployment & CI</span><span class="small fw-bold" style="color:#4ecdc4;">95%</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100 p-4">
+                        <h5 class="fw-bold">Deployment Status</h5>
+                        <div class="mt-3">
+                            <div class="d-flex align-items-center mb-3"><div style="width:12px;height:12px;border-radius:50%;background:#28a745;margin-right:10px;"></div><div><strong>Roblox Live</strong><div class="small text-muted">Published and playable — game ID 11633610328</div></div></div>
+                            <div class="d-flex align-items-center mb-3"><div style="width:12px;height:12px;border-radius:50%;background:#28a745;margin-right:10px;"></div><div><strong>GitHub Pages</strong><div class="small text-muted">Project website live at Dawju9.github.io/MiastoX</div></div></div>
+                            <div class="d-flex align-items-center mb-3"><div style="width:12px;height:12px;border-radius:50%;background:#ffc107;margin-right:10px;"></div><div><strong>CI/CD Pipeline</strong><div class="small text-muted">Automated builds via GitHub Actions (WIP)</div></div></div>
+                            <div class="d-flex align-items-center"><div style="width:12px;height:12px;border-radius:50%;background:#28a745;margin-right:10px;"></div><div><strong>Version</strong><div class="small text-muted">v1.0.1 — Active development continues</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="py-5 bg-light motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-4">📅 Development Timeline</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="mx-timeline-step"><div class="fw-bold">Phase 1: Core Engine</div><div class="small text-muted">Procedural generation, basic climbing mechanics, floor system</div><span class="mx-tag bg-success text-white mt-1">Completed</span></div>
+                    <div class="mx-timeline-step"><div class="fw-bold">Phase 2: Weather & Power-ups</div><div class="small text-muted">Dynamic weather system, 5 power-up types, particle effects</div><span class="mx-tag bg-success text-white mt-1">Completed</span></div>
+                    <div class="mx-timeline-step"><div class="fw-bold">Phase 3: PvP & Ranks</div><div class="small text-muted">Arena combat, 7-rank progression, prestige system</div><span class="mx-tag bg-success text-white mt-1">Completed</span></div>
+                    <div class="mx-timeline-step"><div class="fw-bold">Phase 4: Polish & Balance</div><div class="small text-muted">Difficulty tuning, UI/UX improvements, bug fixes</div><span class="mx-tag bg-warning text-dark mt-1">In Progress</span></div>
+                    <div class="mx-timeline-step"><div class="fw-bold">Phase 5: Community & Expansion</div><div class="small text-muted">Leaderboards, seasonal events, new floor types</div><span class="mx-tag bg-secondary text-white mt-1">Planned</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="py-5 motion-hidden">
+        <div class="container">
+            <h2 class="fw-bold mb-4">🛠️ Tech Stack</h2>
+            <div class="row g-3">
+                <div class="col-md-4 col-6"><div class="p-3 text-center border rounded-3"><div class="fw-bold">Language</div><div class="small text-muted">Luau (Roblox)</div></div></div>
+                <div class="col-md-4 col-6"><div class="p-3 text-center border rounded-3"><div class="fw-bold">Framework</div><div class="small text-muted">CityX</div></div></div>
+                <div class="col-md-4 col-6"><div class="p-3 text-center border rounded-3"><div class="fw-bold">Build Tool</div><div class="small text-muted">Rojo</div></div></div>
+                <div class="col-md-4 col-6"><div class="p-3 text-center border rounded-3"><div class="fw-bold">Packages</div><div class="small text-muted">Wally</div></div></div>
+                <div class="col-md-4 col-6"><div class="p-3 text-center border rounded-3"><div class="fw-bold">Linter</div><div class="small text-muted">Selene</div></div></div>
+                <div class="col-md-4 col-6"><div class="p-3 text-center border rounded-3"><div class="fw-bold">CI/CD</div><div class="small text-muted">GitHub Actions</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 bg-dark text-white-50"><div class="container text-center"><small>Copyright &copy; YaWhitekali 2026 | MiastoX project page</small></div></footer>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script>
+        const canvas = document.getElementById('cityCanvas');
+        const ctx = canvas.getContext('2d');
+        let buildings = [];
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = 400;
+            generateCity();
+        }
+
+        function generateCity() {
+            const w = canvas.width, h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            // Sky gradient
+            const sky = ctx.createLinearGradient(0, 0, 0, h);
+            sky.addColorStop(0, '#0a0a2e');
+            sky.addColorStop(1, '#1a1a3e');
+            ctx.fillStyle = sky;
+            ctx.fillRect(0, 0, w, h);
+
+            // Stars
+            for (let i = 0; i < 80; i++) {
+                ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.5 + 0.2})`;
+                ctx.fillRect(Math.random() * w, Math.random() * h * 0.6, 1.5, 1.5);
+            }
+
+            // Ground
+            ctx.fillStyle = '#1a1a2e';
+            ctx.fillRect(0, h * 0.7, w, h * 0.3);
+
+            // Road grid
+            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < w; x += 60) {
+                ctx.beginPath(); ctx.moveTo(x, h * 0.7); ctx.lineTo(x, h); ctx.stroke();
+            }
+            for (let y = h * 0.7; y < h; y += 40) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+            }
+
+            // Road highlight
+            ctx.strokeStyle = 'rgba(255, 234, 167, 0.15)';
+            ctx.lineWidth = 3;
+            for (let x = 0; x < w; x += 60) {
+                ctx.beginPath(); ctx.moveTo(x + 28, h * 0.7); ctx.lineTo(x + 28, h); ctx.stroke();
+            }
+
+            // Generate buildings
+            buildings = [];
+            const cols = Math.floor(w / 60);
+            const rows = Math.floor((h * 0.3) / 40);
+            const baseY = h * 0.7;
+
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const x = c * 60 + 4;
+                    const y = baseY + r * 40 + 4;
+                    const bw = 52, bh = 32;
+
+                    if (Math.random() > 0.25) {
+                        const height = Math.random() * 120 + 20;
+                        const type = Math.random();
+                        let color, label = '';
+
+                        if (type < 0.6) { color = `hsl(${170 + Math.random() * 20}, 60%, ${40 + Math.random() * 20}%)`; label = 'B'; }
+                        else if (type < 0.8) { color = `hsl(${190 + Math.random() * 15}, 65%, ${45 + Math.random() * 15}%)`; label = 'T'; }
+                        else if (type < 0.92) { color = `hsl(${140 + Math.random() * 20}, 40%, ${55 + Math.random() * 15}%)`; label = 'P'; }
+                        else { color = `hsl(${0 + Math.random() * 10}, 70%, ${50 + Math.random() * 10}%)`; label = '⚔'; }
+
+                        const bx = x, by = baseY - height;
+
+                        // Building body
+                        const grad = ctx.createLinearGradient(bx, by, bx + bw, by + height);
+                        grad.addColorStop(0, color);
+                        grad.addColorStop(1, 'rgba(0,0,0,0.3)');
+                        ctx.fillStyle = grad;
+                        ctx.fillRect(bx, by, bw, height);
+
+                        // Border
+                        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(bx, by, bw, height);
+
+                        // Windows
+                        ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.3 + 0.1})`;
+                        for (let wy = by + 8; wy < baseY - 8; wy += 12) {
+                            for (let wx = bx + 6; wx < bx + bw - 6; wx += 12) {
+                                if (Math.random() > 0.3) {
+                                    ctx.fillRect(wx, wy, 5, 5);
+                                }
+                            }
+                        }
+
+                        buildings.push({ x: bx, y: by, w: bw, h: height, color, label });
+                    }
+                }
+            }
+
+            // Draw some colored markers on special buildings
+            buildings.forEach(b => {
+                if (b.label === '⚔') {
+                    ctx.fillStyle = 'rgba(255,107,107,0.4)';
+                    ctx.font = '12px sans-serif';
+                    ctx.fillText('⚔', b.x + b.w/2 - 6, b.y - 4);
+                }
+            });
+
+            // Title overlay
+            ctx.fillStyle = 'rgba(255,255,255,0.03)';
+            ctx.font = 'bold 48px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('MIAS' + String.fromCharCode(0x54) + 'X', w/2, h * 0.4);
+        }
+
+        function regenerateCity() {
+            generateCity();
+            // Animate
+            canvas.style.opacity = '0.5';
+            canvas.style.transition = 'opacity 0.3s';
+            setTimeout(() => canvas.style.opacity = '1', 300);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        document.addEventListener('DOMContentLoaded', resizeCanvas);
+    </script>
+</body>
+</html>
