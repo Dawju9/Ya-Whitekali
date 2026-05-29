@@ -1,51 +1,32 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Repositories - YaWhitekali</title>
-    <meta name="description" content="All YaWhitekali repositories - AI agents, game development, Linux configurations, and web projects">
+    <meta name="description" content="All YaWhitekali GitHub repositories with README, about, and TODO previews">
     <meta property="og:image" content="assets/img/whitekali.jpeg">
     <link rel="canonical" href="https://dawju9.github.io/Ya-Whitekali/repositories.html">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/motion.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
     <style>
-        .repo-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            border-radius: 12px;
-            height: 100%;
-        }
-        .repo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 142, 214, 0.2);
-        }
-        .tech-badge {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 20px;
-        }
-        .category-header {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 6px;
-        }
-        .status-active { background: #28a745; }
-        .status-dev { background: #ffc107; }
-        .status-archived { background: #6c757d; }
+        .repo-card { background: linear-gradient(135deg, rgba(0,142,214,0.02), rgba(0,212,255,0.02)); border: 1px solid rgba(0,142,214,0.08); border-radius: 16px; transition: all 0.3s ease; height: 100%; }
+        .repo-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,142,214,0.1); border-color: rgba(0,142,214,0.2); }
+        .repo-btn { font-size: 12px; padding: 3px 10px; border-radius: 8px; transition: all 0.2s; }
+        .repo-btn:hover { transform: scale(1.05); }
+        .lang-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+        .modal-content { border-radius: 16px; border: none; }
+        .modal-header { border-bottom: 2px solid rgba(0,142,214,0.1); }
+        .modal-body { max-height: 60vh; overflow-y: auto; font-size: 14px; line-height: 1.6; }
+        .modal-body pre { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; }
+        .modal-body code { background: rgba(0,142,214,0.1); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+        .search-box { border-radius: 12px; border: 1px solid rgba(0,142,214,0.2); padding: 10px 16px; width: 100%; max-width: 400px; transition: all 0.3s; }
+        .search-box:focus { outline: none; border-color: #008ed6; box-shadow: 0 0 0 3px rgba(0,142,214,0.1); }
+        .stat-number { font-size: 1.8rem; font-weight: bold; color: #008ed6; }
+        .stat-label { font-size: 12px; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;background: #0f3460;">
         <div class="container"><img width="57" height="55" style="border-style: inset;border-radius: 30px;" src="assets/img/whitekali.jpeg"><a class="navbar-brand d-flex align-items-center" href="/"><span style="font-size: 32px;margin-left: 10px;">YaWhitekali</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="background: #008ed6;"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" style="background-image: none;"><strong class="d-sm-flex justify-content-sm-center align-items-sm-center" style="font-size: 16px;text-align: center;">More</strong></span></button>
@@ -53,377 +34,260 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="/repositories.html">Repositories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/games.html">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="/stack.html">Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="/my-setup.html">My Setup</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contacts.html">Contacts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/tree.html">File Tree</a></li>
-                    <li class="nav-item"><a class="nav-link text-nowrap" href="/login.html">Log in</a></li>
                 </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="https://github.com/Dawju9" target="_blank" style="padding-right: 15px;padding-left: 15px;">GitHub</a>
             </div>
     </nav>
 
-    <section class="py-5 bg-dark text-white">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h1 class="display-4 fw-bold">My Repositories</h1>
-                <p class="lead text-white-50">A comprehensive collection of projects built on Linux, from AI agents to game development</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-                    <span class="badge bg-primary fs-6 px-3 py-2">12 Repositories</span>
-                    <span class="badge bg-success fs-6 px-3 py-2">8 Active</span>
-                    <span class="badge bg-info fs-6 px-3 py-2">6 Languages</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="py-5">
         <div class="container">
-            <div class="category-header">
-                <div class="d-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-robot me-3">
-                        <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.366.222-4.235.222-1.869 0-3.39-.075-4.235-.222A.933.933 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.873-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a15.005 15.005 0 0 0 1.584-.145.25.25 0 0 0-.068-.495c-.55.076-1.232.149-2.02.193a.25.25 0 0 0-.189-.071l-.754-.736-.847-1.71a.25.25 0 0 0-.404-.062zM6.75 4a.75.75 0 0 0-.75.75v.5c0 .414.336.75.75.75h.5a.75.75 0 0 0 .75-.75v-.5A.75.75 0 0 0 7.25 4z"></path>
-                    </svg>
-                    <div>
-                        <h2 class="fw-bold mb-1">AI & Automation</h2>
-                        <p class="mb-0 text-white-50">Autonomous agents and AI-powered tools running on Linux</p>
-                    </div>
+            <div class="text-center mb-5 motion-fade-in">
+                <h1 class="fw-bold motion-gradient-text">GitHub Repositories</h1>
+                <p class="text-muted">Browse all my public repos — tap to read README, About, or TODO files</p>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <div class="col-md-3 col-6 text-center motion-hidden">
+                    <div class="stat-number" id="totalRepos">0</div>
+                    <div class="stat-label">Repositories</div>
+                </div>
+                <div class="col-md-3 col-6 text-center motion-hidden">
+                    <div class="stat-number" id="totalStars">0</div>
+                    <div class="stat-label">Total Stars</div>
+                </div>
+                <div class="col-md-3 col-6 text-center motion-hidden">
+                    <div class="stat-number" id="totalForks">0</div>
+                    <div class="stat-label">Forks</div>
+                </div>
+                <div class="col-md-3 col-6 text-center motion-hidden">
+                    <div class="stat-number" id="totalTopics">0</div>
+                    <div class="stat-label">Topics</div>
                 </div>
             </div>
 
-            <div class="row g-4 mb-5">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-active"></span>AetherAgent</h5>
-                                <span class="badge bg-success">Active</span>
-                            </div>
-                            <p class="text-muted mb-3">Autonomous AI worker system running 24/7 on Linux server. Utilizes local Ollama models for intelligent task execution, file management, and automated workflows.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-secondary tech-badge">Python</span>
-                                <span class="badge bg-warning text-dark tech-badge">Ollama</span>
-                                <span class="badge bg-dark tech-badge">Linux</span>
-                                <span class="badge bg-info tech-badge">AI</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/Agent</small>
-                                <a href="https://github.com/Dawju9/Agent" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2 motion-hidden">
+                <div class="d-flex flex-wrap gap-2">
+                    <button class="btn btn-sm btn-primary filter-btn" data-filter="all">All</button>
+                    <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="language:Python">Python</button>
+                    <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="language:JavaScript">JavaScript</button>
+                    <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="language:Luau">Luau</button>
+                    <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="language:HTML">HTML</button>
+                    <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="language:Lua">Lua</button>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-active"></span>SchematicsAgent</h5>
-                                <span class="badge bg-success">Active</span>
-                            </div>
-                            <p class="text-muted mb-3">City schematic visualization tool with XML parsing and grid-based rendering. Converts city schematics into visual representations for urban planning analysis.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-danger tech-badge">Python</span>
-                                <span class="badge bg-secondary tech-badge">XML</span>
-                                <span class="badge bg-info tech-badge">Visualization</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/SchematicsAgent</small>
-                                <a href="https://github.com/Dawju9/SchematicsAgent" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-dev"></span>dev_pydantic</h5>
-                                <span class="badge bg-warning text-dark">Dev</span>
-                            </div>
-                            <p class="text-muted mb-3">Pydantic-based data validation and settings management. Development utilities for structured data handling in Python projects.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-danger tech-badge">Python</span>
-                                <span class="badge bg-primary tech-badge">Pydantic</span>
-                                <span class="badge bg-secondary tech-badge">Validation</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/dev_pydantic</small>
-                                <a href="https://github.com/Dawju9/dev_pydantic" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <input type="text" class="search-box" id="searchInput" placeholder="Search repositories...">
             </div>
 
-            <div class="category-header">
-                <div class="d-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-controller me-3">
-                        <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0m2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0m-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1"></path>
-                        <path d="M3.052 1.151C3.614.486 4.467.5 5.132.5c.778 0 1.47.061 2.204.122.686.057 1.39.116 2.154.122.764-.006 1.468-.065 2.154-.122.734-.061 1.426-.122 2.204-.122.665 0 1.518-.014 2.08.651.546.65.552 1.506.552 2.172v7.35c0 .666-.006 1.522-.552 2.172-.562.665-1.415.651-2.08.651-.778 0-1.47-.061-2.204-.122-.686-.057-1.39-.116-2.154-.122-.764.006-1.468.065-2.154.122-.734.061-1.426.122-2.204.122-.665 0-1.518.014-2.08-.651-.546-.65-.552-1.506-.552-2.172v-7.35c0-.666.006-1.522.552-2.172m1.946.871c-.247.294-.297.804-.297 1.623v7.35c0 .819.05 1.329.297 1.623.232.275.675.352 1.352.352.666 0 1.272-.05 1.954-.107.686-.057 1.426-.116 2.196-.122.77.006 1.51.065 2.196.122.682.057 1.288.107 1.954.107.677 0 1.12-.077 1.352-.352.247-.294.297-.804.297-1.623v-7.35c0-.819-.05-1.329-.297-1.623-.232-.275-.675-.352-1.352-.352-.666 0-1.272.05-1.954.107-.686.057-1.426.116-2.196.122-.77-.006-1.51-.065-2.196-.122C7.272 1.452 6.666 1.4 5.999 1.4c-.677 0-1.12.077-1.352.352-.247.294-.297.804-.297 1.623v7.35z"></path>
-                    </svg>
-                    <div>
-                        <h2 class="fw-bold mb-1">Game Development</h2>
-                        <p class="mb-0 text-white-50">Roblox games and game frameworks built with Luau</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 mb-5">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-active"></span>MiastoX</h5>
-                                <span class="badge bg-success">Active</span>
-                            </div>
-                            <p class="text-muted mb-3">Roblox "climb to the top" game built with Luau and CityX framework. Features procedurally-generated cities, weather effects, PvP mechanics, and dynamic obstacles.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-primary tech-badge">Luau</span>
-                                <span class="badge bg-success tech-badge">CityX</span>
-                                <span class="badge bg-info tech-badge">Roblox</span>
-                                <span class="badge bg-warning text-dark tech-badge">Procedural</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/MiastoX</small>
-                                <a href="https://github.com/Dawju9/MiastoX" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-dev"></span>MiastoXproj</h5>
-                                <span class="badge bg-warning text-dark">Dev</span>
-                            </div>
-                            <p class="text-muted mb-3">Level generation system for MiastoX. Game template with procedural level generation, Argon-powered asset management, and city layout algorithms.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-primary tech-badge">Luau</span>
-                                <span class="badge bg-secondary tech-badge">Templates</span>
-                                <span class="badge bg-info tech-badge">Procedural</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/MiastoXproj</small>
-                                <a href="https://github.com/Dawju9/MiastoXproj" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-dev"></span>GamesProjekty</h5>
-                                <span class="badge bg-warning text-dark">Dev</span>
-                            </div>
-                            <p class="text-muted mb-3">Collection of game prototypes and experimental projects. Testing ground for new game mechanics, AI behaviors, and rendering techniques.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-primary tech-badge">Luau</span>
-                                <span class="badge bg-danger tech-badge">Python</span>
-                                <span class="badge bg-info tech-badge">Prototypes</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/GamesProjekty</small>
-                                <a href="https://github.com/Dawju9/GamesProjekty" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-archived"></span>CopsAndRobbers</h5>
-                                <span class="badge bg-secondary">Archived</span>
-                            </div>
-                            <p class="text-muted mb-3">Classic cops and robbers game concept. Experimental multiplayer game with team-based mechanics and chase gameplay.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-primary tech-badge">Luau</span>
-                                <span class="badge bg-secondary tech-badge">Multiplayer</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/CopsAndRobbers</small>
-                                <a href="https://github.com/Dawju9/CopsAndRobbers" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="category-header">
-                <div class="d-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-globe me-3">
-                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49a6.959 6.959 0 0 0 .656 2.5zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068zm3.68-1h2.146c.365-.764.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.806-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-2.475-1.539zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.9 9.17 1.282 8.5 1.077V4z"></path>
-                    </svg>
-                    <div>
-                        <h2 class="fw-bold mb-1">Web & Infrastructure</h2>
-                        <p class="mb-0 text-white-50">Websites, configurations, and deployment tools</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 mb-5">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-active"></span>Ya-Whitekali</h5>
-                                <span class="badge bg-success">Active</span>
-                            </div>
-                            <p class="text-muted mb-3">Portfolio website and personal landing page. Built with Bootstrap, featuring interactive elements, Linux setup showcase, and GitHub Pages deployment.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-warning text-dark tech-badge">HTML</span>
-                                <span class="badge bg-primary tech-badge">Bootstrap</span>
-                                <span class="badge bg-success tech-badge">GitHub Pages</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/Ya-Whitekali</small>
-                                <a href="https://github.com/Dawju9/Ya-Whitekali" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-active"></span>greendragon-site</h5>
-                                <span class="badge bg-success">Active</span>
-                            </div>
-                            <p class="text-muted mb-3">Scratch card implementation using React, TypeScript, and Vite. Interactive web game with smooth animations and modern UI.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-info tech-badge">React</span>
-                                <span class="badge bg-primary tech-badge">TypeScript</span>
-                                <span class="badge bg-secondary tech-badge">Vite</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/greendragon-site</small>
-                                <a href="https://github.com/Dawju9/greendragon-site" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card repo-card shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <h5 class="fw-bold mb-0"><span class="status-dot status-dev"></span>Projekt</h5>
-                                <span class="badge bg-warning text-dark">Dev</span>
-                            </div>
-                            <p class="text-muted mb-3">Main development project workspace. Contains various experimental tools, scripts, and utilities for Linux system management.</p>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span class="badge bg-dark tech-badge">Shell</span>
-                                <span class="badge bg-secondary tech-badge">Scripts</span>
-                                <span class="badge bg-info tech-badge">Linux</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">/Development/repos/Projekt</small>
-                                <a href="https://github.com/Dawju9/Projekt" class="btn btn-sm btn-outline-primary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alert alert-info">
-                <h5 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Linux System Repositories</h5>
-                <p class="mb-0">All repositories are stored locally at <code>/Development/repos/</code> on my Linux server. Each project is synchronized with GitHub for backup and collaboration. The server runs custom Zsh configurations with automated backup scripts.</p>
+            <div id="reposContainer" class="row g-4 motion-stagger"></div>
+            <div id="loadingIndicator" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-muted">Loading repositories from GitHub...</p>
             </div>
         </div>
     </section>
 
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Repository Statistics</h2>
-                <p class="text-muted">Overview of my development activity</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-3 col-6">
-                    <div class="card border-0 shadow-sm text-center p-4">
-                        <h2 class="fw-bold text-primary mb-1">12</h2>
-                        <p class="text-muted mb-0">Total Repos</p>
-                    </div>
+    <!-- Modal for file content -->
+    <div class="modal fade" id="fileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalTitle">File</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="card border-0 shadow-sm text-center p-4">
-                        <h2 class="fw-bold text-success mb-1">8</h2>
-                        <p class="text-muted mb-0">Active Projects</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="card border-0 shadow-sm text-center p-4">
-                        <h2 class="fw-bold text-warning mb-1">3</h2>
-                        <p class="text-muted mb-0">Languages</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="card border-0 shadow-sm text-center p-4">
-                        <h2 class="fw-bold text-info mb-1">24/7</h2>
-                        <p class="text-muted mb-0">AI Agents Running</p>
+                <div class="modal-body" id="modalBody">
+                    <div class="text-center py-4">
+                        <div class="spinner-border text-primary" role="status"></div>
+                        <p class="mt-2 text-muted">Loading...</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <footer class="bg-dark border-top border-secondary">
-        <div class="container py-4 py-lg-5">
-            <div class="row justify-content-center">
-                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Projects</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="https://github.com/Dawju9/MiastoX" class="text-muted">MiastoX</a></li>
-                        <li><a href="https://github.com/Dawju9/Agent" class="text-muted">AetherAgent</a></li>
-                        <li><a href="https://github.com/Dawju9/SchematicsAgent" class="text-muted">SchematicsAgent</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Resources</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="/index.html" class="text-muted">Home</a></li>
-                        <li><a href="/my-setup.html" class="text-muted">My Setup</a></li>
-                        <li><a href="/faq.html" class="text-muted">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Connect</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="https://github.com/Dawju9" class="text-muted" target="_blank">GitHub</a></li>
-                        <li><a href="/contacts.html" class="text-muted">Contact</a></li>
-                        <li><a href="https://discord.gg/5tHYDSzatm" class="text-muted" target="_blank">Discord</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last">
-                    <div class="fw-bold d-flex align-items-center mb-2">
-                        <span class="bs-icon-sm bs-icon-circle bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-terminal">
-                                <path d="M6 9a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3A.5.5 0 0 1 6 9M3.854 4.146a.5.5 0 1 0-.708.708L4.793 6.5 3.146 8.146a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2z"></path>
-                                <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"></path>
-                            </svg></span><span>YaWhitekali</span>
-                    </div>
-                    <p class="text-muted">Building on Linux, powered by open source.</p>
-                </div>
-            </div>
-            <hr class="border-secondary">
-            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
-                <p class="mb-0">Copyright © 2026 YaWhitekali</p>
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a href="https://github.com/Dawju9" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-github">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                            </svg></a></li>
-                    <li class="list-inline-item"><a href="https://x.com/DaevEliot" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter-x">
-                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"></path>
-                            </svg></a></li>
-                    <li class="list-inline-item"><a href="https://www.instagram.com/ayawhitekali" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
-                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
-                            </svg></a></li>
-                </ul>
-            </div>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; YaWhitekali 2026 | Data from GitHub API</small>
         </div>
     </footer>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/bold-and-dark.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script>
+        const GITHUB_USER = 'Dawju9';
+        let allRepos = [];
+
+        async function fetchRepos() {
+            const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`);
+            return await res.json();
+        }
+
+        async function fetchFileContent(repo, filePath) {
+            try {
+                const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${repo}/contents/${filePath}`);
+                if (!res.ok) return null;
+                const data = await res.json();
+                if (data.content) return atob(data.content.replace(/\n/g, ''));
+                return null;
+            } catch { return null; }
+        }
+
+        function renderRepos(repos) {
+            const container = document.getElementById('reposContainer');
+            if (repos.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center py-5"><p class="text-muted">No repositories found matching your criteria.</p></div>';
+                return;
+            }
+            container.innerHTML = repos.map(repo => {
+                const lang = repo.language || 'Unknown';
+                const langColors = { Python: '#3572A5', JavaScript: '#f1e05a', HTML: '#e34c26', Lua: '#000080', Luau: '#00A2FF', TypeScript: '#3178C6', Dart: '#00B4AB', Shell: '#89e051', 'C++': '#f34b7d', Makefile: '#427819', CSS: '#563d7c' };
+                const langColor = langColors[lang] || '#6c757d';
+                return `
+                <div class="col-md-6 col-lg-4 repo-item" data-lang="${lang}">
+                    <div class="repo-card p-4 d-flex flex-column">
+                        <div class="d-flex align-items-start gap-2 mb-2">
+                            <svg width="20" height="20" viewBox="0 0 16 16" fill="#6c757d"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                            <a href="${repo.html_url}" target="_blank" class="fw-bold text-decoration-none flex-grow-1" style="color:#008ed6;">${repo.name}</a>
+                            <span class="small text-muted">${repo.stargazers_count} ★</span>
+                        </div>
+                        <p class="text-muted small mb-2 flex-grow-1">${repo.description || 'No description'}</p>
+                        <div class="mb-2">
+                            <span class="lang-dot" style="background:${langColor}"></span>
+                            <span class="small text-muted">${lang}</span>
+                            ${repo.topics && repo.topics.length ? repo.topics.slice(0,3).map(t => `<span class="badge bg-secondary tech-badge ms-1">${t}</span>`).join('') : ''}
+                        </div>
+                        <div class="d-flex gap-1 mt-auto flex-wrap">
+                            <button class="btn btn-sm btn-outline-primary repo-btn" onclick="openModal('${repo.name}', 'README.md')" title="View README">📖 Readme</button>
+                            <button class="btn btn-sm btn-outline-info repo-btn" onclick="openModal('${repo.name}', 'About.md')" title="View About">ℹ️ About</button>
+                            <button class="btn btn-sm btn-outline-warning repo-btn" onclick="openModal('${repo.name}', 'TODO.md')" title="View TODO">📋 TODO</button>
+                            <button class="btn btn-sm btn-outline-secondary repo-btn" onclick="openModal('${repo.name}', '')" title="Browse .data files">📁 .data</button>
+                        </div>
+                        <div class="small text-muted mt-2">${new Date(repo.updated_at).toLocaleDateString()}</div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        async function openModal(repoName, fileHint) {
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            const modal = new bootstrap.Modal(document.getElementById('fileModal'));
+
+            if (fileHint) {
+                modalTitle.textContent = `${repoName}/${fileHint}`;
+                modalBody.innerHTML = '<div class="text-center py-4"><div class="spinner-border text-primary" role="status"></div><p class="mt-2 text-muted">Loading...</p></div>';
+                modal.show();
+
+                let content = await fetchFileContent(repoName, fileHint);
+                if (content) {
+                    modalBody.innerHTML = `<pre class="m-0">${escapeHtml(content)}</pre>`;
+                } else {
+                    // Try alternate names
+                    const altNames = fileHint === 'About.md' ? ['About.md', 'about.md', 'ABOUT.md', 'about.txt'] :
+                                     fileHint === 'TODO.md' ? ['TODO.md', 'todo.md', 'Todo.md', 'todo.txt'] :
+                                     ['README.md'];
+                    for (const alt of altNames) {
+                        if (alt === fileHint) continue;
+                        content = await fetchFileContent(repoName, alt);
+                        if (content) {
+                            modalTitle.textContent = `${repoName}/${alt}`;
+                            modalBody.innerHTML = `<pre class="m-0">${escapeHtml(content)}</pre>`;
+                            return;
+                        }
+                    }
+                    // Try root README files
+                    const rootFiles = ['README.md', 'README.txt', 'README'];
+                    for (const rf of rootFiles) {
+                        content = await fetchFileContent(repoName, rf);
+                        if (content) {
+                            modalTitle.textContent = `${repoName}/${rf}`;
+                            modalBody.innerHTML = `<pre class="m-0">${escapeHtml(content)}</pre>`;
+                            return;
+                        }
+                    }
+                    modalBody.innerHTML = '<div class="text-center py-4"><p class="text-muted">No content found for this file.</p></div>';
+                }
+            } else {
+                // Search for *.data files via GitHub API
+                modalTitle.textContent = `${repoName} - .data files`;
+                modalBody.innerHTML = '<div class="text-center py-4"><div class="spinner-border text-primary" role="status"></div><p class="mt-2 text-muted">Searching for data files...</p></div>';
+                modal.show();
+
+                try {
+                    const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${repoName}/git/trees/HEAD?recursive=1`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        const dataFiles = (data.tree || []).filter(item => item.path.endsWith('.data') || item.path.endsWith('.quiz'));
+                        if (dataFiles.length > 0) {
+                            let html = '<div class="list-group">';
+                            for (const file of dataFiles) {
+                                const content = await fetchFileContent(repoName, file.path);
+                                html += `<div class="list-group-item"><strong>${file.path}</strong><pre class="mt-2 mb-0 small">${escapeHtml(content || 'Empty or binary file')}</pre></div>`;
+                            }
+                            html += '</div>';
+                            modalBody.innerHTML = html;
+                        } else {
+                            modalBody.innerHTML = '<div class="text-center py-4"><p class="text-muted">No .data or .quiz files found in this repository.</p></div>';
+                        }
+                    }
+                } catch {
+                    modalBody.innerHTML = '<div class="text-center py-4"><p class="text-muted">Error fetching data files.</p></div>';
+                }
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function updateStats(repos) {
+            document.getElementById('totalRepos').textContent = repos.length;
+            document.getElementById('totalStars').textContent = repos.reduce((s, r) => s + r.stargazers_count, 0);
+            document.getElementById('totalForks').textContent = repos.reduce((s, r) => s + r.forks_count, 0);
+            const topics = new Set();
+            repos.forEach(r => (r.topics || []).forEach(t => topics.add(t)));
+            document.getElementById('totalTopics').textContent = topics.size;
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                allRepos = await fetchRepos();
+                updateStats(allRepos);
+                renderRepos(allRepos);
+                document.getElementById('loadingIndicator').style.display = 'none';
+            } catch (e) {
+                document.getElementById('loadingIndicator').innerHTML = '<p class="text-danger">Failed to load repositories. Please try again later.</p>';
+            }
+
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => {
+                        b.className = b.className.replace('btn-primary', 'btn-outline-primary');
+                    });
+                    btn.className = btn.className.replace('btn-outline-primary', 'btn-primary');
+
+                    const filter = btn.dataset.filter;
+                    if (filter === 'all') {
+                        renderRepos(allRepos);
+                    } else if (filter.startsWith('language:')) {
+                        const lang = filter.split(':')[1];
+                        renderRepos(allRepos.filter(r => r.language === lang));
+                    }
+                });
+            });
+
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const filtered = allRepos.filter(r => r.name.toLowerCase().includes(query) || (r.description || '').toLowerCase().includes(query));
+                renderRepos(filtered);
+            });
+        });
+    </script>
 </body>
 </html>

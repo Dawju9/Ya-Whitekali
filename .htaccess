@@ -1,0 +1,38 @@
+# ===================================================
+# UWAGA: GitHub Pages NIE obsługuje .htaccess
+# Ten plik jest tutaj jako dokumentacja konfiguracji.
+# GitHub Pages serwuje tylko statyczne pliki.
+# 
+# Dla przekierowań i błędów użyj:
+#   - 404.html (obsługiwany natywnie)
+#   - JavaScript (dla przekierowań po stronie klienta)
+# ===================================================
+
+# Error pages (GitHub Pages obsługuje tylko 404.html)
+ErrorDocument 400 /400.html
+ErrorDocument 401 /401.html
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+ErrorDocument 502 /502.html
+ErrorDocument 503 /503.html
+
+# Cache control
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+</FilesMatch>
+
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|webp)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# Security
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Rewrite (nie działa na GH Pages - tylko dokumentacja)
+# Redirect /index.html to /
+# RewriteRule ^index\.html$ / [R=301,L]

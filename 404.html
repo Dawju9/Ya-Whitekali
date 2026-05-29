@@ -1,44 +1,26 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Page Not Found - YaWhitekali</title>
-    <meta name="description" content="The page you are looking for does not exist or has been moved.">
+    <title>404 Page Not Found - YaWhitekali</title>
+    <meta name="description" content="The page you are looking for does not exist.">
     <meta property="og:image" content="assets/img/whitekali.jpeg">
     <link rel="canonical" href="https://dawju9.github.io/Ya-Whitekali/404.html">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/motion.css">
     <style>
-        .error-container {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-        }
-        .error-code {
-            font-size: 12rem;
-            font-weight: bold;
-            line-height: 1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .error-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-        @media (max-width: 576px) {
-            .error-code {
-                font-size: 8rem;
-            }
-            .error-title {
-                font-size: 2.5rem;
-            }
-        }
+        .error-container { min-height: 80vh; display: flex; align-items: center; }
+        .error-code { font-size: 12rem; font-weight: bold; line-height: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .error-title { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .error-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+        @media (max-width: 576px) { .error-code { font-size: 8rem; } .error-title { font-size: 2.5rem; } }
     </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;background: #0f3460;">
+    <div class="error-bg motion-fade-in"></div>
+        <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;background: #0f3460;">
         <div class="container"><img width="57" height="55" style="border-style: inset;border-radius: 30px;" src="assets/img/whitekali.jpeg"><a class="navbar-brand d-flex align-items-center" href="/"><span style="font-size: 32px;margin-left: 10px;">YaWhitekali</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="background: #008ed6;"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" style="background-image: none;"><strong class="d-sm-flex justify-content-sm-center align-items-sm-center" style="font-size: 16px;text-align: center;">More</strong></span></button>
             <div class="collapse navbar-collapse text-center d-md-flex" id="navcol-1" style="font-size: 14px;">
                 <ul class="navbar-nav mx-auto">
@@ -53,23 +35,18 @@
                 </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="https://github.com/Dawju9" target="_blank" style="padding-right: 15px;padding-left: 15px;">GitHub</a>
             </div>
     </nav>
-
-    <div class="error-container">
+    <div class="error-container motion-slide-up">
         <div class="container text-center">
-            <div class="error-code">404</div>
-            <h1 class="error-title display-4">Page Not Found</h1>
-            <p class="lead">The page you are looking for does not exist or has been moved.</p>
+            <div class="error-code motion-float">404</div>
+            <h1 class="error-title display-4 text-white">Page Not Found</h1>
+            <p class="lead text-white-50">The page you are looking for does not exist.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
-                <a href="/index.html" class="btn btn-primary btn-lg me-sm-2">Return Home</a>
-                <a href="/tree.html" class="btn btn-outline-secondary btn-lg">View Site Map</a>
+                <a href="/index.html" class="btn btn-primary btn-lg me-sm-2 motion-hover-glow">Return Home</a>
+                <a href="/tree.html" class="btn btn-outline-light btn-lg motion-hover-glow">View Site Map</a>
             </div>
         </div>
     </div>
-
-    <footer class="py-4 bg-dark text-white-50 mt-5">
-        <div class="container text-center">
-            <small>Copyright &copy; YaWhitekali 2026</small>
-        </div>
-    </footer>
+    <footer class="py-4 bg-dark text-white-50 mt-5"><div class="container text-center"><small>Copyright &copy; YaWhitekali 2026</small></div></footer>
+    <script src="assets/js/motion.js"></script>
 </body>
 </html>

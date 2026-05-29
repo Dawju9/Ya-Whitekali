@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Puzzle Games - YaWhitekali</title>
+    <meta name="description" content="Interactive 3D puzzle games built with Three.js - Sliding puzzle and memory game">
+    <meta property="og:image" content="assets/img/whitekali.jpeg">
+    <link rel="canonical" href="https://dawju9.github.io/Ya-Whitekali/games.html">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/motion.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <style>
+        #game-container { width: 100%; max-width: 500px; height: 500px; margin: 0 auto; position: relative; background: rgba(0,0,0,0.05); border-radius: 16px; overflow: hidden; }
+        #game-container canvas { display: block; width: 100% !important; height: 100% !important; }
+        .game-info { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 6px 16px; border-radius: 20px; font-size: 14px; z-index: 10; display: flex; gap: 20px; }
+        .game-controls { text-align: center; margin-top: 1rem; }
+        .puzzle-container { min-height: 80vh; display: flex; align-items: center; }
+        .instructions-card { border-left: 3px solid #008ed6; background: rgba(0, 142, 214, 0.03); }
+        .three-badge { display: inline-block; background: linear-gradient(135deg, #008ed6, #00d4ff); color: white; padding: 2px 10px; border-radius: 12px; font-size: 11px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md sticky-top text-center d-sm-flex justify-content-sm-center align-items-sm-center py-3 navbar-dark" id="mainNav" style="height: 70.7812px;padding-top: 4px !important;background: #0f3460;">
+        <div class="container"><img width="57" height="55" style="border-style: inset;border-radius: 30px;" src="assets/img/whitekali.jpeg"><a class="navbar-brand d-flex align-items-center" href="/"><span style="font-size: 32px;margin-left: 10px;">YaWhitekali</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="background: #008ed6;"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center" style="background-image: none;"><strong class="d-sm-flex justify-content-sm-center align-items-sm-center" style="font-size: 16px;text-align: center;">More</strong></span></button>
+            <div class="collapse navbar-collapse text-center d-md-flex" id="navcol-1" style="font-size: 14px;">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/repositories.html">Repositories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/games.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/stack.html">Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/my-setup.html">My Setup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacts.html">Contacts</a></li>
+                </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="https://github.com/Dawju9" target="_blank" style="padding-right: 15px;padding-left: 15px;">GitHub</a>
+            </div>
+    </nav>
+
+    <div class="puzzle-container">
+        <div class="container">
+            <div class="text-center mb-5 motion-fade-in">
+                <h1 class="fw-bold motion-gradient-text">3D Puzzle Games</h1>
+                <p class="text-muted">Interactive puzzles built with <span class="three-badge">Three.js</span> — Click and drag to solve!</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="motion-hidden glow-section" style="border-radius: 16px; padding: 20px;">
+                        <div id="game-container">
+                            <div class="game-info">
+                                <span>Moves: <strong id="moveCount">0</strong></span>
+                                <span>Time: <strong id="timerDisplay">0s</strong></span>
+                            </div>
+                        </div>
+                        <div class="game-controls">
+                            <button class="btn btn-primary motion-ripple" onclick="shufflePuzzle()">New Game</button>
+                            <button class="btn btn-outline-primary motion-ripple" onclick="resetPuzzle()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card instructions-card motion-slide-right">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold"><i class="bi bi-info-circle"></i> How to Play</h5>
+                            <hr>
+                            <p><strong>🎯 Goal:</strong> Arrange the numbers 1-8 in order (empty space at the end).</p>
+                            <p><strong>🖱️ Click</strong> a tile next to the empty space to slide it.</p>
+                            <p><strong>🔄 Drag</strong> to rotate the 3D view.</p>
+                            <p><strong>⏱️ Complete</strong> in as few moves as possible!</p>
+                            <hr>
+                            <h6>Pro Tips:</h6>
+                            <ul class="small text-muted mb-0">
+                                <li>Solve row by row from top</li>
+                                <li>Use the 3D rotation to see the board from different angles</li>
+                                <li>Fewer moves = higher score!</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card mt-3 motion-hidden">
+                        <div class="card-body text-center p-4">
+                            <h6 class="fw-bold">Leaderboard</h6>
+                            <p class="text-muted small">Your best: <strong id="bestScore">--</strong> moves</p>
+                            <p class="text-muted small">Games played: <strong id="gamesPlayed">0</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 g-4 motion-hidden">
+                <div class="col-12">
+                    <h3 class="fw-bold mb-4">Interactive Elements</h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="interactive-box text-center" data-count="0">
+                        <div class="display-4 mb-2">🎮</div>
+                        <h5 class="fw-bold">Click Counter</h5>
+                        <p>Clicks: <span class="click-count text-primary fw-bold">0</span></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="interactive-box text-center motion-pulse" onclick="this.classList.toggle('bg-primary'); this.classList.toggle('text-white')">
+                        <div class="display-4 mb-2">🎨</div>
+                        <h5 class="fw-bold">Theme Toggle</h5>
+                        <p class="small">Click to change color</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="interactive-box text-center">
+                        <div class="display-4 mb-2 motion-float">✨</div>
+                        <h5 class="fw-bold">Floating Element</h5>
+                        <p class="small">This icon floats forever</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 bg-dark text-white-50 mt-5">
+        <div class="container text-center">
+            <small>Copyright &copy; YaWhitekali 2026 | Powered by Three.js</small>
+        </div>
+    </footer>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // ===== 3D Sliding Puzzle with Three.js =====
+        let scene, camera, renderer, controls;
+        let tiles = [];
+        let emptyIndex = 8;
+        let moves = 0;
+        let timer = 0;
+        let timerInterval = null;
+        let isPlaying = false;
+
+        function initPuzzle() {
+            const container = document.getElementById('game-container');
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a2e);
+
+            camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
+            camera.position.set(4, 3, 5);
+            camera.lookAt(0, 0, 0);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(w, h);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.shadowMap.enabled = true;
+            container.appendChild(renderer.domElement);
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.maxPolarAngle = Math.PI / 2;
+            controls.minDistance = 3;
+            controls.maxDistance = 10;
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0x404060);
+            scene.add(ambientLight);
+            const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+            dirLight.position.set(5, 10, 7);
+            dirLight.castShadow = true;
+            scene.add(dirLight);
+
+            createBoard();
+            shufflePuzzle();
+            animate();
+
+            window.addEventListener('resize', onResize);
+
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+            renderer.domElement.addEventListener('click', (event) => {
+                const rect = renderer.domElement.getBoundingClientRect();
+                mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(tiles.map(t => t.mesh));
+                if (intersects.length > 0) {
+                    const clicked = tiles.find(t => t.mesh === intersects[0].object);
+                    if (clicked) tryMove(clicked.index);
+                }
+            });
+        }
+
+        function createBoard() {
+            const colors = [0xff6b6b, 0x4ecdc4, 0x45b7d1, 0x96ceb4, 0xffeaa7, 0xdda0dd, 0x98d8c8, 0xf7dc6f, 0xbb8fce];
+            const gridSize = 3;
+            const spacing = 1.1;
+
+            for (let i = 0; i < 9; i++) {
+                const row = Math.floor(i / gridSize);
+                const col = i % gridSize;
+                const geo = new THREE.BoxGeometry(0.9, 0.2, 0.9);
+                const mat = new THREE.MeshStandardMaterial({
+                    color: colors[i],
+                    metalness: 0.3,
+                    roughness: 0.4,
+                    transparent: true,
+                    opacity: i === 8 ? 0.15 : 1
+                });
+                const mesh = new THREE.Mesh(geo, mat);
+                mesh.position.set(
+                    (col - 1) * spacing,
+                    0,
+                    (row - 1) * spacing
+                );
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
+
+                // Number label texture
+                if (i < 8) {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 256;
+                    canvas.height = 256;
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+                    ctx.beginPath();
+                    ctx.arc(128, 128, 90, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#1a1a2e';
+                    ctx.font = 'bold 100px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(String(i + 1), 128, 135);
+
+                    const texture = new THREE.CanvasTexture(canvas);
+                    const labelMat = new THREE.SpriteMaterial({ map: texture, depthTest: false });
+                    const label = new THREE.Sprite(labelMat);
+                    label.position.set(0, 0.15, 0);
+                    label.scale.set(0.6, 0.6, 1);
+                    mesh.add(label);
+                }
+
+                scene.add(mesh);
+                tiles.push({ mesh, index: i, currentPos: i });
+            }
+        }
+
+        function tryMove(index) {
+            const gridSize = 3;
+            const emptyRow = Math.floor(emptyIndex / gridSize);
+            const emptyCol = emptyIndex % gridSize;
+            const tileRow = Math.floor(index / gridSize);
+            const tileCol = index % gridSize;
+
+            const isAdjacent = (Math.abs(emptyRow - tileRow) + Math.abs(emptyCol - tileCol)) === 1;
+
+            if (isAdjacent) {
+                if (!isPlaying) {
+                    isPlaying = true;
+                    timerInterval = setInterval(() => {
+                        timer++;
+                        document.getElementById('timerDisplay').textContent = timer + 's';
+                    }, 1000);
+                }
+
+                moves++;
+                document.getElementById('moveCount').textContent = moves;
+
+                // Swap positions
+                const emptyTile = tiles[emptyIndex];
+                const tile = tiles[index];
+
+                const tempPos = emptyTile.mesh.position.clone();
+                emptyTile.mesh.position.copy(tile.mesh.position);
+                tile.mesh.position.copy(tempPos);
+
+                emptyIndex = index;
+
+                checkWin();
+            }
+        }
+
+        function checkWin() {
+            let won = true;
+            for (let i = 0; i < 8; i++) {
+                if (tiles[i].index !== i) { won = false; break; }
+            }
+            if (won && emptyIndex === 8) {
+                if (timerInterval) clearInterval(timerInterval);
+                isPlaying = false;
+                const best = localStorage.getItem('puzzleBest');
+                if (!best || moves < parseInt(best)) {
+                    localStorage.setItem('puzzleBest', moves);
+                }
+                const played = parseInt(localStorage.getItem('puzzlePlayed') || '0') + 1;
+                localStorage.setItem('puzzlePlayed', played);
+                document.getElementById('bestScore').textContent = localStorage.getItem('puzzleBest') || moves;
+                document.getElementById('gamesPlayed').textContent = played;
+
+                setTimeout(() => {
+                    alert('🎉 You won! Completed in ' + moves + ' moves and ' + timer + ' seconds!');
+                }, 300);
+            }
+        }
+
+        function shufflePuzzle() {
+            moves = 0;
+            timer = 0;
+            isPlaying = false;
+            if (timerInterval) clearInterval(timerInterval);
+            document.getElementById('moveCount').textContent = '0';
+            document.getElementById('timerDisplay').textContent = '0s';
+
+            // Reset positions
+            const gridSize = 3;
+            const spacing = 1.1;
+            for (let i = 0; i < 9; i++) {
+                const row = Math.floor(i / gridSize);
+                const col = i % gridSize;
+                tiles[i].mesh.position.set(
+                    (col - 1) * spacing,
+                    0,
+                    (row - 1) * spacing
+                );
+            }
+            emptyIndex = 8;
+
+            // Shuffle by making random valid moves
+            for (let s = 0; s < 100; s++) {
+                const emptyRow = Math.floor(emptyIndex / gridSize);
+                const emptyCol = emptyIndex % gridSize;
+                const neighbors = [];
+                if (emptyRow > 0) neighbors.push(emptyIndex - gridSize);
+                if (emptyRow < gridSize - 1) neighbors.push(emptyIndex + gridSize);
+                if (emptyCol > 0) neighbors.push(emptyIndex - 1);
+                if (emptyCol < gridSize - 1) neighbors.push(emptyIndex + 1);
+                const pick = neighbors[Math.floor(Math.random() * neighbors.length)];
+                const tile = tiles[pick];
+                const emptyTile = tiles[emptyIndex];
+                const tempPos = emptyTile.mesh.position.clone();
+                emptyTile.mesh.position.copy(tile.mesh.position);
+                tile.mesh.position.copy(tempPos);
+                emptyIndex = pick;
+            }
+        }
+
+        function resetPuzzle() {
+            shufflePuzzle();
+        }
+
+        function onResize() {
+            const container = document.getElementById('game-container');
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Load best score from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const best = localStorage.getItem('puzzleBest');
+            if (best) document.getElementById('bestScore').textContent = best;
+            const played = localStorage.getItem('puzzlePlayed') || '0';
+            document.getElementById('gamesPlayed').textContent = played;
+            initPuzzle();
+        });
+    </script>
+</body>
+</html>

@@ -12,6 +12,7 @@
     <meta property="og:type" content="website">
     <meta name="description" content="YaWhitekali - Portfolio, Linux configurations, AI agents, and game development projects. Built on Linux with passion.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/motion.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
     <style>
         .hero-section {
@@ -82,24 +83,23 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="/index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/repositories.html">Repositories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/games.html">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="/stack.html">Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="/my-setup.html">My Setup</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contacts.html">Contacts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/tree.html">File Tree</a></li>
-                    <li class="nav-item"><a class="nav-link text-nowrap" href="/login.html">Log in</a></li>
                 </ul><a class="btn btn-primary btn-sm text-nowrap shadow" role="button" href="https://github.com/Dawju9" target="_blank" style="padding-right: 15px;padding-left: 15px;">GitHub</a>
             </div>
     </nav>
 
-    <section class="hero-section">
+    <section class="hero-section motion-hidden">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0 motion-slide-left">
                     <div class="d-flex justify-content-center justify-content-md-start mb-4">
-                        <img class="profile-img" src="assets/img/whitekali.jpeg" alt="YaWhitekali Profile">
+                        <img class="profile-img motion-float" src="assets/img/whitekali.jpeg" alt="YaWhitekali Profile">
                     </div>
-                    <h1 class="display-4 fw-bold text-white glow-text mb-3">Hey, I'm <span style="color: #008ed6;">Whitekali</span></h1>
+                    <h1 class="display-4 fw-bold text-white glow-text mb-3 motion-typewriter">Hey, I'm <span style="color: #008ed6;">Whitekali</span></h1>
                     <p class="lead text-white-50 mb-4">Linux enthusiast, AI agent developer, and game creator. Building tools and experiences on Linux with passion and precision.</p>
                     <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
                         <a href="/repositories.html" class="btn btn-primary btn-lg shadow">View My Projects</a>
@@ -128,15 +128,15 @@
         </div>
     </section>
 
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light motion-hidden">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5 motion-fade-in">
                 <h2 class="fw-bold">What I Build</h2>
                 <p class="text-muted">From AI agents to Roblox games, I create tools that solve real problems</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 motion-stagger">
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm repo-card">
+                    <div class="card h-100 border-0 shadow-sm repo-card motion-hover-scale">
                         <div class="card-body p-4">
                             <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon" style="top: 1rem;right: 1rem;position: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-robot text-primary">
                                     <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.366.222-4.235.222-1.869 0-3.39-.075-4.235-.222A.933.933 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.873-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a15.005 15.005 0 0 0 1.584-.145.25.25 0 0 0-.068-.495c-.55.076-1.232.149-2.02.193a.25.25 0 0 0-.189-.071l-.754-.736-.847-1.71a.25.25 0 0 0-.404-.062zM6.75 4a.75.75 0 0 0-.75.75v.5c0 .414.336.75.75.75h.5a.75.75 0 0 0 .75-.75v-.5A.75.75 0 0 0 7.25 4z"></path>
@@ -174,10 +174,10 @@
         </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-5 motion-hidden">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0">
+                <div class="col-md-6 mb-4 mb-md-0 motion-slide-left">
                     <h2 class="fw-bold mb-4">Powered by Linux & Open Source</h2>
                     <p class="text-muted mb-4">Every project I build starts with a solid foundation: Linux. From my custom Zsh configuration to AI agents running on local Ollama models, I believe in the power of open source tools.</p>
                     <ul class="list-unstyled">
@@ -202,15 +202,15 @@
         </div>
     </section>
 
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light motion-hidden glow-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Featured Projects</h2>
+            <div class="text-center mb-5 motion-fade-in">
+                <h2 class="fw-bold motion-gradient-text">Featured Projects</h2>
                 <p class="text-muted">A selection of my active repositories</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 motion-stagger">
                 <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm repo-card">
+                    <div class="card h-100 border-0 shadow-sm repo-card motion-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-building text-primary me-2">
@@ -275,11 +275,11 @@
         </div>
     </section>
 
-    <section class="py-5 bg-dark text-white">
+    <section class="py-5 bg-dark text-white motion-hidden">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center motion-scale-in">
                 <div class="col-md-8">
-                    <h3 class="fw-bold mb-2">Ready to collaborate?</h3>
+                    <h3 class="fw-bold mb-2 motion-gradient-text">Ready to collaborate?</h3>
                     <p class="text-white-50 mb-0">Let's build something amazing together. Check out my projects or get in touch.</p>
                 </div>
                 <div class="col-md-4 text-md-end mt-3 mt-md-0">
@@ -346,5 +346,6 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/bold-and-dark.js"></script>
+    <script src="assets/js/motion.js"></script>
 </body>
 </html>
