@@ -1,3 +1,4 @@
+services:
   ollama:
     image: ollama/ollama:latest
     container_name: ollama
@@ -10,9 +11,8 @@
       - n8n_default
       - n8n-stack
 
-    networks:
-      n8n-stack:
-        external: true
-
-#      - n8n.srv1270647.hstgr.cloud  #your_network_name # Upewnij się, że to ta sama sieć co n8n
-
+networks:
+  n8n_default:
+    external: true
+  n8n-stack:
+    external: true

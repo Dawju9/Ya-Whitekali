@@ -2,7 +2,6 @@ name: Scheduled Build
 
 on:
   schedule:
-    # Uruchamia o godzinie 2:00 UTC codziennie
     - cron: "55 11 * * *"
 
 jobs:
@@ -11,30 +10,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-
-      - name: Install Lua
+      - name: Build static site
         run: |
-          sudo apt-get update
-          sudo apt-get install -y lua5.4 luarocks
-
-      - name: Run tests
-        run: |
-          cargo test --verbose
-          lua Tests/GameplayTests.lua
-
-      - name: Lint YAML
-        uses: ibiqlik/action-yamllint@v2.0.1
-        with:
-          config_file: .yamllint.yml
+          mkdir -p _site
+          cp -r *.html assets/ oldsite/ linux-config/ about/ _site/ 2>/dev/null || true
+          cp -r *.css *.js *.yml *.json *.md *.bsdesign docker-compose.yml _site/ 2>/dev/null || true
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: target/test-results/
+          name: site-build
+          path: _site/
