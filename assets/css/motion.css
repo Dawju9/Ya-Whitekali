@@ -41,14 +41,14 @@
 .motion-typewriter {
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid #008ed6;
+    border-right: 2px solid #00d4aa;
     animation: typing 3s steps(40) forwards, blink 0.75s step-end infinite;
 }
 .motion-hover-glow {
     transition: all 0.3s ease;
 }
 .motion-hover-glow:hover {
-    box-shadow: 0 0 20px rgba(0, 142, 214, 0.5);
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
     transform: translateY(-2px);
 }
 .motion-hover-scale {
@@ -59,15 +59,15 @@
 }
 .motion-card {
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 142, 214, 0.1);
+    border: 1px solid rgba(0, 212, 170, 0.1);
 }
 .motion-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 142, 214, 0.2);
-    border-color: rgba(0, 142, 214, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 212, 170, 0.2);
+    border-color: rgba(0, 212, 170, 0.3);
 }
 .motion-gradient-text {
-    background: linear-gradient(90deg, #008ed6, #00d4ff, #008ed6);
+    background: linear-gradient(90deg, #00d4aa, #00ffc8, #00d4aa);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -81,7 +81,7 @@
     content: '';
     position: absolute;
     border-radius: 50%;
-    background: rgba(0, 142, 214, 0.3);
+    background: rgba(0, 212, 170, 0.3);
     width: 100px;
     height: 100px;
     margin-top: -50px;
@@ -111,7 +111,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle, rgba(0, 142, 214, 0.1) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 212, 170, 0.1) 1px, transparent 1px);
     background-size: 30px 30px;
     animation: drift 20s linear infinite;
     pointer-events: none;
@@ -123,7 +123,7 @@
     content: '';
     position: absolute;
     top: -2px; left: -2px; right: -2px; bottom: -2px;
-    background: linear-gradient(45deg, #008ed6, #00d4ff, #008ed6, #00d4ff);
+    background: linear-gradient(45deg, #00d4aa, #00ffc8, #00d4aa, #00ffc8);
     background-size: 400% 400%;
     border-radius: inherit;
     z-index: -1;
@@ -213,7 +213,7 @@
 /* Super links */
 .super-link {
     position: relative;
-    color: #008ed6;
+    color: #00d4aa;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -225,30 +225,30 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #008ed6, #00d4ff);
+    background: linear-gradient(90deg, #00d4aa, #00ffc8);
     transition: width 0.3s ease;
 }
 .super-link:hover::after {
     width: 100%;
 }
 .super-link:hover {
-    text-shadow: 0 0 10px rgba(0, 142, 214, 0.4);
+    text-shadow: 0 0 10px rgba(0, 212, 170, 0.4);
 }
 
 /* Interactive boxes */
 .interactive-box {
     cursor: pointer;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, rgba(0, 142, 214, 0.05), rgba(0, 212, 255, 0.05));
-    border: 1px solid rgba(0, 142, 214, 0.1);
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.05), rgba(0, 255, 200, 0.05));
+    border: 1px solid rgba(0, 212, 170, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
 }
 .interactive-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 142, 214, 0.15);
-    border-color: rgba(0, 142, 214, 0.3);
-    background: linear-gradient(135deg, rgba(0, 142, 214, 0.1), rgba(0, 212, 255, 0.1));
+    box-shadow: 0 10px 30px rgba(0, 212, 170, 0.15);
+    border-color: rgba(0, 212, 170, 0.3);
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(0, 255, 200, 0.1));
 }
 .interactive-box:active {
     transform: scale(0.98);
@@ -266,8 +266,8 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at 30% 50%, rgba(0, 142, 214, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 70% 50%, rgba(0, 212, 255, 0.03) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 50%, rgba(0, 212, 170, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(0, 255, 200, 0.03) 0%, transparent 50%);
     animation: glowDrift 8s ease-in-out infinite;
     pointer-events: none;
 }
@@ -278,7 +278,7 @@
 
 /* Progress bars */
 .progress-bar-animated {
-    background: linear-gradient(90deg, #008ed6, #00d4ff);
+    background: linear-gradient(90deg, #00d4aa, #00ffc8);
     background-size: 200% 100%;
     animation: progressShimmer 2s linear infinite;
 }
