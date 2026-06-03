@@ -1098,7 +1098,7 @@ lb(){
     local secs=$(cat $d/*.log 2>/dev/null | grep '|SESSION_END|' | grep -oP 'duration=\K[0-9]+' | awk '{s+=$1} END{printf "%d", s}' 2>/dev/null)
     printf "\n${CC}  ┌─ STATYSTYKI: %s ──────────────────────────${C1}\n" "$u"
     printf "  │ Komendy:     %d\n" $total
-    [[ $total -gt 0 ]] && printf "  │ Bledy:       %d (%s%%)\n" $fails "$(echo "scale=1;$fails*100/$total" | bc 2>/dev/null || echo 0)"
+    [[ $total -gt 0 ]] && printf "  │ Bledy:       %d (%s%%)\n" $fails "$(awk "BEGIN{printf \"%.1f\", $fails*100/$total}" 2>/dev/null || echo "0")"
     printf "  │ Sesje:        %d\n" $sess
     printf "  │ Czas sesji:  ~%dh\n" $(( ${secs:-0}/3600 ))
     printf "  │\n"
