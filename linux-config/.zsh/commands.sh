@@ -657,48 +657,51 @@ gh-help() { /Development/scripts/version_manager.sh help; }
 
 ya-sync() {
   local msg="${1:-Update configuration and projects}"
-  local repos=(
-    "/root/About"
-    "/root/whitekali_repo"
-  )
+  local about_root="/root/About"
+  local whitekali_root="/root/whitekali_repo"
   
-  print -P "%F{cyan}🔄 Starting Unified Configuration Sync...%f"
+  # Helper to print if zsh, else echo
+  _ya_log() {
+    if [[ -n "$ZSH_VERSION" ]]; then print -P "$1"; else echo "$1" | sed 's/%F{[^}]*}//g;s/%f//g'; fi
+  }
+
+  _ya_log "%F{cyan}🔄 Starting Unified Configuration Sync...%f"
   
-  # 1. Update local repo copies from system
-  for repo in "${repos[@]}"; do
+  # 1. Ensure About is updated with system config
+  if [[ -d "$about_root" ]]; then
+    _ya_log "%F{blue}📁 Syncing System -> About...%f"
+    local conf_dir="$about_root/linux/own"
+    mkdir -p "$conf_dir/.zsh"
+    cp /root/.zshrc "$conf_dir/"
+    cp /root/.zshenv "$conf_dir/"
+    cp /root/.bashrc "$conf_dir/"
+    cp /root/.profile "$conf_dir/"
+    cp /root/.zsh/commands.sh "$conf_dir/.zsh/"
+    cp /root/.zsh/welcome.sh "$conf_dir/.zsh/"
+    cp /root/.zsh/welcome_engine.sh "$conf_dir/.zsh/"
+    sed -i 's/export GITHUB_TOKEN=.*/export GITHUB_TOKEN="YOUR_GITHUB_TOKEN_HERE"/' "$conf_dir/.zshrc"
+  fi
+
+  # 2. Sync About -> Ya-Whitekali
+  if [[ -d "$about_root" && -d "$whitekali_root" ]]; then
+    _ya_log "%F{blue}🔗 Bridging About -> Ya-Whitekali...%f"
+    mkdir -p "$whitekali_root/about" "$whitekali_root/linux-config/.zsh"
+    
+    # Sync Analysis
+    [[ -f "$about_root/CONFIGURATION.md" ]] && cp "$about_root/CONFIGURATION.md" "$whitekali_root/about/"
+    
+    # Sync Config Files from About (already masked)
+    cp -r "$about_root/linux/own/." "$whitekali_root/linux-config/"
+    
+    # Update sync status for the website
+    local sync_time=$(date +"%Y-%m-%d %H:%M:%S")
+    mkdir -p "$whitekali_root/assets/data"
+    echo "{\"last_sync\": \"$sync_time\", \"status\": \"Success\", \"message\": \"$msg\"}" > "$whitekali_root/assets/data/sync_status.json"
+  fi
+
+  # 3. Git Push both
+  for repo in "$about_root" "$whitekali_root"; do
     if [[ -d "$repo" ]]; then
-      print -P "%F{blue}📁 Updating $repo...%f"
-      
-      # Determine target subdirs
-      local conf_dir=""
-      local about_dir=""
-      
-      if [[ "$repo" == *"/About" ]]; then
-        conf_dir="$repo/linux/own"
-        about_dir="$repo"
-      else
-        conf_dir="$repo/linux-config"
-        about_dir="$repo/about"
-      fi
-      
-      mkdir -p "$conf_dir/.zsh" "$about_dir"
-      
-      # Copy files
-      cp /root/.zshrc "$conf_dir/"
-      cp /root/.zshenv "$conf_dir/"
-      cp /root/.bashrc "$conf_dir/"
-      cp /root/.profile "$conf_dir/"
-      cp /root/.zsh/commands.sh "$conf_dir/.zsh/"
-      cp /root/.zsh/welcome.sh "$conf_dir/.zsh/"
-      cp /root/.zsh/welcome_engine.sh "$conf_dir/.zsh/"
-      
-      # Copy analysis if exists
-      [[ -f /root/About_Config.md ]] && cp /root/About_Config.md "$about_dir/CONFIGURATION.md"
-      
-      # Mask token
-      sed -i 's/export GITHUB_TOKEN=.*/export GITHUB_TOKEN="YOUR_GITHUB_TOKEN_HERE"/' "$conf_dir/.zshrc"
-      
-      # Git ops
       (
         cd "$repo"
         local branch=$(git branch --show-current)
@@ -706,17 +709,15 @@ ya-sync() {
         if [[ -n $(git status --short) ]]; then
           git commit -m "$msg"
           git push origin "$branch"
-          print -P "%F{green}✓ $repo updated and pushed to $branch%f"
+          _ya_log "%F{green}✓ $(basename "$repo") updated and pushed to $branch%f"
         else
-          print -P "%F{yellow}ℹ No changes in $repo%f"
+          _ya_log "%F{yellow}ℹ No changes in $(basename "$repo")%f"
         fi
       )
-    else
-      print -P "%F{red}✗ Repository not found: $repo%f"
     fi
   done
   
-  print -P "%F{green}✨ Sync complete!%f"
+  _ya_log "%F{green}✨ Unified Sync complete!%f"
 }
 
 help-gh() {
@@ -1044,6 +1045,7 @@ lb(){
   local C1='\033[0m' C2='\033[2m' CG='\033[1;32m' CY='\033[1;33m' CR='\033[1;31m' CC='\033[1;36m'
 
   # nullglob: zsh nie bladuje na pustych globach
+  [[ -n "${ZSH_VERSION:-}" ]] && setopt nullglob 2>/dev/null; [[ -n "${BASH_VERSION:-}" ]] && shopt -s nullglob 2>/dev/null
   case $c in
   users)
     printf "\n${CC}  %-18s %6s %8s  %s${C1}\n" USER DAYS CMDS LAST_CMD
