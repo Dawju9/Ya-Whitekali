@@ -160,18 +160,17 @@ $ whoami
 YaWhitekali - Developer & Linux Enthusiast
 
 $ echo $SHELL
-/bin/zsh - Custom KXL System
+/bin/zsh - Custom KXL System (Refactored & Unified)
 
-$ ollama list
-qwen2.5-coder:1.5b, phi4-mini, llama3.2
-
-$ gh repo list Dawju9 | wc -l
-12 repositories and counting...
+$ cat about/CONFIGURATION.md | head -n 5
+# Konfiguracja Terminala i Serwera
+# Cel i filozofia konfiguracji...
 ```
 
 </div>
 
-> 📖 Want to see my full Linux configuration? Check out the [My Setup](https://dawju9.github.io/Ya-Whitekali/my-setup.html) page on my website!
+> 📖 Sprawdź pełną [Analizę Konfiguracji](about/CONFIGURATION.md) oraz [Pliki źródłowe](linux-config/) bezpośrednio w tym repozytorium!
+> Możesz też odwiedzić stronę [My Setup](https://dawju9.github.io/Ya-Whitekali/my-setup.html) na mojej witrynie.
 
 ---
 

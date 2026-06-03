@@ -219,16 +219,16 @@ who() {
     print -P "%F{magenta}UŻYTKOWNIK       TTY        DATASLOGOWANIA    DZIEŃ%f"
     command who | while read -r line; do
       local user=$(echo "$line" | awk '{print $1}')
-      local tty=$(echo "$line" | awk '{2}' | cut -d: -f1)
-      local date=$(echo "$line" | awk '{print $2, $3}')
-      local day=$(echo "$line" | awk '{print $4}')
+      local tty=$(echo "$line" | awk '{print $2}' | cut -d: -f1)
+      local date=$(echo "$line" | awk '{print $3, $4}')
+      local day=$(echo "$line" | awk '{print $5}')
       echo -E " $user $tty $date $day"
     done
   else
     print -P "%F{magenta}UŻYTKOWNIK       TTY        LOGIN TIME                  OPCJONALNIE%f"
     command who | while read -r line; do
       local user=$(echo "$line" | awk '{print $1}')
-      local tty=$(echo "$line" | awk '{2}' | cut -d: -f1)
+      local tty=$(echo "$line" | awk '{print $2}' | cut -d: -f1)
       local rest=$(echo "$line" | sed "s/^[^ ]* *[^ ]* *//")
       echo -E " $user $tty $rest"
     done
@@ -785,6 +785,68 @@ function lscreen {
       ;;
     *)
       return 0
+      ;;
+  esac
+}
+
+# ==============================
+# FOG - SMART DIRECTORY JUMP
+# ==============================
+
+fog() {
+  local target="$1"
+
+  if [[ -z "$target" ]]; then
+    print -P ""
+    print -P "%F{cyan}┌─────────────────────────────────────────────────────┐%f"
+    print -P "%F{cyan}│%F{yellow}  FOG - szybkie skakanie do katalogów%F{cyan}                  │%f"
+    print -P "%F{cyan}└─────────────────────────────────────────────────────┘%f"
+    print -P ""
+    print -P "%F{green}Użycie:%f fog <nazwa_katalogu>"
+    print -P "%F{blue}Przykład:%f fog Development   # → /Development"
+    print -P "%F{blue}         %f fog cityx          # → /Development/projekt/cityx"
+    print -P ""
+    return 1
+  fi
+
+  local dirs=()
+
+  for base in /Development /home ~; do
+    [[ -d "$base/$target" ]] && dirs+=("$base/$target")
+  done
+
+  if [[ ${#dirs} -eq 0 ]]; then
+    if command -v locate &>/dev/null; then
+      dirs=($(locate -b "/$target" 2>/dev/null | head -20))
+    fi
+  fi
+
+  if [[ ${#dirs} -eq 0 ]]; then
+    dirs=($(find / -type d -name "$target" 2>/dev/null | head -20))
+  fi
+
+  case ${#dirs} in
+    0)
+      print -P "%F{red}✗ Nie znaleziono katalogu: %F{yellow}$target%f"
+      return 1
+      ;;
+    1)
+      builtin cd "${dirs[1]}" && ls
+      ;;
+    *)
+      print -P "%F{yellow}Znaleziono %F{green}${#dirs[@]}%F{yellow} katalogów:%f"
+      print -P ""
+      local i=1
+      for d in "${dirs[@]}"; do
+        print -P "  %F{green}$i%f) %F{white}$d%f"
+        ((i++))
+      done
+      print -P ""
+      local choice
+      read "choice?%F{blue}Wybierz numer (lub Enter = anuluj):%f "
+      if [[ -n "$choice" && "$choice" =~ ^[0-9]+$ && $choice -ge 1 && $choice -le ${#dirs[@]} ]]; then
+        builtin cd "${dirs[$choice]}" && ls
+      fi
       ;;
   esac
 }
