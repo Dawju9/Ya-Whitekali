@@ -150,7 +150,15 @@ count_lines() {
 
 git_branch()  { git -C "$1" rev-parse --abbrev-ref HEAD 2>/dev/null; }
 git_changes() { git -C "$1" status --short 2>/dev/null | wc -l; }
-git_remote()  { git -C "$1" config --get remote.origin.url 2>/dev/null; }
+git_remote()  {
+  local url=$(git -C "$1" config --get remote.origin.url 2>/dev/null)
+  # Maskuj tokeny w URL (https://user:TOKEN@github.com -> https://user:***@github.com)
+  if [[ "$url" =~ ^https://[^:]+:[^@]+@ ]]; then
+    echo "$url" | sed -E 's#(https://[^:]+:)[^@]+(@)#\1***\2#'
+  else
+    echo "$url"
+  fi
+}
 git_last_commit() { git -C "$1" log -1 --pretty=format:'%h %s (%ar)' 2>/dev/null; }
 git_commit_count() { git -C "$1" rev-list --count HEAD 2>/dev/null; }
 git_uncommitted() {

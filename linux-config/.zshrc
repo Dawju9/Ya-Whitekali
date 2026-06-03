@@ -127,6 +127,8 @@ fi
 # ==============================
 source ~/.zsh/commands.sh
 source ~/.zsh/welcome.sh
+# Logbook - logowanie aktywnosci
+source /Development/scripts/logbook.sh 2>/dev/null
 
 # ==============================
 # EXTERNAL

@@ -147,20 +147,8 @@ Wszystkie komendy używają bezpośredniego REST API Ollama.
 
 ---
 
----
-
-### **10. Zastosowane poprawki (Wersja Spójna)**
-
-W ramach najnowszej aktualizacji wprowadzono następujące usprawnienia:
-
-1.  **NVM (Lazy Loading):** Zoptymalizowano ładowanie NVM. Zamiast spowalniać start powłoki przy każdym uruchomieniu, NVM ładuje się teraz dopiero przy pierwszym wywołaniu komend `node`, `npm` lub `nvm`.
-2.  **Fix `who()`:** Naprawiono błąd parsowania `awk`, który uniemożliwiał poprawne wyświetlanie informacji o użytkownikach.
-3.  **Fix `cdw`:** Naprawiono alias `cdw`, zamieniając go na funkcję obsługującą argumenty.
-4.  **Optymalizacja Welcome:** Usunięto dublujące się mechanizmy powitalne, pozostawiając czystszy hook `chpwd`.
-5.  **Bash-to-Zsh:** Dodano `exec zsh` do pliku `.bashrc`, aby zapewnić automatyczne przejście do preferowanej powłoki Zsh.
-6.  **Bezpieczeństwo:** `GITHUB_TOKEN` został zamaskowany w publicznym repozytorium.
-
----
-
 **Podsumowanie:**
-Masz teraz jedną, spójną i zoptymalizowaną wersję konfiguracji, która rozwiązuje wcześniej zidentyfikowane problemy techniczne i wydajnościowe.
+
+Masz jedną z najbardziej rozbudowanych i przemyślanych konfiguracji shellowych, jakie widziałem u indywidualnego użytkownika. Po usunięciu błędów bezpieczeństwa i kilku bugów będzie to naprawdę profesjonalny, przyjemny i wydajny setup.
+
+Chcesz, żebym przygotował **wersję po refaktoryzacji** z poprawkami (czystszą strukturę plików + rekomendowane zmiany)? Mogę wypisać gotowe fragmenty kodu do zastąpienia.

@@ -98,7 +98,7 @@ help() {
     local name=$(echo "$line" | sed 's/=.*//')
     local cmd=$(echo "$line" | sed "s/^[^=]*=//" | sed "s/'//g")
     print -P "   %F{green}$name%f → %F{blue}$cmd%f"
-  done
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
 
   print -P ""
   print -P "%F{yellow}Type 'welcome' for system info%f"
@@ -125,7 +125,7 @@ suggest_local() {
     echo "$aliases" | while read line; do
       local alias_name=$(echo "$line" | sed "s/alias //" | cut -d= -f1)
       print -P "   %F{cyan}$alias_name%f"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
     found=1
   fi
 
@@ -136,10 +136,10 @@ suggest_local() {
       if [[ -n "$matches" ]]; then
         for m in ${=matches}; do
           found_cmds+=("$m")
-        done
+        done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
       fi
     fi
-  done
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
 
   if [[ ${#found_cmds[@]} -gt 0 ]]; then
     print -P ""
@@ -147,7 +147,7 @@ suggest_local() {
     local unique_cmds=($(echo "${found_cmds[@]}" | tr ' ' '\n' | sort -u))
     for c in "${unique_cmds[@]}"; do
       print -P "   %F{cyan}$c%f"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
     found=1
   fi
 
@@ -157,7 +157,7 @@ suggest_local() {
     print -P "%F{green}⚡ Funkcje:%f"
     echo "$funcs" | while read line; do
       print -P "   %F{cyan}$(echo "$line" | cut -d' ' -f1)%f"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
     found=1
   fi
 
@@ -223,7 +223,7 @@ who() {
       local date=$(echo "$line" | awk '{print $3, $4}')
       local day=$(echo "$line" | awk '{print $5}')
       echo -E " $user $tty $date $day"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
   else
     print -P "%F{magenta}UŻYTKOWNIK       TTY        LOGIN TIME                  OPCJONALNIE%f"
     command who | while read -r line; do
@@ -231,7 +231,7 @@ who() {
       local tty=$(echo "$line" | awk '{print $2}' | cut -d: -f1)
       local rest=$(echo "$line" | sed "s/^[^ ]* *[^ ]* *//")
       echo -E " $user $tty $rest"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
   fi
 
   print -P ""
@@ -296,7 +296,7 @@ ai() {
     print -P ""
     echo "$response" | fold -w 80 -s | while read -r line; do
       print -P "  %F{white}$line%f"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
   else
     print -P "%F{red}✗ Błąd:%f Nie można połączyć z Ollama"
     print -P "%F{yellow}Sprawdź czy serwis działa:%f curl $OLLAMA_HOST"
@@ -333,12 +333,12 @@ aimsg() {
     if [[ -n "$response" ]]; then
       echo "$response" | fold -w 70 -s | while read -r line; do
         print -P "  %F{white}$line%f"
-      done
+      done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
     else
       print -P "%F{red}✗ Błąd połączenia%f"
     fi
     print -P ""
-  done
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
 
   print -P "%F{cyan}Do zobaczenia! 👋%f"
   print -P ""
@@ -403,7 +403,7 @@ ai-models() {
   curl -s http://localhost:11434/api/tags | jq -r '.models[] | "\(.name)|\(.size)|\(.modified_at)"' 2>/dev/null | while IFS='|' read -r name size modified; do
     local size_gb=$(echo "scale=2; $size / 1024 / 1024 / 1024" | bc -l 2>/dev/null || echo "$size")
     print -P "%F{green}%-30s%f %F{yellow}%12s GB%f %F{blue}%s%f" "$name" "$size_gb" "$modified"
-  done
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
 
   print -P ""
   print -P "%F{blue}Current model:%f %F{white}$OLLAMA_MODEL%f"
@@ -470,7 +470,7 @@ ai-bench() {
     fi
 
     ((i++))
-  done
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
 
   print -P ""
 }
@@ -538,7 +538,7 @@ history() {
         shift
         ;;
     esac
-  done
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
 
   if [[ "$show_stats" == "true" ]]; then
     print -P ""
@@ -555,7 +555,7 @@ history() {
     print -P "%F{magenta}Top 10 używanych poleceń:%f"
     echo "$top_cmds" | while read -r count cmd; do
       [[ -n "$cmd" ]] && print -P "   %F{yellow}$count%f × %F{cyan}$cmd%f"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
     print -P ""
     return 0
   fi
@@ -574,7 +574,7 @@ history() {
       local cmd=$(echo "$line" | sed 's/^[0-9]*[ *]*//')
       local time=$(echo "$line" | awk '{print $2, $3}')
       print -P " %F{green}$num%f  %F{dim}$time%f  %F{white}$cmd%f"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
   else
     print -P "%F{magenta}%-6s %-8s %s%f" "NR" "CZAS" "POLECENIE"
     print -P "%F{dim}$(printf '%.0s─' {1..70})%f"
@@ -583,7 +583,7 @@ history() {
       local cmd=$(echo "$line" | sed 's/^[0-9]*[ *]*//')
       local time=$(echo "$line" | awk '{print $2, $3}')
       print -P " %F{green}$num%f  %F{yellow}$time%f  %F{white}$cmd%f"
-    done
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
   fi
 
   print -P ""
@@ -651,6 +651,74 @@ gh-log() { /Development/scripts/version_manager.sh log "$1"; }
 gh-status() { /Development/scripts/version_manager.sh status "$1"; }
 gh-help() { /Development/scripts/version_manager.sh help; }
 
+# ==============================
+# UNIFIED CONFIG SYNC
+# ==============================
+
+ya-sync() {
+  local msg="${1:-Update configuration and projects}"
+  local repos=(
+    "/root/About"
+    "/root/whitekali_repo"
+  )
+  
+  print -P "%F{cyan}🔄 Starting Unified Configuration Sync...%f"
+  
+  # 1. Update local repo copies from system
+  for repo in "${repos[@]}"; do
+    if [[ -d "$repo" ]]; then
+      print -P "%F{blue}📁 Updating $repo...%f"
+      
+      # Determine target subdirs
+      local conf_dir=""
+      local about_dir=""
+      
+      if [[ "$repo" == *"/About" ]]; then
+        conf_dir="$repo/linux/own"
+        about_dir="$repo"
+      else
+        conf_dir="$repo/linux-config"
+        about_dir="$repo/about"
+      fi
+      
+      mkdir -p "$conf_dir/.zsh" "$about_dir"
+      
+      # Copy files
+      cp /root/.zshrc "$conf_dir/"
+      cp /root/.zshenv "$conf_dir/"
+      cp /root/.bashrc "$conf_dir/"
+      cp /root/.profile "$conf_dir/"
+      cp /root/.zsh/commands.sh "$conf_dir/.zsh/"
+      cp /root/.zsh/welcome.sh "$conf_dir/.zsh/"
+      cp /root/.zsh/welcome_engine.sh "$conf_dir/.zsh/"
+      
+      # Copy analysis if exists
+      [[ -f /root/About_Config.md ]] && cp /root/About_Config.md "$about_dir/CONFIGURATION.md"
+      
+      # Mask token
+      sed -i 's/export GITHUB_TOKEN=.*/export GITHUB_TOKEN="YOUR_GITHUB_TOKEN_HERE"/' "$conf_dir/.zshrc"
+      
+      # Git ops
+      (
+        cd "$repo"
+        local branch=$(git branch --show-current)
+        git add .
+        if [[ -n $(git status --short) ]]; then
+          git commit -m "$msg"
+          git push origin "$branch"
+          print -P "%F{green}✓ $repo updated and pushed to $branch%f"
+        else
+          print -P "%F{yellow}ℹ No changes in $repo%f"
+        fi
+      )
+    else
+      print -P "%F{red}✗ Repository not found: $repo%f"
+    fi
+  done
+  
+  print -P "%F{green}✨ Sync complete!%f"
+}
+
 help-gh() {
     cat << 'HELP'
 ========================================
@@ -658,6 +726,9 @@ help-gh() {
 ========================================
 
 Skróty dostępne w terminalu:
+
+🚀 KONFIGURACJA:
+  ya-sync "msg"           - Synchronizuj system z repozytoriami About i Ya-Whitekali
 
 📦 WERSJE:
   vman                    - Pokaz wersje wszystkich projektów
@@ -684,16 +755,10 @@ Skróty dostępne w terminalu:
   gh-help               - Ta pomoc
 
 Przykłady użycia:
+  ya-sync "Dodano nowe aliasy"
   vman
   gh-update game patch
   gh-push framework "Poprawki bugów"
-  gh-log web
-  gh-status game
-
-Projekty:
-  - cityx (framework)
-  - MiastoX (game)
-  - MiastoX/web (strona www)
 HELP
 }
 
@@ -813,7 +878,7 @@ fog() {
 
   for base in /Development /home ~; do
     [[ -d "$base/$target" ]] && dirs+=("$base/$target")
-  done
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
 
   if [[ ${#dirs} -eq 0 ]]; then
     if command -v locate &>/dev/null; then
@@ -840,7 +905,7 @@ fog() {
       for d in "${dirs[@]}"; do
         print -P "  %F{green}$i%f) %F{white}$d%f"
         ((i++))
-      done
+      done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
       print -P ""
       local choice
       read "choice?%F{blue}Wybierz numer (lub Enter = anuluj):%f "
@@ -850,3 +915,270 @@ fog() {
       ;;
   esac
 }
+
+# ==============================
+# WELCOME / REPO COMMANDS
+# ==============================
+
+# welcome-engine - wyświetl info o bieżącym katalogu (lub podanym)
+we() {
+  local target="${1:-.}"
+  bash /root/.zsh/welcome_engine.sh "$target"
+}
+
+# we-init - wygeneruj .welcome.conf w bieżącym katalogu
+we-init() {
+  local target="${1:-.}"
+  if [[ -f "$target/.welcome.conf" ]]; then
+    echo "❌ .welcome.conf już istnieje w $target"
+    return 1
+  fi
+  if [[ -f /root/.zsh/welcome.conf.template ]]; then
+    cp /root/.zsh/welcome.conf.template "$target/.welcome.conf"
+    echo "✓ Skopiowano template do $target/.welcome.conf"
+    echo "💡 Edytuj PROJECT_NAME, PROJECT_DESC, TECH_STACK"
+  else
+    bash /root/.zsh/welcome_engine.sh --generate "$target"
+  fi
+}
+
+# we-md - parsuj i pokaż strukturę markdown file
+we-md() {
+  local file="${1:-README.md}"
+  if [[ ! -f "$file" ]]; then
+    echo "❌ Plik nie istnieje: $file"
+    return 1
+  fi
+  echo "📖 Markdown: $file"
+  echo "────────────────────────────────────────"
+  echo "Tytuł:"
+  bash /root/.zsh/welcome_engine.sh --help >/dev/null 2>&1
+  source /root/.zsh/welcome_engine.sh 2>/dev/null
+  md_get_title "$file"
+  echo ""
+  echo ""
+  echo "Opis:"
+  md_get_description "$file"
+  echo ""
+  echo ""
+  echo "Tech Stack (z sekcji Technologie/Tech):"
+  md_get_tech_stack "$file" | head -8
+  echo ""
+  echo "Features:"
+  md_get_items "## Features" "$file" 2>/dev/null | head -5
+  [[ $(md_get_items "## Features" "$file" 2>/dev/null | wc -l) -eq 0 ]] && md_get_items "## 🎮 Funkcje" "$file" 2>/dev/null | head -5
+  echo ""
+  echo "Capabilities:"
+  md_get_items "## Capabilities" "$file" 2>/dev/null | head -5
+}
+
+# we-repos - wyświetl welcome dla wszystkich repo w /Development
+we-repos() {
+  local found=0
+  for base in /Development/projekt /Development/repos /Development/Rest; do
+    [[ -d "$base" ]] || continue
+    for dir in "$base"/*; do
+      [[ -d "$dir" ]] || continue
+      if [[ -f "$dir/.welcome.conf" ]]; then
+        found=$((found + 1))
+        local name=$(basename "$dir")
+        local version=$(grep -E '^VERSION=' "$dir/.welcome.conf" 2>/dev/null | head -1 | sed 's/VERSION=//;s/"//g')
+        local type=$(grep -E '^PROJECT_TYPE=' "$dir/.welcome.conf" 2>/dev/null | head -1 | sed 's/PROJECT_TYPE=//;s/"//g')
+        printf "  %-25s v%-10s  %s\n" "$name" "${version:-?}" "${type:-?}"
+      fi
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+  echo ""
+  echo "Znaleziono: $found repozytoriów z .welcome.conf"
+  echo "Użyj: cd <repo> && welcome  lub  we /path/to/repo"
+}
+
+# we-health - sprawdź health check dla bieżącego projektu
+we-health() {
+  local dir="${1:-.}"
+  if [[ ! -f "$dir/.welcome.conf" ]]; then
+    echo "❌ Brak .welcome.conf w $dir"
+    return 1
+  fi
+  source "$dir/.welcome.conf" 2>/dev/null
+  if [[ -z "${HEALTH_CHECK_FILES[*]:-}" ]]; then
+    echo "⚠️  Brak HEALTH_CHECK_FILES w .welcome.conf"
+    return 1
+  fi
+  echo "🏥 Health Check: $dir"
+  echo "────────────────────────────────────────"
+  local f
+  local ok=0
+  local fail=0
+  for f in "${HEALTH_CHECK_FILES[@]}"; do
+    if [[ -e "$dir/$f" ]]; then
+      printf "  ✓ %s\n" "$f"
+      ok=$((ok + 1))
+    else
+      printf "  ✗ %s (brak)\n" "$f"
+      fail=$((fail + 1))
+    fi
+  done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+  echo "────────────────────────────────────────"
+  echo "OK: $ok | FAIL: $fail"
+  [[ $fail -gt 0 ]] && return 1
+  return 0
+}
+
+# Aliasy dla wygody
+alias welcome-engine='we'
+alias we-show='we'
+alias we-repos-list='we-repos'
+
+
+
+# ========================================================================
+
+
+# ========================================================================
+# LOGBOOK CLI v2
+# ========================================================================
+lb(){
+  local c=${1:-help} a=$2 a2=$3
+  local D=/var/log/kxl/users
+  local C1='\033[0m' C2='\033[2m' CG='\033[1;32m' CY='\033[1;33m' CR='\033[1;31m' CC='\033[1;36m'
+
+  # nullglob: zsh nie bladuje na pustych globach
+  case $c in
+  users)
+    printf "\n${CC}  %-18s %6s %8s  %s${C1}\n" USER DAYS CMDS LAST_CMD
+    printf "${CC}  %-18s %6s %8s  %s${C1}\n" "──────────────────" "────" "────────" "──────────────────────────"
+    local udir
+    while IFS= read -r -d "" udir; do
+      [[ -d $udir ]] || continue
+      local u=$(basename $udir)
+      local f="$(ls -t $udir/*.log 2>/dev/null | head -1)"
+      [[ -z $f ]] && continue
+      local days=$(ls -1t $udir/*.log* 2>/dev/null | wc -l)
+      local cmds=$(cat $udir/*.log 2>/dev/null | grep -c '|CMD|' || echo 0)
+      local last=$(grep '|CMD|' $f 2>/dev/null | tail -1 | cut -d'|' -f1,5 | tr '|' ' ')
+      printf "  ${CG}%-18s${C1} ${CY}%6d${C1} ${CY}%8d${C1}  ${C2}%s${C1}\n" "$u" "$days" "$cmds" "${last:0:40}"
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+    echo
+    ;;
+
+  tail|t)
+    local n=${a:-20}
+    local u=${a:-root}
+    [[ $a =~ ^[0-9]+$ ]] && u=${a2:-root} || n=20
+    local lf=$(ls -t $D/$u/*.log 2>/dev/null | head -1)
+    [[ -z $lf ]] && { printf "  ${CR}Brak logow: %s${C1}\n" "$u"; return 1; }
+    printf "\n${CC}  ┌─ OSTATNIE %d KOMEND ── %s ────${C1}\n" "$n" "$u"
+    grep '|CMD|' $lf 2>/dev/null | tail -$n | \
+      awk -F'|' '{t=substr($1,12,8); d=$5; if(length(d)>50) d=substr(d,1,47)"..."; printf "  %-9s  %s\n", t, d}'
+    printf "${CC}  └───────────────────────────────────────────────────${C1}\n\n"
+    ;;
+
+  search|s)
+    [[ -z $a ]] && { printf "  ${CR}lb search <wzorzec> [uzytkownik]${C1}\n"; return 1; }
+    local u=${a2:-}; local target=$D
+    [[ -n $u ]] && target=$D/$u
+    printf "\n${CC}  Szukam: ${CY}%s${C1} w ${C2}%s${C1}\n" "$a" "$target"
+    find $target -name '*.log' -exec grep -il "$a" {} + 2>/dev/null | while read f; do
+      local u2=$(echo $f | awk -F/ '{print $5}')
+      grep -i "$a" "$f" 2>/dev/null | grep '|CMD|' | tail -15 | \
+        awk -v u="$u2" -F'|' '{printf "  %-10s %-9s %s\n", u, substr($1,12,8), $5}'
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+    echo
+    ;;
+
+  stats)
+    local u=${a:-root}; local d=$D/$u
+    [[ ! -d $d ]] && { printf "  ${CR}Brak danych: %s${C1}\n" "$u"; return 1; }
+    local total=$(cat $d/*.log 2>/dev/null | grep -c '|CMD|' || echo 0)
+    local fails=$(cat $d/*.log 2>/dev/null | grep -c '|CMD_FAIL|' || echo 0)
+    local sess=$(cat $d/*.log 2>/dev/null | grep -c '|SESSION_INIT|' || echo 0)
+    local secs=$(cat $d/*.log 2>/dev/null | grep '|SESSION_END|' | grep -oP 'duration=\K[0-9]+' | awk '{s+=$1} END{printf "%d", s}' 2>/dev/null)
+    printf "\n${CC}  ┌─ STATYSTYKI: %s ──────────────────────────${C1}\n" "$u"
+    printf "  │ Komendy:     %d\n" $total
+    [[ $total -gt 0 ]] && printf "  │ Bledy:       %d (%s%%)\n" $fails "$(echo "scale=1;$fails*100/$total" | bc 2>/dev/null || echo 0)"
+    printf "  │ Sesje:        %d\n" $sess
+    printf "  │ Czas sesji:  ~%dh\n" $(( ${secs:-0}/3600 ))
+    printf "  │\n"
+    printf "  │ Top 10 komend:\n"
+    cat $d/*.log 2>/dev/null | grep '|CMD|' | cut -d'|' -f5 | sort | uniq -c | sort -rn | head -10 | \
+      while read cnt cmd; do printf "  │   %5d x  %s\n" "$cnt" "${cmd:0:50}"; done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+    printf "  └%s\n\n" "───────────────────────────────────────"
+    ;;
+
+  history|hist)
+    printf "\n${CC}  ┌─ HISTORIA BASH/ZSH PER UZYTKOWNIK ──────────────${C1}\n"
+    for u in root ubuntu aisaTob; do
+      local bh_file= zh_file=
+      # Okresl sciezki
+      case $u in
+        root)   bh_file=/root/.bash_history;      zh_file=/root/.zsh_history ;;
+        *)      bh_file=/home/$u/.bash_history;    zh_file=/home/$u/.zsh_history ;;
+      esac
+      [[ ! -f $bh_file ]] && bh_file=
+      [[ ! -f $zh_file ]] && zh_file=
+      [[ -z $bh_file && -z $zh_file ]] && continue
+      local bc=0 zc=0
+      [[ -n $bh_file ]] && bc=$(wc -l < $bh_file 2>/dev/null)
+      [[ -n $zh_file ]] && zc=$(wc -l < $zh_file 2>/dev/null)
+      local tot=$((bc+zc))
+      local last=
+      [[ -n $zh_file ]] && last=$(tail -1 $zh_file 2>/dev/null | sed 's/^:[0-9]*:[0-9];//' | head -c 60)
+      [[ -z $last && -n $bh_file ]] && last=$(tail -1 $bh_file 2>/dev/null | head -c 60)
+      printf "  │\n"
+      printf "  │ %-12s   %5d wpisow   %s\n" "$u" "$tot" "${last:-brak}"
+      [[ -n $bh_file ]] && printf "  │   └ bash_history: %d linii (ostatnia: %s)\n" "$bc" "$(tail -1 $bh_file 2>/dev/null | head -c 40)"
+      [[ -n $zh_file ]] && printf "  │   └ zsh_history: %d linii\n" "$zc"
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+    printf "  │\n"
+    printf "  │ Uzyj: lb search <tekst> aby szukac\n"
+    printf "  └%s\n\n" "───────────────────────────────────────────────────"
+    ;;
+
+  replay|r)
+    local u=${a:-root}; local d=$D/$u
+    [[ ! -d $d ]] && { printf "  ${CR}Brak sesji: %s${C1}\n" "$u"; return 1; }
+    local sfiles=$(ls -t $d/.session-*.log 2>/dev/null | head -5)
+    [[ -z $sfiles ]] && { printf "  ${CR}Brak sesji w %s${C1}\n" "$u"; return 1; }
+    printf "\n${CC}  ┌─ REPLAY SESJI: %s ────────────────────────${C1}\n" "$u"
+    for sf in $sfiles; do
+      local sid=$(basename $sf | sed 's/\.session-//;s/\.log//')
+      local first=$(head -1 $sf 2>/dev/null)
+      local ts=$(echo $first | cut -d'|' -f1)
+      local tty=$(echo $first | grep -oP 'tty=\K[^|]+')
+      local cmds=$(grep -c '|CMD|' $sf 2>/dev/null || echo 0)
+      local ip=$(echo $first | grep -oP 'IP:\K[^|]+')
+      printf "  │\n  │ ▶ %s  %s  %d cmd  tty=%s ip=%s\n" "${ts:0:19}" "$sid" "$cmds" "${tty:--}" "${ip:--}"
+      grep '|CMD|' $sf 2>/dev/null | head -3 | awk -F'|' '{printf "  │    ▸ %s\n", $5}'
+      [[ $cmds -gt 6 ]] && printf "  │   ... (%d wiecej)\n" $((cmds-6))
+      grep '|CMD|' $sf 2>/dev/null | tail -3 | awk -F'|' '{printf "  │    ▸ %s\n", $5}'
+    done < <(find $D -maxdepth 1 -mindepth 1 -type d -print0 2>/dev/null)
+    printf "  │\n  └%s\n\n" "───────────────────────────────────────────────────"
+    ;;
+
+  clean|c)
+    printf "  Czyszczenie... "
+    find $D -name '*.log' -mtime +1 -not -name '*.gz' -exec gzip -f {} + 2>/dev/null
+    find $D -name '*.log' -mtime +30 -delete 2>/dev/null
+    find $D -name '*.log.gz' -mtime +30 -delete 2>/dev/null
+    printf "OK\n"
+    ;;
+
+  help|*)
+    printf "\n${CC}  ┌─ LOGBOOK ────────────────────────────────────────${C1}\n"
+    printf "  │\n"
+    printf "  │  lb users          - uzytkownicy z aktywnoscia\n"
+    printf "  │  lb tail [N] [user] - ostatnie N komend (20, root)\n"
+    printf "  │  lb search <txt> [u]- szukaj w logach\n"
+    printf "  │  lb stats [user]   - statystyki\n"
+    printf "  │  lb history        - bash_history per user\n"
+    printf "  │  lb replay [user]  - odtworz sesje\n"
+    printf "  │  lb clean          - kompresuj/usun stare logi\n"
+    printf "  │\n"
+    printf "  │  Logi: /var/log/kxl/users/USER/DATE.log\n"
+    printf "  └%s\n\n" "───────────────────────────────────────────────────"
+    ;;
+  esac
+}
+
+alias logbook='lb'
