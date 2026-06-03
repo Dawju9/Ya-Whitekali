@@ -50,6 +50,10 @@
                         <div>
                             <h1 class="display-5 fw-bold text-white mb-1">Whitekali</h1>
                             <p class="lead text-white-50 mb-0">Developer &bull; Linux Enthusiast &bull; AI Creator &bull; Game Dev</p>
+                            <div id="syncStatus" class="small mt-2" style="display:none; color: #00d4aa; opacity: 0.8;">
+                                <span class="spinner-grow spinner-grow-sm" role="status" style="width: 8px; height: 8px; margin-right: 5px;"></span>
+                                Config last updated: <span id="lastSyncTime">...</span>
+                            </div>
                         </div>
                     </div>
                     <p class="text-white-50" style="max-width:600px;">I build autonomous AI agents that run 24/7, create procedural games on Roblox with Luau, and craft immersive web experiences. Every project starts on Linux, powered by open source.</p>
@@ -173,5 +177,19 @@
     <footer class="py-4 bg-dark text-white-50"><div class="container text-center"><small>Copyright &copy; YaWhitekali 2026 • Built on Linux • Powered by Open Source</small></div></footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/motion.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('assets/data/sync_status.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.last_sync) {
+                        document.getElementById('lastSyncTime').textContent = data.last_sync;
+                        document.getElementById('syncStatus').style.display = 'block';
+                    }
+                }
+            } catch (e) { /* ignore */ }
+        });
+    </script>
 </body>
 </html>
